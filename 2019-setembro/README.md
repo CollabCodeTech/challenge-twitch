@@ -8,5 +8,5 @@ Usando essas tecnologias maravilhosas, você terá que desenvolver algo inspirad
 Foto do Pense Bem do Henri e da Luna:
 
 <div align="center">
-  <img src="https://cdn.discordapp.com/attachments/468792283362361353/620673372329607186/IMG_4648.JPG" width="500" alt="Pense Bem do Henri e da Luna">
+  <img src="https://i.imgur.com/reR18mP.jpg" alt="Pense Bem do Henri e da Luna">
 </div>
