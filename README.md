@@ -1,8 +1,8 @@
 <h1 align="center">Challenge Twitch</h1>
 
-<center>
-<img src="https://i.imgur.com/Z4UqV1g.png" alt="Gueio estudando" width="300">
-</center>
+<div style="text-align: center;">
+  <img src="https://i.imgur.com/Z4UqV1g.png" alt="Gueio estudando" width="300">
+</div>
 
 O #ChallengeTwitch é um desafio mensal SIMPLES com o objetivo de convidar a comunidade a conhecer novas tecnologias.
 
