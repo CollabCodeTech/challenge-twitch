@@ -23,6 +23,12 @@ Foto do Pense Bem do Henri e da Luna:
 - Tem que usar o **#HTML**, **#CSS** e **#JavaScript**, que são as tecnologias do mês;
 - No seu Pull Request, descreva detalhes sobre o que você fez e, se possível, adicione um screenshot e um link para visualizar o seu trabalho no navegador (pode usar CodePen, GitHub Pages, CodeSandbox ou o que achar melhor). Quanto melhor for sua descrição, maiores as chances de receber votos da comunidade.
 
+## Premiação
+
+1. A pessoa vencedora leva R\$ 50,00 no seu [PicPay](https://www.picpay.com/site) + 100 Collabs (moeda do canal).
+2. A segunda pessoa leva um eBook da [Casa do Código](https://www.casadocodigo.com.br/) a sua escolha + 50 Collabs.
+3. A terceira ganha uma inscrição(sub) no canal da [Twitch](https://www.twitch.tv/marcobrunobr) + 25 Collabs.
+
 ## FAQ
 
 ### Tenho que fazer uma representação perfeita do que está no Mockup (mesma hashtag, mesmas images, etc)?
