@@ -33,3 +33,7 @@ As pessoas que estiverem na [twitch.tv/marcobrunobr](https://twitch.tv/marcobrun
 - Os dados dos vencedores serão solicitados privadamente via Twitch, então para participar, é necessário **seguir @MarcoBrunoBR** no [Twitch](https://www.twitch.tv/marcobrunobr).
 - O principal objetivo do desafio é o incentivo ao estudo. Então não usaremos critérios demasiadamente técnicos para avaliar o produto entregue.
 - O desafio é totalmente desburocratizado visando facilitar a participação de todos. Mas abusos (bots, copiar código de outros participantes, etc) denunciados serão analisados e desclassificados.
+
+# Challenges do passado e presente
+
+- [Semtembro 2019](2019-setembro/)
