@@ -4,7 +4,7 @@
   <img src="https://i.imgur.com/Z4UqV1g.png" alt="Gueio estudando" width="300">
 </div>
 
-O #ChallengeTwitch é um desafio mensal SIMPLES com o objetivo de convidar a comunidade a conhecer novas tecnologias.
+O **#ChallengeTwitch** é um desafio mensal SIMPLES com o objetivo de convidar a comunidade a conhecer novas tecnologias.
 
 ## Como Participar
 
