@@ -8,15 +8,14 @@ O **#ChallengeTwitch** é um desafio mensal **SIMPLES** com o objetivo de convid
 
 ## Como Participar
 
-Lançaremos um desafio novo no **primeiro segunda** de cada mês.
-Não é preciso se cadastrar. Os participantes terão até o último dia do mês para enviar suas versões.
-As incrições acabam na última **última sexta** e exatamente nela que vamos conhecer os vencedores.
+Lançaremos um desafio novo na **primeiro segunda** de cada mês.
+Não é preciso se cadastrar. Os participantes terão até a **última sexta** do mês para enviar suas versões.
 
 1. Faça um Fork deste repositório.
 2. Entre na pasta do desafio atual e crie uma pasta com seu Github Username.
 3. Desenvolva o desafio dentro da sua pasta recém-criada.
 4. Ao terminar, envie um Pull Request com a sua versão.
-5. (Opcional) Acompanhe a nossa comunidade no [Discord](https://discord.gg/YeeEAYj) para mais detalhes e tirar dúvidas.
+5. (Recomendável) Acompanhe a nossa comunidade no [Discord](https://discord.gg/YeeEAYj) para mais detalhes e tirar dúvidas.
 
 ## Votação
 
