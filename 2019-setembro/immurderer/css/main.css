@@ -89,7 +89,7 @@ body {
 #display {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 100%;
   color: white;
 }
 
