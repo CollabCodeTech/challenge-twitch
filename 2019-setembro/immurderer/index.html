@@ -20,55 +20,80 @@
     <div id="penseBem">
       <header id="front">
         <div id="display">
-          <span>0000000</span>TECTOY
-          <span class="pink"></span>
-          <span class="yellow"></span>
-          <span class="blue"></span>
-          <span class="green"></span>
+          <span id="lcd"></span>
+          <footer id="lcd-footer">
+            <span>TECTOY</span>
+            <div>
+              <span class="pink brick"></span>
+              <span class="yellow brick"></span>
+              <span class="blue brick"></span>
+              <span class="green brick"></span>
+            </div>
+          </footer>
         </div>
-        <div id="disk"></div>
+        <div id="disk">
+          <span class="cube"></span>
+          <span class="rect"></span>
+        </div>
       </header>
       <footer id="keyboard">
-        <b>Pense Bem</b>
+        <b id="logo">Pense Bem</b>
         <ul id="keys" class="gray">
-          <li class="red">A</li>
-          <li class="yellow">B</li>
-          <li class="blue">C</li>
-          <li class="green">D</li>
-          <li>
-            <ul id="double-stacked">
-              <li>ENTER</li>
-              <li>LIVRO</li>
-              <li class="red">DESL.</li>
-              <li class="green">LIGA</li>
-              <li class="blue">+</li>
-              <li class="blue">-</li>
-              <li class="blue">*</li>
-              <li class="blue">÷</li>
-            </ul>
-          </li>
-          <li>0<span class="red">PAUSA</span></li>
-          <li>1<span class="red">DO</span></li>
-          <li>2<span class="red">RÉ</span></li>
-          <li>3<span class="red">MI</span></li>
-          <li>4<span class="red">FÁ</span></li>
-          <li>5<span class="red">SOL</span></li>
-          <li>6<span class="red">LÁ</span></li>
-          <li>7<span class="red">SI</span></li>
-          <li>8<span class="red">DÒ</span></li>
-          <li>9<span class="red">RÈ</span></li>
-          <li class="yellow">ADIÇÃO</li>
-          <li class="yellow">SUBTRAÇÃO</li>
-          <li class="yellow">MULTIPLICAÇÃO</li>
-          <li class="yellow">DIVISÃO</li>
-          <li class="yellow">ARITMÉTICA</li>
-          <li class="yellow">OPERAÇÃO</li>
-          <li class="yellow">SIGA-ME</li>
-          <li class="yellow">MEMORIA TONS</li>
-          <li class="yellow">NÚMERO DO MEIO</li>
-          <li class="yellow">ADIVINHE O NUMERO</li>
+          <ul class="line">
+            <li>
+              <ul class="rhomboid-btn-group">
+                <li class="red btn-lg rhomboid">A</li>
+                <li class="yellow btn-lg rhomboid">B</li>
+                <li class="blue btn-lg rhomboid">C</li>
+                <li class="green btn-lg rhomboid">D</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="double-stacked">
+                <ul class="first-line">
+                  <li class="btn">ENTER</li>
+                  <li class="btn">LIVRO</li>
+                  <li class="red btn" onclick="off()">DESL.</li>
+                  <li class="green btn" onclick="on()">LIGA</li>
+                </ul>
+                <ul class="last-line">
+                  <li class="blue btn">+</li>
+                  <li class="blue btn">-</li>
+                  <li class="blue btn">x</li>
+                  <li class="blue btn">÷</li>
+                </ul>
+              </ul>
+            </li>
+          </ul>
+          <ul class="line">
+            <li class="btn">
+              <span>0</span><span class="red sub">PAUSA</span>
+            </li>
+            <li class="btn"><span>1</span><span class="red sub">DO</span></li>
+            <li class="btn"><span>2</span><span class="red sub">RÉ</span></li>
+            <li class="btn"><span>3</span><span class="red sub">MI</span></li>
+            <li class="btn"><span>4</span><span class="red sub">FÁ</span></li>
+            <li class="btn"><span>5</span><span class="red sub">SOL</span></li>
+            <li class="btn"><span>6</span><span class="red sub">LÁ</span></li>
+            <li class="btn"><span>7</span><span class="red sub">SI</span></li>
+            <li class="btn"><span>8</span><span class="red sub">DÒ</span></li>
+            <li class="btn"><span>9</span><span class="red sub">RÈ</span></li>
+          </ul>
+          <ul class="line">
+            <li class="yellow btn">ADIÇÃO</li>
+            <li class="yellow btn">SUBTRAÇÃO</li>
+            <li class="yellow btn">MULTIPLICAÇÃO</li>
+            <li class="yellow btn">DIVISÃO</li>
+            <li class="yellow btn">ARITMÉTICA</li>
+            <li class="yellow btn">OPERAÇÃO</li>
+            <li class="yellow btn">SIGA-ME</li>
+            <li class="yellow btn">MEMORIA TONS</li>
+            <li class="yellow btn">NÚMERO DO MEIO</li>
+            <li class="yellow btn">ADIVINHE O NUMERO</li>
+          </ul>
         </ul>
       </footer>
     </div>
+    <script src="./js/main.js"></script>
   </body>
 </html>
