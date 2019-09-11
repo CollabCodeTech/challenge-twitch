@@ -1,12 +1,17 @@
 import React from 'react';
 
+import GlobalStyle from './styles/global';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1> Começando Projeto </h1>{' '}
-      </header>{' '}
-    </div>
+    <>
+      <div>
+        <header>
+          <h1> Começando Projeto </h1>{' '}
+        </header>{' '}
+      </div>{' '}
+      <GlobalStyle />
+    </>
   );
 }
 
