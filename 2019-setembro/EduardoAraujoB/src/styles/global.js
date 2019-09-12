@@ -1,16 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
+  * {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+  }
 
-  html, border-style, #root {
+  html, body, #root {
     min-height: 100%;
   }
 
-  body {
+  html {
+    background: #fc6963;
     -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+    font-family: Arial, Helvetica, sans-serif;
   }
 `;
