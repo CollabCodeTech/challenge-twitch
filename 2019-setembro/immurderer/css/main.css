@@ -9,23 +9,6 @@
   box-sizing: content-box;
 }
 
-@media screen and (max-width: 1100px) {
-  #front {
-    position: relative;
-  }
-  #front #disk {
-    display: none;
-    background-color: #222;
-  }
-  #display {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-}
-
 body {
   background: url("./imgs/hodgepodge.png") white;
 }
@@ -35,7 +18,6 @@ body {
   margin-top: 50px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: right;
-  border-radius: 5px;
   padding-bottom: 5px;
 }
 /* #region front */
@@ -44,17 +26,18 @@ body {
   height: 150px;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
   background-color: whitesmoke;
 }
 
 #front::before {
   content: "";
   position: relative;
-  left: 50px;
+  left: 2%;
   top: 82px;
   background-color: white;
   box-shadow: inset black;
-  width: 250px;
+  width: 10%;
   height: 20px;
   box-shadow: inset 0 0 10px black;
   z-index: -10;
@@ -62,11 +45,11 @@ body {
 #front::after {
   content: "";
   position: relative;
-  right: 50px;
+  right: 2%;
   top: 82px;
   background-color: white;
   box-shadow: inset black;
-  width: 250px;
+  width: 10%;
   height: 20px;
   box-shadow: inset 0 0 10px black;
   z-index: -10;
@@ -146,6 +129,7 @@ body {
   padding: 15px 15px;
   margin-top: 15px;
   background-color: whitesmoke;
+  border-radius: 5px;
 }
 
 #keys {
@@ -264,22 +248,72 @@ ul {
   border-radius: 5px;
 }
 
+@media screen and (max-width: 1100px) {
+  #front {
+    position: relative;
+  }
+  #front #disk {
+    display: none;
+  }
+  #display {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  #penseBem {
+    width: 100%;
+    margin-top: 0;
+  }
+  #front {
+    border-radius: 0;
+  }
+
+  #keyboard {
+    border-radius: 0px;
+  }
+  .btn,
+  .btn-lg {
+    width: 64px;
+    height: 64px;
+    font-size: 12px;
+  }
+  .btn-lg {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .btn,
+  .btn-lg {
+    width: 82px;
+    height: 82px;
+    font-size: 12px;
+  }
+  .btn-lg {
+    width: 142px;
+    height: 142px;
+  }
+}
+
 /* #region colors */
 .pink {
-  background-color: pink;
+  background-color: #ffc0cb;
 }
 .yellow {
-  background-color: yellow;
+  background-color: #ffff00;
   color: green;
 }
 .blue {
-  background-color: blue;
+  background-color: #0000ff;
 }
 .green {
-  background-color: green;
+  background-color: #008000;
 }
 .red {
-  background-color: red;
+  background-color: #ff0000;
 }
 
 .pink,
@@ -291,3 +325,23 @@ ul {
 }
 
 /* #endregion */
+
+.marquee {
+  white-space: nowrap;
+  background-color: #222;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.marquee > span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+}
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
