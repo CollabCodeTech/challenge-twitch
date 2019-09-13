@@ -6,6 +6,12 @@ import {
   GameScreen,
   LogoContainer,
   GameControlsContainer,
+  GameControllHeader,
+  LeftHeader,
+  HeaderButton,
+  RightHeader,
+  StartContainer,
+  StartButton,
 } from './styles';
 
 function Game() {
@@ -15,10 +21,25 @@ function Game() {
         <GameScreen>
           <span> 0 </span>{' '}
         </GameScreen>{' '}
-        <LogoContainer>
-          <span> Pense Bem </span>{' '}
-        </LogoContainer>{' '}
-        <GameControlsContainer />
+        <GameControlsContainer>
+          <GameControllHeader>
+            <LeftHeader>
+              <HeaderButton bgColor="red"> A </HeaderButton>{' '}
+              <HeaderButton bgColor="#e6a400"> B </HeaderButton>{' '}
+              <HeaderButton bgColor="blue"> C </HeaderButton>{' '}
+              <HeaderButton bgColor="green"> D </HeaderButton>{' '}
+            </LeftHeader>{' '}
+            <RightHeader>
+              <LogoContainer>
+                <span> Pense Bem </span>{' '}
+              </LogoContainer>{' '}
+              <StartContainer>
+                <StartButton bgColor="red"> DESL. </StartButton>{' '}
+                <StartButton> LIGA </StartButton>{' '}
+              </StartContainer>{' '}
+            </RightHeader>{' '}
+          </GameControllHeader>{' '}
+        </GameControlsContainer>{' '}
       </GameContainer>{' '}
     </Container>
   );

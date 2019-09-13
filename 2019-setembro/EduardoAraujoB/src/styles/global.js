@@ -18,4 +18,9 @@ export default createGlobalStyle`
     text-rendering: optimizeLegibility !important;
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  button {
+    outline: none;
+    border: none;
+  }
 `;
