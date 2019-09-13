@@ -10,6 +10,7 @@ let maxNumber = 10;
 let questoes = [];
 let mostraProx = true;
 let pontuacao = 0;
+let maxQuestions = 2;
 let i = 0;
 
 let enterPressed = false;
@@ -17,6 +18,11 @@ const lcd = document.getElementById("lcd");
 
 function show(str, animate = false) {
   lcd.innerHTML = "";
+  if (str.length > 10) {
+    lcd.parentElement.classList.add("marquee");
+  } else {
+    lcd.parentElement.classList.remove("marquee");
+  }
   let i = 0;
   function type() {
     if (i < str.length) {
@@ -49,7 +55,7 @@ function sound(src) {
 
 function on() {
   if (!lcd_isOn) {
-    show("HELLO", true);
+    show("HELLOPPPP", true);
     turn_on_sound.play();
     lcd_isOn = true;
   }
@@ -60,62 +66,120 @@ function off() {
     turn_off_sound.play();
     canEval = false;
     enterPressed = false;
-    questoes = [];
-    mostraProx = true;
-    i = 0;
     lcd_isOn = false;
+    mostraProx = true;
+    questoes = [];
+    i = 0;
+    pontuacao = 0;
   }
 }
 
-function handleSuccess(condicao, mensagem) {
+function handleSuccess(condicao, mensagem = "") {
   if (condicao) {
     success_sound.play();
     pontuacao += 10;
+    console.log("Acertou");
     show("PARABENS");
   } else {
     fail_sound.play();
     pontuacao -= 5;
-    show(mensagem, true);
+    show(mensagem);
   }
 }
 
 function operacao(operador = null) {
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < maxQuestions; i++) {
     let b = Math.floor(Math.random() * maxNumber) + 1;
     let a = Math.floor(Math.random() * maxNumber) + (operador == "/" ? b : 1);
     operador =
       operador == null ? "+-/*"[Math.floor(Math.random() * 4)] : operador;
-    conta = `${a}${operador}${b}`;
+    conta = `${a}${operador}${b} = `;
     questoes.push({ conta, res: eval(conta) });
   }
 }
 
+function gameOperacao() {
+  for (let i = 0; i < maxQuestions; i++) {
+    let b = Math.floor(Math.random() * maxNumber) + 1;
+    let a = Math.floor(Math.random() * maxNumber) + 1;
+    operador = "+-/*"[Math.floor(Math.random() * 4)];
+    resultado = eval(`${a}${operador}${b}`);
+    conta = `${a}_${b}=${resultado} | `;
+    res = operador;
+    questoes.push({ conta, res });
+  }
+}
+
+function numeroDoMeio() {
+  /*
+    Gera 10 pares de numeros aleatorios
+    Pega a média inteira dos pares
+    Adiciona às questoes um objeto com os pares e a média
+  */
+  for (let i = 0; i < maxQuestions; i++) {
+    let a = Math.floor(Math.random() * 100) + 1;
+    let b = Math.floor(Math.random() * 100) + 1;
+    let media = Math.floor((a + b) / 2);
+    conta = `${a}~_~${b} | `;
+    questoes.push({ conta, res: media });
+  }
+}
+function adivinheONumero() {
+  let num = Math.floor(Math.random() * 10) + 1;
+  for (let i = 0; i < maxQuestions; i++) {
+    questoes.push(num);
+  }
+}
+
 function handleEnter() {
-  console.log(i);
   if (i < questoes.length) {
     // Se não for pra mostrar
     if (!mostraProx) {
       // Pega o resultado do lcd
-      res = /=[+|-]*\d*/.exec(lcd.innerHTML)[0].slice(1) || 0;
-      // Verifica se o resultado esta correto
-      handleSuccess(
-        questoes[i].res == res,
-        `${questoes[i].conta}=${questoes[i].res}`
-      );
-      // Proibe digitar
-      canEval = false;
+      if (lcd.innerHTML.match(/\d(\+|\-|\*|\/)\d/)) {
+        res = /=[+|-]*\d*/.exec(lcd.innerHTML)[0].slice(1) || 0;
+        // Verifica se o resultado esta correto
+        handleSuccess(
+          questoes[i].res == res,
+          `${questoes[i].conta}=${questoes[i].res}`
+        );
+        // Proibe digitar
+        canEval = false;
+      } else if (lcd.innerHTML.indexOf("~") >= 1) {
+        res = lcd.innerHTML.match(/\| \d{1,2}/)[0].slice(1);
+        handleSuccess(
+          questoes[i].res == res,
+          questoes[i].conta.replace("_", questoes[i].res)
+        );
+      } else if (lcd.innerHTML.indexOf("Adivinhe") >= 0) {
+        res = lcd.innerHTML.match(/\| \d{1,2}/)[0].slice(1);
+        msg =
+          i + 1 >= questoes.length
+            ? "Correto: " + questoes[i]
+            : "X Adivinhe | ";
+        handleSuccess(questoes[i] == res, msg);
+        i++;
+        return;
+      } else {
+        res = lcd.innerHTML.slice(-1);
+        // Mensagem de erro é conta com o underscore trocado
+        handleSuccess(
+          questoes[i].res == res,
+          questoes[i].conta.replace("_", questoes[i].res)
+        );
+      }
       // Permite mostrar o proximo
       mostraProx = true;
       i++;
     } else {
       // Mostra a conta
-      show(questoes[i].conta + "=");
+      show(questoes[i].conta || "Adivinhe | ");
       // Permite digitar
       canEval = true;
       // Impede o display de outra conta
       mostraProx = false;
     }
-  } else {
+  } else if (pontuacao > 0) {
     show("Pontos: " + pontuacao);
     pontuacao = 0;
   }
@@ -140,6 +204,15 @@ function press(e) {
         break;
       case "ARITMÉTICA":
         operacao();
+        break;
+      case "OPERAÇÃO":
+        gameOperacao();
+        break;
+      case "NÚMERO DO MEIO":
+        numeroDoMeio();
+        break;
+      case "ADIVINHE O NUMERO":
+        adivinheONumero();
         break;
       case "ENTER":
         handleEnter();
