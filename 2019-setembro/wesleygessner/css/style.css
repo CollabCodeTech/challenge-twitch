@@ -1,0 +1,99 @@
+/* Reset */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+	font-family: Consolas;
+}
+body{ background-color: #333; }
+
+/* Config app */
+#app{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #fff;
+}
+
+/* Config header */
+#app .header{
+	width: 100%;
+	padding: 8px;
+	text-align: center;
+	background-color: #333;
+	color: #fff;
+}
+
+/* Config da OL do vídeo */
+#app .config_video{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-top: 10px;
+	border: 1px solid;
+}
+#app h5{ margin-left: 10px; }
+
+/* Config da OL e LI */
+#app ol{ display: flex; }
+#app ol li{
+	margin: 8% 20px;
+	padding: 5px;
+	border: 1px solid #333;
+	cursor: pointer;
+}
+#app ol li:hover{
+	background-color: #333;
+	color: #fff;
+}
+
+
+#app .text_key{
+	margin: auto; 
+	text-align: center;
+}
+
+/* Config do vídeo */
+#app .wrap_footer{
+	display: flex;
+	width: 100%;
+	padding: 8px;
+	background-color: #333;
+}
+
+#app .wrap_footer .video{
+	width: 530px;
+	margin: auto;
+	display: none;
+}
+
+/* Breakpoints */
+
+@media(max-width: 768px){
+	#app{
+		display: flex;
+		flex-direction: column;
+	}
+	#app ol li{ margin: 3% 10px; }
+	#app .notas{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	#app .notas .la{ margin: 10px auto 10px 35%; }
+	#app .notas .si{ margin: 10px 30% 10px auto; }
+	#app .notas li{ width: 75px; }
+	#app .wrap_footer .video{ width: 100%; }
+}
+
+@media(max-width: 426px){
+	#app ol li{ margin: 3% 2px; }
+	#app .start_video{
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+	}
+	#app .start_video h5 { margin-right: 5px; }
+}
