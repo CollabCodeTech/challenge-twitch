@@ -27,7 +27,7 @@
     border-bottom-color: transparent;
     top: 0;
     margin-left: 5vw;
-    transform: translateY(-1.8vh);
+    transform: translateY(-1.5vh);
   }
 
   .inner-keyboard-container {

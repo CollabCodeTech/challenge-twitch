@@ -644,19 +644,19 @@ var app = (function () {
     			t2 = space();
     			li3 = element("li");
     			bigbutton3.$$.fragment.c();
-    			attr_dev(li0, "class", "svelte-n21zjy");
+    			attr_dev(li0, "class", "svelte-3nu1qp");
     			add_location(li0, file$2, 53, 6, 1160);
-    			attr_dev(li1, "class", "svelte-n21zjy");
+    			attr_dev(li1, "class", "svelte-3nu1qp");
     			add_location(li1, file$2, 56, 6, 1228);
-    			attr_dev(li2, "class", "svelte-n21zjy");
+    			attr_dev(li2, "class", "svelte-3nu1qp");
     			add_location(li2, file$2, 59, 6, 1299);
-    			attr_dev(li3, "class", "svelte-n21zjy");
+    			attr_dev(li3, "class", "svelte-3nu1qp");
     			add_location(li3, file$2, 62, 6, 1368);
-    			attr_dev(ul, "class", "big-buttons-list svelte-n21zjy");
+    			attr_dev(ul, "class", "big-buttons-list svelte-3nu1qp");
     			add_location(ul, file$2, 52, 4, 1123);
-    			attr_dev(div, "class", "inner-keyboard-container svelte-n21zjy");
+    			attr_dev(div, "class", "inner-keyboard-container svelte-3nu1qp");
     			add_location(div, file$2, 51, 2, 1079);
-    			attr_dev(section, "class", "keyboard-container svelte-n21zjy");
+    			attr_dev(section, "class", "keyboard-container svelte-3nu1qp");
     			add_location(section, file$2, 50, 0, 1039);
     		},
 
