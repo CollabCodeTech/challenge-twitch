@@ -13,6 +13,7 @@
 
     border: none;
     border-radius: 1vw;
+    box-shadow: -3px -3px 2px #2d343e;
 
     transform: skew(-20deg);
   }

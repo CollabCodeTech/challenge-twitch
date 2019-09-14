@@ -1,0 +1,51 @@
+<script>
+  export let FunctionalButton;
+  export let text;
+  export let color;
+  export let fontColor;
+</script>
+
+<style>
+  .functional-button {
+    height: 8vh;
+    width: 8vh;
+
+    border-radius: 1vh;
+    border: none;
+
+    text-transform: uppercase;
+    box-sizing: border-box;
+
+    font-size: 2vh;
+    font-weight: bold;
+    text-align: center;
+
+    box-shadow: -3px -3px 2px #2d343e;
+  }
+
+  .functional-button.-white {
+    background-color: #fff;
+  }
+
+  .functional-button.-red {
+    background-color: #b0252a;
+  }
+
+  .functional-button.-blue {
+    background-color: #315e99;
+  }
+
+  .functional-button.-green {
+    background-color: #379b52;
+  }
+
+  .functional-button.-font-blue {
+    color: #315e99;
+  }
+
+  .functional-button.-font-white {
+    color: #fff;
+  }
+</style>
+
+<button class="functional-button -{color} -font-{fontColor}">{text}</button>

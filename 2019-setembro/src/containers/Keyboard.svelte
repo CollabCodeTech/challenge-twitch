@@ -1,5 +1,6 @@
 <script>
   import BigButton from "../components/BigButton.svelte";
+  import FuncButton from "../components/FunctionalButton.svelte";
   export let Keyboard;
 </script>
 
@@ -57,7 +58,7 @@
     /* transform: translateY(-1.5vh); */
   }
 
-  .inner-keyboard-container {
+  .keyboard-container .inner-keyboard-container {
     box-sizing: border-box;
     height: 100%;
     width: 100%;
@@ -65,6 +66,10 @@
     padding: 1vw;
     border-radius: 1vh;
     border: 2px #625f56 solid;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .keyboard-container .inner-keyboard-container .big-buttons-list {
@@ -72,8 +77,40 @@
     flex-direction: row;
   }
 
+  .keyboard-container .inner-keyboard-container .wrap-functions {
+    display: inline-block;
+  }
+
   .keyboard-container .inner-keyboard-container .big-buttons-list li {
     margin-left: 1vw;
+  }
+
+  .keyboard-container .inner-keyboard-container .wrap-functions .func-butons {
+    display: flex;
+    flex-direction: row;
+    right: 0;
+  }
+
+  .keyboard-container
+    .inner-keyboard-container
+    .wrap-functions
+    .func-butons
+    li {
+    margin-right: 1vw;
+  }
+
+  .keyboard-container .inner-keyboard-container .wrap-functions .oper-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-right: 2vw;
+  }
+
+  .keyboard-container
+    .inner-keyboard-container
+    .wrap-functions
+    .oper-buttons
+    li {
+    margin-right: 1vw;
   }
 </style>
 
@@ -94,5 +131,35 @@
       </li>
 
     </ul>
+    <section class="wrap-functions">
+      <ul class="func-butons">
+        <li>
+          <FuncButton text="enter" color="white" fontColor="blue" />
+        </li>
+        <li>
+          <FuncButton text="livro" color="white" fontColor="blue" />
+        </li>
+        <li>
+          <FuncButton text="desl." color="red" fontColor="blue" />
+        </li>
+        <li>
+          <FuncButton text="liga" color="green" fontColor="blue" />
+        </li>
+      </ul>
+      <ul class="oper-buttons">
+        <li>
+          <FuncButton text="+" color="blue" fontColor="white" />
+        </li>
+        <li>
+          <FuncButton text="-" color="blue" fontColor="white" />
+        </li>
+        <li>
+          <FuncButton text="X" color="blue" fontColor="white" />
+        </li>
+        <li>
+          <FuncButton text="÷" color="blue" fontColor="white" />
+        </li>
+      </ul>
+    </section>
   </div>
 </section>
