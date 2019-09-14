@@ -494,10 +494,10 @@ var app = (function () {
     			button = element("button");
     			span = element("span");
     			t = text(ctx.key);
-    			attr_dev(span, "class", "text svelte-6qk45e");
-    			add_location(span, file$1, 45, 2, 722);
-    			attr_dev(button, "class", button_class_value = "big-button -" + ctx.color + " svelte-6qk45e");
-    			add_location(button, file$1, 44, 0, 682);
+    			attr_dev(span, "class", "text svelte-1sit7s9");
+    			add_location(span, file$1, 46, 2, 753);
+    			attr_dev(button, "class", button_class_value = "big-button -" + ctx.color + " svelte-1sit7s9");
+    			add_location(button, file$1, 45, 0, 713);
     		},
 
     		l: function claim(nodes) {
@@ -515,7 +515,7 @@ var app = (function () {
     				set_data_dev(t, ctx.key);
     			}
 
-    			if ((changed.color) && button_class_value !== (button_class_value = "big-button -" + ctx.color + " svelte-6qk45e")) {
+    			if ((changed.color) && button_class_value !== (button_class_value = "big-button -" + ctx.color + " svelte-1sit7s9")) {
     				attr_dev(button, "class", button_class_value);
     			}
     		},
@@ -606,7 +606,7 @@ var app = (function () {
     const file$2 = "src\\containers\\Keyboard.svelte";
 
     function create_fragment$2(ctx) {
-    	var section, t0, t1, t2, current;
+    	var section, div, ul, li0, t0, li1, t1, li2, t2, li3, current;
 
     	var bigbutton0 = new BigButton_1({
     		props: { key: "A", color: "red" },
@@ -631,14 +631,33 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			section = element("section");
+    			div = element("div");
+    			ul = element("ul");
+    			li0 = element("li");
     			bigbutton0.$$.fragment.c();
     			t0 = space();
+    			li1 = element("li");
     			bigbutton1.$$.fragment.c();
     			t1 = space();
+    			li2 = element("li");
     			bigbutton2.$$.fragment.c();
     			t2 = space();
+    			li3 = element("li");
     			bigbutton3.$$.fragment.c();
-    			add_location(section, file$2, 9, 0, 129);
+    			attr_dev(li0, "class", "svelte-n21zjy");
+    			add_location(li0, file$2, 53, 6, 1160);
+    			attr_dev(li1, "class", "svelte-n21zjy");
+    			add_location(li1, file$2, 56, 6, 1228);
+    			attr_dev(li2, "class", "svelte-n21zjy");
+    			add_location(li2, file$2, 59, 6, 1299);
+    			attr_dev(li3, "class", "svelte-n21zjy");
+    			add_location(li3, file$2, 62, 6, 1368);
+    			attr_dev(ul, "class", "big-buttons-list svelte-n21zjy");
+    			add_location(ul, file$2, 52, 4, 1123);
+    			attr_dev(div, "class", "inner-keyboard-container svelte-n21zjy");
+    			add_location(div, file$2, 51, 2, 1079);
+    			attr_dev(section, "class", "keyboard-container svelte-n21zjy");
+    			add_location(section, file$2, 50, 0, 1039);
     		},
 
     		l: function claim(nodes) {
@@ -647,13 +666,19 @@ var app = (function () {
 
     		m: function mount(target, anchor) {
     			insert_dev(target, section, anchor);
-    			mount_component(bigbutton0, section, null);
-    			append_dev(section, t0);
-    			mount_component(bigbutton1, section, null);
-    			append_dev(section, t1);
-    			mount_component(bigbutton2, section, null);
-    			append_dev(section, t2);
-    			mount_component(bigbutton3, section, null);
+    			append_dev(section, div);
+    			append_dev(div, ul);
+    			append_dev(ul, li0);
+    			mount_component(bigbutton0, li0, null);
+    			append_dev(ul, t0);
+    			append_dev(ul, li1);
+    			mount_component(bigbutton1, li1, null);
+    			append_dev(ul, t1);
+    			append_dev(ul, li2);
+    			mount_component(bigbutton2, li2, null);
+    			append_dev(ul, t2);
+    			append_dev(ul, li3);
+    			mount_component(bigbutton3, li3, null);
     			current = true;
     		},
 

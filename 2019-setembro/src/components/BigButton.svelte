@@ -7,7 +7,8 @@
 <style>
   .big-button {
     display: inline-block;
-    height: 20vh;
+    box-sizing: border-box;
+    height: 18vh;
     width: 5vw;
 
     border: none;
@@ -21,7 +22,7 @@
     transform: skew(20deg);
 
     color: #fff;
-    font-size: 3vh;
+    font-size: 2.5vh;
     font-weight: bold;
   }
 
