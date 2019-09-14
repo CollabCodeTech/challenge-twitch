@@ -495,8 +495,9 @@ var app = (function () {
     			span = element("span");
     			t = text(ctx.key);
     			attr_dev(span, "class", "text svelte-1sit7s9");
-    			add_location(span, file$1, 46, 2, 753);
+    			add_location(span, file$1, 46, 2, 767);
     			attr_dev(button, "class", button_class_value = "big-button -" + ctx.color + " svelte-1sit7s9");
+    			attr_dev(button, "type", "submit");
     			add_location(button, file$1, 45, 0, 713);
     		},
 
@@ -644,20 +645,20 @@ var app = (function () {
     			t2 = space();
     			li3 = element("li");
     			bigbutton3.$$.fragment.c();
-    			attr_dev(li0, "class", "svelte-3nu1qp");
-    			add_location(li0, file$2, 53, 6, 1160);
-    			attr_dev(li1, "class", "svelte-3nu1qp");
-    			add_location(li1, file$2, 56, 6, 1228);
-    			attr_dev(li2, "class", "svelte-3nu1qp");
-    			add_location(li2, file$2, 59, 6, 1299);
-    			attr_dev(li3, "class", "svelte-3nu1qp");
-    			add_location(li3, file$2, 62, 6, 1368);
-    			attr_dev(ul, "class", "big-buttons-list svelte-3nu1qp");
-    			add_location(ul, file$2, 52, 4, 1123);
-    			attr_dev(div, "class", "inner-keyboard-container svelte-3nu1qp");
-    			add_location(div, file$2, 51, 2, 1079);
-    			attr_dev(section, "class", "keyboard-container svelte-3nu1qp");
-    			add_location(section, file$2, 50, 0, 1039);
+    			attr_dev(li0, "class", "svelte-1ix4qhb");
+    			add_location(li0, file$2, 82, 6, 1711);
+    			attr_dev(li1, "class", "svelte-1ix4qhb");
+    			add_location(li1, file$2, 85, 6, 1779);
+    			attr_dev(li2, "class", "svelte-1ix4qhb");
+    			add_location(li2, file$2, 88, 6, 1850);
+    			attr_dev(li3, "class", "svelte-1ix4qhb");
+    			add_location(li3, file$2, 91, 6, 1919);
+    			attr_dev(ul, "class", "big-buttons-list svelte-1ix4qhb");
+    			add_location(ul, file$2, 81, 4, 1674);
+    			attr_dev(div, "class", "inner-keyboard-container svelte-1ix4qhb");
+    			add_location(div, file$2, 80, 2, 1630);
+    			attr_dev(section, "class", "keyboard-container svelte-1ix4qhb");
+    			add_location(section, file$2, 79, 0, 1590);
     		},
 
     		l: function claim(nodes) {

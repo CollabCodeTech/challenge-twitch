@@ -43,6 +43,6 @@
   }
 </style>
 
-<button class="big-button -{color}">
+<button class="big-button -{color}" type="submit">
   <span class="text">{key}</span>
 </button>

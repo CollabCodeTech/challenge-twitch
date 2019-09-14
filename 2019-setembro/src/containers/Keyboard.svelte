@@ -9,8 +9,8 @@
     margin-top: 10px;
     box-sizing: border-box;
     width: 100vw;
-    height: 60vh;
-    padding: 5vh 5vw;
+    height: 63vh;
+    padding: 10vh 5vw 5vh;
 
     background-color: #c9cfcb;
   }
@@ -30,12 +30,41 @@
     transform: translateY(-1.5vh);
   }
 
+  .keyboard-container::before {
+    content: "Pense Bem®";
+
+    position: absolute;
+    display: inline-block;
+    width: 20vw;
+    height: 5vh;
+    margin-right: 5vw;
+    border-radius: 10px;
+    right: 0;
+    top: 0;
+
+    background-color: #ceceac;
+    margin-left: 5vw;
+    margin-top: 3vh;
+
+    border: 2px #91907c solid;
+
+    color: #3867c1;
+    font-size: 5vh;
+    font-weight: bold;
+
+    text-align: center;
+
+    /* transform: translateY(-1.5vh); */
+  }
+
   .inner-keyboard-container {
     box-sizing: border-box;
     height: 100%;
     width: 100%;
     background-color: #7b7d7c;
     padding: 1vw;
+    border-radius: 1vh;
+    border: 2px #625f56 solid;
   }
 
   .keyboard-container .inner-keyboard-container .big-buttons-list {
