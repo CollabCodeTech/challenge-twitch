@@ -1,5 +1,6 @@
 <script>
   import Screen from "./containers/Screen.svelte";
+  import Keyboard from "./containers/Keyboard.svelte";
 </script>
 
 <style>
@@ -9,3 +10,4 @@
 <!-- display -->
 <Screen />
 <!-- keyboard -->
+<Keyboard />
