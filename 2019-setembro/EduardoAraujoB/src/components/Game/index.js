@@ -12,6 +12,8 @@ import {
   RightHeader,
   StartContainer,
   StartButton,
+  SoundsButtonContainer,
+  SoundButton,
 } from './styles';
 
 function Game() {
@@ -39,6 +41,18 @@ function Game() {
               </StartContainer>{' '}
             </RightHeader>{' '}
           </GameControllHeader>{' '}
+          <SoundsButtonContainer>
+            <SoundButton> 0 </SoundButton>{' '}
+            <SoundButton beforeText="DÓ"> 1 </SoundButton>{' '}
+            <SoundButton beforeText="RÉ"> 2 </SoundButton>{' '}
+            <SoundButton beforeText="MI"> 3 </SoundButton>{' '}
+            <SoundButton beforeText="FÁ"> 4 </SoundButton>{' '}
+            <SoundButton beforeText="SOL"> 5 </SoundButton>{' '}
+            <SoundButton beforeText="LÁ"> 6 </SoundButton>{' '}
+            <SoundButton beforeText="SI"> 7 </SoundButton>{' '}
+            <SoundButton beforeText="DÒ"> 8 </SoundButton>{' '}
+            <SoundButton beforeText="RÈ"> 9 </SoundButton>{' '}
+          </SoundsButtonContainer>{' '}
         </GameControlsContainer>{' '}
       </GameContainer>{' '}
     </Container>

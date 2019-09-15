@@ -115,3 +115,45 @@ export const StartButton = styled.button`
   background: ${props => props.bgColor || 'green'};
   color: #fff;
 `;
+
+export const SoundsButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+`;
+
+export const SoundButton = styled.button`
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  width: 50px;
+  height: 60px;
+  background: #fff;
+  border-radius: 5px;
+  font-size: 12px;
+  ::before {
+    content: '';
+  }
+  ::after {
+    content: '${props => props.beforeText || 'PAUSA'}';
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+    background: red;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+`;
