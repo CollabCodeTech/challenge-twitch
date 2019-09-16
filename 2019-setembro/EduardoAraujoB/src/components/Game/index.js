@@ -14,6 +14,8 @@ import {
   StartButton,
   SoundsButtonContainer,
   SoundButton,
+  MinigamesContainer,
+  MinigamesButton,
 } from './styles';
 
 function Game() {
@@ -53,6 +55,18 @@ function Game() {
             <SoundButton beforeText="DÒ"> 8 </SoundButton>{' '}
             <SoundButton beforeText="RÈ"> 9 </SoundButton>{' '}
           </SoundsButtonContainer>{' '}
+          <MinigamesContainer>
+            <MinigamesButton> ADIÇÃO </MinigamesButton>{' '}
+            <MinigamesButton> {'SUBTRA-ÇÃO'} </MinigamesButton>{' '}
+            <MinigamesButton> {'MULTIPLI-CAÇÃO'} </MinigamesButton>{' '}
+            <MinigamesButton> DIVISÃO </MinigamesButton>{' '}
+            <MinigamesButton> {'ARITIMÉ-TICA'} </MinigamesButton>{' '}
+            <MinigamesButton> {'OPERA-ÇÃO'} </MinigamesButton>{' '}
+            <MinigamesButton> {'SIGA-ME'} </MinigamesButton>{' '}
+            <MinigamesButton> MEMÓRIA TONS </MinigamesButton>{' '}
+            <MinigamesButton> NÚMERO DO MEIO </MinigamesButton>{' '}
+            <MinigamesButton> ADVINHE O NÚMERO </MinigamesButton>{' '}
+          </MinigamesContainer>{' '}
         </GameControlsContainer>{' '}
       </GameContainer>{' '}
     </Container>

@@ -15,7 +15,7 @@ export const GameContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: auto;
-  width: 700px;
+  width: 750px;
   border-radius: 10px;
   padding: 10px;
   background: #fff;
@@ -58,8 +58,8 @@ export const GameControlsContainer = styled.div`
   flex-direction: column;
   background: #eaebd8;
   width: 100%;
-  height: 280px;
-  padding: 10px;
+  height: auto;
+  padding: 15px 10px 15px 10px;
   border-radius: 5px;
 `;
 
@@ -133,7 +133,7 @@ export const SoundButton = styled.button`
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
-  width: 50px;
+  width: 60px;
   height: 60px;
   background: #fff;
   border-radius: 5px;
@@ -156,4 +156,24 @@ export const SoundButton = styled.button`
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
   }
+`;
+
+export const MinigamesContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+  height: auto;
+`;
+
+export const MinigamesButton = styled.button`
+  cursor: pointer;
+  height: 60px;
+  width: 65px;
+  font-size: 12px;
+  padding: 5px;
+  background: yellow;
+  border-radius: 5px;
 `;
