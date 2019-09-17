@@ -9591,6 +9591,11 @@ uglify-js@^3.1.4:
     commander "~2.20.0"
     source-map "~0.6.1"
 
+uifx@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/uifx/-/uifx-2.0.3.tgz#2cae3b2d7e182b7bfbc46e719dc1c559bd5912f3"
+  integrity sha512-Y4o8DbiM3tzGmnTlU21WO7mDNVcsBZ8oONCRMt9L3Hgd7VihxH7oE5CTKUBpby8mn05dF4OGGA9UKUq1EGUAQA==
+
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-1.0.4.tgz#2619800c4c825800efdd8343af7dd9933cbe2818"
