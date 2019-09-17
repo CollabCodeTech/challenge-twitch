@@ -1,6 +1,7 @@
 <script>
   import BigButton from "../components/BigButton.svelte";
   import FuncButton from "../components/FunctionalButton.svelte";
+  import MiddleKey from "../components/MiddleButton.svelte";
   export let Keyboard;
 </script>
 
@@ -79,6 +80,7 @@
 
   .keyboard-container .inner-keyboard-container .wrap-functions {
     display: inline-block;
+    width: 90vw;
   }
 
   .keyboard-container .inner-keyboard-container .big-buttons-list li {
@@ -88,7 +90,7 @@
   .keyboard-container .inner-keyboard-container .wrap-functions .func-butons {
     display: flex;
     flex-direction: row;
-    right: 0;
+    justify-content: flex-end;
   }
 
   .keyboard-container
@@ -102,6 +104,7 @@
   .keyboard-container .inner-keyboard-container .wrap-functions .oper-buttons {
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
     margin-right: 2vw;
   }
 
@@ -111,6 +114,16 @@
     .oper-buttons
     li {
     margin-right: 1vw;
+  }
+
+  .keyboard-container .inner-keyboard-container .wrap-middle {
+    display: inline-block;
+    height: 2vh;
+    width: 90vw;
+  }
+
+  .keyboard-container .inner-keyboard-container .wrap-middle .middle-buttons {
+    display: flex;
   }
 </style>
 
@@ -158,6 +171,40 @@
         </li>
         <li>
           <FuncButton text="÷" color="blue" fontColor="white" />
+        </li>
+      </ul>
+    </section>
+    <section class="wrap-middle">
+      <ul class="middle-buttons">
+        <li>
+          <MiddleKey number="0" text="pausa" />
+        </li>
+        <li>
+          <MiddleKey number="1" text="dó" />
+        </li>
+        <li>
+          <MiddleKey number="2" text="ré" />
+        </li>
+        <li>
+          <MiddleKey number="3" text="mi" />
+        </li>
+        <li>
+          <MiddleKey number="4" text="fá" />
+        </li>
+        <li>
+          <MiddleKey number="5" text="sol" />
+        </li>
+        <li>
+          <MiddleKey number="6" text="lá" />
+        </li>
+        <li>
+          <MiddleKey number="7" text="si" />
+        </li>
+        <li>
+          <MiddleKey number="8" text="dó" />
+        </li>
+        <li>
+          <MiddleKey number="9" text="ré" />
         </li>
       </ul>
     </section>
