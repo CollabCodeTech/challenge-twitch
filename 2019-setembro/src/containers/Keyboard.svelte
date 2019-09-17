@@ -2,6 +2,7 @@
   import BigButton from "../components/BigButton.svelte";
   import FuncButton from "../components/FunctionalButton.svelte";
   import MiddleKey from "../components/MiddleButton.svelte";
+  import YellowButton from "../components/YellowButton.svelte";
   export let Keyboard;
 </script>
 
@@ -130,7 +131,6 @@
     align-items: center;
     justify-content: center;
 
-    margin-top: 0;
     height: 2vh;
     min-width: 100%;
     max-width: 100%;
@@ -140,6 +140,7 @@
 
   .keyboard-container .inner-keyboard-container .wrap-middle .middle-buttons {
     display: flex;
+    margin-left: 1vw;
   }
 
   .keyboard-container
@@ -147,7 +148,32 @@
     .wrap-middle
     .middle-buttons
     li {
-    margin-right: 1vw;
+    margin-left: 1.5vw;
+  }
+
+  .keyboard-container .inner-keyboard-container .wrap-yellow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 2vh;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 10vh;
+    max-height: 10vh;
+  }
+
+  .keyboard-container .inner-keyboard-container .wrap-yellow .yellow-buttons {
+    display: flex;
+    margin-right: 2vw;
+  }
+
+  .keyboard-container
+    .inner-keyboard-container
+    .wrap-yellow
+    .yellow-buttons
+    li {
+    margin-right: 1.5vw;
   }
 </style>
 
@@ -229,6 +255,40 @@
         </li>
         <li>
           <MiddleKey number="9" text="ré" />
+        </li>
+      </ul>
+    </section>
+    <section class="wrap-yellow">
+      <ul class="yellow-buttons">
+        <li>
+          <YellowButton text="adição" />
+        </li>
+        <li>
+          <YellowButton text="subtração" />
+        </li>
+        <li>
+          <YellowButton text="multiplicação" />
+        </li>
+        <li>
+          <YellowButton text="divisão" />
+        </li>
+        <li>
+          <YellowButton text="aritmética" />
+        </li>
+        <li>
+          <YellowButton text="operação" />
+        </li>
+        <li>
+          <YellowButton text="siga-me" />
+        </li>
+        <li>
+          <YellowButton text="memória tons" />
+        </li>
+        <li>
+          <YellowButton text="número do meio" />
+        </li>
+        <li>
+          <YellowButton text="advinhe o número" />
         </li>
       </ul>
     </section>
