@@ -1,7 +1,9 @@
 <script>
-  export let MiddleButton;
   export let text;
   export let number;
+  export let handleMiddleButtonClick = (number, text) => {
+    console.log(number, text);
+  };
 </script>
 
 <style>
@@ -39,7 +41,9 @@
   }
 </style>
 
-<button class="middle-button">
+<button
+  class="middle-button"
+  on:click={() => handleMiddleButtonClick(number, text)}>
   <span class="number">{number}</span>
   <span class="tone">{text}</span>
 </button>

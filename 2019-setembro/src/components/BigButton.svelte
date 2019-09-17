@@ -1,5 +1,4 @@
 <script>
-  export let BigButton = "";
   export let key;
   export let color;
 </script>

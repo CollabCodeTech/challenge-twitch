@@ -3,7 +3,6 @@
   import FuncButton from "../components/FunctionalButton.svelte";
   import MiddleKey from "../components/MiddleButton.svelte";
   import YellowButton from "../components/YellowButton.svelte";
-  export let Keyboard;
 </script>
 
 <style>

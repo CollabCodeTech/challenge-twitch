@@ -1,5 +1,4 @@
 <script>
-  export let YellowButton;
   export let text;
 </script>
 

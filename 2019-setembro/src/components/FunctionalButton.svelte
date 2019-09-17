@@ -1,5 +1,4 @@
 <script>
-  export let FunctionalButton;
   export let text;
   export let color;
   export let fontColor;
