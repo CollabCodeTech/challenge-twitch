@@ -2,6 +2,13 @@
   export let text;
   export let color;
   export let fontColor;
+
+  export const handleFunctionalButtonClick = text => {
+    console.log(text);
+    let audio = new Audio();
+    audio.src = "./sounds/click.wav";
+    audio.play();
+  };
 </script>
 
 <style>
@@ -47,4 +54,8 @@
   }
 </style>
 
-<button class="functional-button -{color} -font-{fontColor}">{text}</button>
+<button
+  class="functional-button -{color} -font-{fontColor}"
+  on:click={() => handleFunctionalButtonClick(text)}>
+  {text}
+</button>

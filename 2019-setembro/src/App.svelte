@@ -1,12 +1,12 @@
 <script>
-  import { writable } from "svelte/store";
+  import { onMount } from "svelte";
   import Screen from "./containers/Screen.svelte";
   import Keyboard from "./containers/Keyboard.svelte";
+  export let display = [0, 1, 2, 3, 4, 5, 6];
 
-  const operations = writable(0);
-  operations.set([]);
-  const unsubscribe = operations.subscribe(value => {
-    console.log(value);
+  onMount(() => {
+    display = [0, 0, 0, 0, 0, 0, 0];
+    console.log("onmount", display);
   });
 </script>
 
@@ -15,6 +15,6 @@
 </style>
 
 <!-- display -->
-<Screen />
+<Screen {display} />
 <!-- keyboard -->
 <Keyboard />

@@ -2,7 +2,53 @@
   export let text;
   export let number;
   export let handleMiddleButtonClick = (number, text) => {
-    console.log(number, text);
+    console.log(Number(number), text);
+    let bu = "./sounds/";
+    let audio = new Audio();
+    switch (Number(number)) {
+      case 1: {
+        audio.src = bu + "do.wav";
+        break;
+      }
+      case 2: {
+        audio.src = bu + "re.wav";
+        break;
+      }
+      case 3: {
+        audio.src = bu + "mi.wav";
+        break;
+      }
+      case 4: {
+        audio.src = bu + "fa.wav";
+        break;
+      }
+      case 5: {
+        audio.src = bu + "sol.wav";
+        break;
+      }
+      case 6: {
+        audio.src = bu + "la.wav";
+        break;
+      }
+      case 7: {
+        audio.src = bu + "si.wav";
+        break;
+      }
+      case 8: {
+        audio.src = bu + "do-m.wav";
+        break;
+      }
+      case 9: {
+        audio.src = bu + "sol.wav";
+        break;
+      }
+      default: {
+        audio.src = bu + "sol.wav";
+        break;
+      }
+    }
+    console.log(audio);
+    audio.play();
   };
 </script>
 

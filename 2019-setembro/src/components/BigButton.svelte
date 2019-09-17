@@ -1,6 +1,12 @@
 <script>
   export let key;
   export let color;
+  export const handleBigButtonClick = letter => {
+    console.log(letter);
+    let audio = new Audio();
+    audio.src = "./sounds/click.wav";
+    audio.play();
+  };
 </script>
 
 <style>
@@ -43,6 +49,9 @@
   }
 </style>
 
-<button class="big-button -{color}" type="submit">
+<button
+  class="big-button -{color}"
+  type="submit"
+  on:click={() => handleBigButtonClick(key)}>
   <span class="text">{key}</span>
 </button>

@@ -1,8 +1,20 @@
 <script>
+  import { onMount } from "svelte";
   import BigButton from "../components/BigButton.svelte";
   import FuncButton from "../components/FunctionalButton.svelte";
   import MiddleKey from "../components/MiddleButton.svelte";
   import YellowButton from "../components/YellowButton.svelte";
+
+  // onMount(() => {
+  //   const elements = document.querySelectorAll("button");
+  //   elements.forEach(el => el.addEventListener("click", hi));
+  //   // console.log(elements);
+  // });
+
+  const hi = e => {
+    e.preventDefault();
+    console.log(e);
+  };
 </script>
 
 <style>

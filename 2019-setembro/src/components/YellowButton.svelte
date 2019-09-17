@@ -1,5 +1,11 @@
 <script>
   export let text;
+  export const handleYellowClick = text => {
+    console.log(text);
+    let audio = new Audio();
+    audio.src = "./sounds/click.wav";
+    audio.play();
+  };
 </script>
 
 <style>
@@ -23,4 +29,6 @@
   }
 </style>
 
-<button class="yellow-button">{text}</button>
+<button class="yellow-button" on:click={() => handleYellowClick(text)}>
+  {text}
+</button>
