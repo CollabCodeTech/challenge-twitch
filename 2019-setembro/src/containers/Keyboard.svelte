@@ -12,14 +12,14 @@
     box-sizing: border-box;
     width: 100vw;
     height: 63vh;
-    padding: 10vh 5vw 5vh;
+    padding: 10vh 20vw 5vh;
 
     background-color: #c9cfcb;
   }
 
   .keyboard-container::after {
     content: "";
-    width: 80vw;
+    width: 45vw;
     height: 1vh;
     position: absolute;
 
@@ -28,7 +28,7 @@
     border-top-color: transparent;
     border-bottom-color: transparent;
     top: 0;
-    margin-left: 5vw;
+    margin-left: 7vw;
     transform: translateY(-1.5vh);
   }
 
@@ -39,7 +39,7 @@
     display: inline-block;
     width: 20vw;
     height: 5vh;
-    margin-right: 5vw;
+    margin-right: 20vw;
     border-radius: 10px;
     right: 0;
     top: 0;
@@ -71,16 +71,25 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    flex-wrap: wrap;
   }
 
   .keyboard-container .inner-keyboard-container .big-buttons-list {
     display: flex;
     flex-direction: row;
+    min-width: 50%;
+    max-width: 50%;
+    min-height: 20vh;
+    max-height: 20vh;
   }
 
   .keyboard-container .inner-keyboard-container .wrap-functions {
     display: inline-block;
-    width: 90vw;
+    min-width: 50%;
+    max-width: 50%;
+    min-height: 20vh;
+    max-height: 20vh;
   }
 
   .keyboard-container .inner-keyboard-container .big-buttons-list li {
@@ -117,13 +126,28 @@
   }
 
   .keyboard-container .inner-keyboard-container .wrap-middle {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 0;
     height: 2vh;
-    width: 90vw;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 10vh;
+    max-height: 10vh;
   }
 
   .keyboard-container .inner-keyboard-container .wrap-middle .middle-buttons {
     display: flex;
+  }
+
+  .keyboard-container
+    .inner-keyboard-container
+    .wrap-middle
+    .middle-buttons
+    li {
+    margin-right: 1vw;
   }
 </style>
 

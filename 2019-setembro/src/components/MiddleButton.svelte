@@ -17,6 +17,7 @@
     box-sizing: border-box;
 
     font-size: 2vh;
+    line-height: 3vh;
     font-weight: bold;
     text-align: center;
 
@@ -29,7 +30,9 @@
   }
 
   .middle-button .number {
-    color: #9f2824;
+    font-size: 3vh;
+    line-height: 3vh;
+    color: #315e99;
   }
   .middle-button .tone {
     color: #fff;
