@@ -24,20 +24,105 @@ import NoteF from '../Sounds/NoteF';
 import NoteG from '../Sounds/NoteG';
 import NoteA from '../Sounds/NoteA';
 import NoteB from '../Sounds/NoteB';
+import NoteCS from '../Sounds/NoteCS';
+import NoteDS from '../Sounds/NoteDS';
 
 class Game extends Component {
-  handleKeyPress(e) {
-    if (e.key === '1') {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedNumber: 0,
+    };
+  }
+
+  handleClick(key) {
+    if (key === 1) {
       NoteC.play();
+      this.setState({
+        selectedNumber: key,
+      });
+    }
+    if (key === 2) {
+      NoteD.play();
+      this.setState({
+        selectedNumber: key,
+      });
+    }
+    if (key === 3) {
+      NoteE.play();
+      this.setState({
+        selectedNumber: key,
+      });
+    }
+    if (key === 4) {
+      NoteF.play();
+      this.setState({
+        selectedNumber: key,
+      });
+    }
+    if (key === 5) {
+      NoteG.play();
+      this.setState({
+        selectedNumber: key,
+      });
+    }
+    if (key === 6) {
+      NoteA.play();
+      this.setState({
+        selectedNumber: key,
+      });
+    }
+    if (key === 7) {
+      NoteB.play();
+      this.setState({
+        selectedNumber: key,
+      });
+    }
+    if (key === 8) {
+      NoteCS.play();
+      this.setState({
+        selectedNumber: key,
+      });
+    }
+    if (key === 9) {
+      NoteDS.play();
+      this.setState({
+        selectedNumber: key,
+      });
+    }
+  }
+
+  handleKeyPress(e) {
+    if (e.key === '1' || e.key === '8') {
+      NoteC.play();
+    }
+    if (e.key === '2' || e.key === '9') {
+      NoteD.play();
+    }
+    if (e.key === '3') {
+      NoteE.play();
+    }
+    if (e.key === '4') {
+      NoteF.play();
+    }
+    if (e.key === '5') {
+      NoteG.play();
+    }
+    if (e.key === '6') {
+      NoteA.play();
+    }
+    if (e.key === '7') {
+      NoteB.play();
     }
   }
 
   render() {
+    const { selectedNumber } = this.state;
     return (
       <Container onKeyPress={this.handleKeyPress}>
         <GameContainer>
           <GameScreen>
-            <span> 0 </span>{' '}
+            <span> {selectedNumber} </span>{' '}
           </GameScreen>{' '}
           <GameControlsContainer>
             <GameControllHeader>
@@ -59,39 +144,39 @@ class Game extends Component {
             </GameControllHeader>{' '}
             <SoundsButtonContainer>
               <SoundButton> 0 </SoundButton>{' '}
-              <SoundButton beforeText="DÓ" onClick={() => NoteC.play()}>
+              <SoundButton beforeText="DÓ" onClick={() => this.handleClick(1)}>
                 {' '}
                 1{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="RÉ" onClick={() => NoteD.play()}>
+              <SoundButton beforeText="RÉ" onClick={() => this.handleClick(2)}>
                 {' '}
                 2{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="MI" onClick={() => NoteE.play()}>
+              <SoundButton beforeText="MI" onClick={() => this.handleClick(3)}>
                 {' '}
                 3{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="FÁ" onClick={() => NoteF.play()}>
+              <SoundButton beforeText="FÁ" onClick={() => this.handleClick(4)}>
                 {' '}
                 4{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="SOL" onClick={() => NoteG.play()}>
+              <SoundButton beforeText="SOL" onClick={() => this.handleClick(5)}>
                 {' '}
                 5{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="LÁ" onClick={() => NoteA.play()}>
+              <SoundButton beforeText="LÁ" onClick={() => this.handleClick(6)}>
                 {' '}
                 6{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="SI" onClick={() => NoteB.play()}>
+              <SoundButton beforeText="SI" onClick={() => this.handleClick(7)}>
                 {' '}
                 7{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="DÒ" onClick={() => NoteC.play()}>
+              <SoundButton beforeText="DÒ" onClick={() => this.handleClick(8)}>
                 {' '}
                 8{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="RÈ" onClick={() => NoteD.play()}>
+              <SoundButton beforeText="RÈ" onClick={() => this.handleClick(9)}>
                 {' '}
                 9{' '}
               </SoundButton>{' '}

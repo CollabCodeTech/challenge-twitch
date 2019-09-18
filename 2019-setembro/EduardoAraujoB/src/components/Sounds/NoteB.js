@@ -1,5 +1,5 @@
 import UIfx from 'uifx';
-import SoundC from '../../assets/Audio/si.wav';
+import SoundC from '../../assets/Audio/violin_B4.mp3';
 
 const NoteB = new UIfx(SoundC);
 
