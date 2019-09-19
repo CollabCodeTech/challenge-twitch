@@ -32,6 +32,7 @@ class Game extends Component {
     super(props);
     this.state = {
       selectedNumber: 0,
+      isGameStarted: false,
     };
     this.handlekeyPress = this.handlekeyPress.bind(this);
   }
@@ -151,7 +152,7 @@ class Game extends Component {
   }
 
   render() {
-    const { selectedNumber } = this.state;
+    const { selectedNumber, isGameStarted } = this.state;
     return (
       <Container>
         <GameContainer onKeyPress={this.handlekeyPress}>
@@ -161,71 +162,169 @@ class Game extends Component {
           <GameControlsContainer>
             <GameControllHeader>
               <LeftHeader>
-                <HeaderButton bgColor="red"> A </HeaderButton>{' '}
-                <HeaderButton bgColor="#e6a400"> B </HeaderButton>{' '}
-                <HeaderButton bgColor="blue"> C </HeaderButton>{' '}
-                <HeaderButton bgColor="green"> D </HeaderButton>{' '}
+                <HeaderButton disabled={!isGameStarted} bgColor="red">
+                  {' '}
+                  A{' '}
+                </HeaderButton>{' '}
+                <HeaderButton disabled={!isGameStarted} bgColor="#e6a400">
+                  {' '}
+                  B{' '}
+                </HeaderButton>{' '}
+                <HeaderButton disabled={!isGameStarted} bgColor="blue">
+                  {' '}
+                  C{' '}
+                </HeaderButton>{' '}
+                <HeaderButton disabled={!isGameStarted} bgColor="green">
+                  {' '}
+                  D{' '}
+                </HeaderButton>{' '}
               </LeftHeader>{' '}
               <RightHeader>
                 <LogoContainer>
                   <span> Pense Bem </span>{' '}
                 </LogoContainer>{' '}
                 <StartContainer>
-                  <StartButton bgColor="red"> DESL. </StartButton>{' '}
-                  <StartButton> LIGA </StartButton>{' '}
+                  <StartButton
+                    bgColor="red"
+                    onClick={() =>
+                      this.setState({
+                        isGameStarted: false,
+                        selectedNumber: 0,
+                      })
+                    }
+                  >
+                    {' '}
+                    DESL.{' '}
+                  </StartButton>{' '}
+                  <StartButton
+                    onClick={() =>
+                      this.setState({
+                        isGameStarted: true,
+                      })
+                    }
+                  >
+                    {' '}
+                    LIGA{' '}
+                  </StartButton>{' '}
                 </StartContainer>{' '}
               </RightHeader>{' '}
             </GameControllHeader>{' '}
             <SoundsButtonContainer>
-              <SoundButton> 0 </SoundButton>{' '}
-              <SoundButton beforeText="DÓ" onClick={() => this.handleNote(1)}>
+              <SoundButton disabled={!isGameStarted}> 0 </SoundButton>{' '}
+              <SoundButton
+                disabled={!isGameStarted}
+                beforeText="DÓ"
+                onClick={() => this.handleNote(1)}
+              >
                 {' '}
                 1{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="RÉ" onClick={() => this.handleNote(2)}>
+              <SoundButton
+                disabled={!isGameStarted}
+                beforeText="RÉ"
+                onClick={() => this.handleNote(2)}
+              >
                 {' '}
                 2{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="MI" onClick={() => this.handleNote(3)}>
+              <SoundButton
+                disabled={!isGameStarted}
+                beforeText="MI"
+                onClick={() => this.handleNote(3)}
+              >
                 {' '}
                 3{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="FÁ" onClick={() => this.handleNote(4)}>
+              <SoundButton
+                disabled={!isGameStarted}
+                beforeText="FÁ"
+                onClick={() => this.handleNote(4)}
+              >
                 {' '}
                 4{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="SOL" onClick={() => this.handleNote(5)}>
+              <SoundButton
+                disabled={!isGameStarted}
+                beforeText="SOL"
+                onClick={() => this.handleNote(5)}
+              >
                 {' '}
                 5{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="LÁ" onClick={() => this.handleNote(6)}>
+              <SoundButton
+                disabled={!isGameStarted}
+                beforeText="LÁ"
+                onClick={() => this.handleNote(6)}
+              >
                 {' '}
                 6{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="SI" onClick={() => this.handleNote(7)}>
+              <SoundButton
+                disabled={!isGameStarted}
+                beforeText="SI"
+                onClick={() => this.handleNote(7)}
+              >
                 {' '}
                 7{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="DÒ" onClick={() => this.handleNote(8)}>
+              <SoundButton
+                disabled={!isGameStarted}
+                beforeText="DÒ"
+                onClick={() => this.handleNote(8)}
+              >
                 {' '}
                 8{' '}
               </SoundButton>{' '}
-              <SoundButton beforeText="RÈ" onClick={() => this.handleNote(9)}>
+              <SoundButton
+                disabled={!isGameStarted}
+                beforeText="RÈ"
+                onClick={() => this.handleNote(9)}
+              >
                 {' '}
                 9{' '}
               </SoundButton>{' '}
             </SoundsButtonContainer>{' '}
             <MinigamesContainer>
-              <MinigamesButton> ADIÇÃO </MinigamesButton>{' '}
-              <MinigamesButton> {'SUBTRA-ÇÃO'} </MinigamesButton>{' '}
-              <MinigamesButton> {'MULTIPLI-CAÇÃO'} </MinigamesButton>{' '}
-              <MinigamesButton> DIVISÃO </MinigamesButton>{' '}
-              <MinigamesButton> {'ARITIMÉ-TICA'} </MinigamesButton>{' '}
-              <MinigamesButton> {'OPERA-ÇÃO'} </MinigamesButton>{' '}
-              <MinigamesButton> {'SIGA-ME'} </MinigamesButton>{' '}
-              <MinigamesButton> MEMÓRIA TONS </MinigamesButton>{' '}
-              <MinigamesButton> NÚMERO DO MEIO </MinigamesButton>{' '}
-              <MinigamesButton> ADVINHE O NÚMERO </MinigamesButton>{' '}
+              <MinigamesButton disabled={!isGameStarted}>
+                {' '}
+                ADIÇÃO{' '}
+              </MinigamesButton>{' '}
+              <MinigamesButton disabled={!isGameStarted}>
+                {' '}
+                {'SUBTRA-ÇÃO'}{' '}
+              </MinigamesButton>{' '}
+              <MinigamesButton disabled={!isGameStarted}>
+                {' '}
+                {'MULTIPLI-CAÇÃO'}{' '}
+              </MinigamesButton>{' '}
+              <MinigamesButton disabled={!isGameStarted}>
+                {' '}
+                DIVISÃO{' '}
+              </MinigamesButton>{' '}
+              <MinigamesButton disabled={!isGameStarted}>
+                {' '}
+                {'ARITIMÉ-TICA'}{' '}
+              </MinigamesButton>{' '}
+              <MinigamesButton disabled={!isGameStarted}>
+                {' '}
+                {'OPERA-ÇÃO'}{' '}
+              </MinigamesButton>{' '}
+              <MinigamesButton disabled={!isGameStarted}>
+                {' '}
+                {'SIGA-ME'}{' '}
+              </MinigamesButton>{' '}
+              <MinigamesButton disabled={!isGameStarted}>
+                {' '}
+                MEMÓRIA TONS{' '}
+              </MinigamesButton>{' '}
+              <MinigamesButton disabled={!isGameStarted}>
+                {' '}
+                NÚMERO DO MEIO{' '}
+              </MinigamesButton>{' '}
+              <MinigamesButton disabled={!isGameStarted}>
+                {' '}
+                ADVINHE O NÚMERO{' '}
+              </MinigamesButton>{' '}
             </MinigamesContainer>{' '}
           </GameControlsContainer>{' '}
         </GameContainer>{' '}
