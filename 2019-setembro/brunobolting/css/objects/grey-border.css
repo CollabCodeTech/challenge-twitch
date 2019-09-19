@@ -3,3 +3,7 @@
   border-width: 5px;
   border-style: solid;
 }
+
+.grey-border.-large {
+  border-width: 8px;
+}

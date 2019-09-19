@@ -1,0 +1,63 @@
+.pensebem-container {
+  width: 900px;
+  height: 600px;
+  background-color: var(--color-grey);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.pensebem-container > .pensebem-inner {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.pensebem-inner > .header {
+  /* box-sizing: content-box; */
+  /* width: 100%; */
+  margin: 10px;
+  height: 150px;
+  border: 2px solid var(--color-black);
+  /* border-radius: 3px; */
+}
+
+.pensebem-inner > .header > .display {
+  background-color: var(--color-deep-black);
+  width: 80%;
+  height: 100%;
+  display: inline-block;
+}
+
+.pensebem-inner > .header > .diskette {
+  background-color: var(--color-black);
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 160px;
+  height: 15px;
+  top: 20px;
+  border-radius: 10px;
+}
+.pensebem-inner > .header > .diskette::after {
+  content: "";
+  background-color: var(--color-black);
+  /* display: inline-block; */
+  margin-left: auto;
+  margin-right: auto;
+  width: 40px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.pensebem-inner > .header > .display > .numbers {
+  color: var(--color-red-display);
+  background-color: var(--color-black);
+  font-family: "Seven Segments", serif;
+  font-weight: normal;
+  height: 80%;
+  text-align: right;
+  padding: 10px;
+  padding-right: 20px;
+  font-size: 90pt;
+}

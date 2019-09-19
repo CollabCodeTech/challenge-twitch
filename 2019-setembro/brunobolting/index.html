@@ -7,23 +7,36 @@
     <title>Desafio CollabCode</title>
 
     <link rel="stylesheet" href="css/generic/reset.css" />
+    <link rel="stylesheet" href="css/settings/colors.css" />
+    <link rel="stylesheet" href="css/settings/fonts.css" />
     <link rel="stylesheet" href="css/base/base.css" />
     <link rel="stylesheet" href="css/components/container-page.css" />
     <link rel="stylesheet" href="css/components/header-page.css" />
+    <link rel="stylesheet" href="css/components/pensebem-container.css" />
     <link rel="stylesheet" href="css/objects/grey-border.css" />
     <link rel="stylesheet" href="css/objects/grey-border-inner.css" />
   </head>
   <body>
+    <header class="header-page grey-border">
+      <div class="header-page-inner grey-border-inner">
+        <img class="logo" src="assets/title.gif" alt="Challenge Twitch CollabCode" />
+        <ul class="menu">
+          <li><a href="#">github</a></li>
+          <li class="-last"><a href="#">twitch</a></li>
+        </ul>
+      </div>
+    </header>
     <div class="container-page">
-      <header class="header-page grey-border">
-        <div class="header-page-inner grey-border-inner">
-          <ul class="menu">
-            <li><a href="#">github</a></li>
-            <li><a href="#">twitch</a></li>
-          </ul>
-          <img src="assets/title.gif" alt="Challenge Twitch CollabCode" />
+      <div class="pensebem-container grey-border -large">
+        <div class="pensebem-inner grey-border-inner -dark">
+          <div class="header">
+            <div class="display">
+              <div class="numbers">0</div>
+            </div>
+            <div class="diskette"></div>
+          </div>
         </div>
-      </header>
+      </div>
     </div>
   </body>
 </html>
