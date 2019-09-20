@@ -1,6 +1,5 @@
 function press(e) {
   if (lcd_isOn) {
-    click_sound.play();
     let value = e.target.innerHTML;
     switch (value) {
       case "ADIÇÃO":
@@ -40,7 +39,14 @@ function press(e) {
         break;
     }
     if (canEval) {
-      if (!isNaN(value) || value.match(/(\+|\*|\-|\/)/)) lcd.innerHTML += value;
+      if (!isNaN(value) || value.match(/(\+|\*|\-|\/)/)) {
+        lcd.innerHTML += value;
+      }
+    }
+    if (value.match(/^(DO|RÉ|MI|FÁ|SOL|LÁ|SI|DÒ|RÈ)/)) {
+      pianoSounds[value].play();
+    } else {
+      click_sound.play();
     }
   }
 }

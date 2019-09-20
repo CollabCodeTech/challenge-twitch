@@ -14,7 +14,7 @@ function gameOperacao() {
     let b = Math.floor(Math.random() * maxNumber) + 1;
     let a = Math.floor(Math.random() * maxNumber) + 1;
     operador = "+-/*"[Math.floor(Math.random() * 4)];
-    resultado = eval(`${a}${operador}${b}`);
+    resultado = parseInt(eval(`${a}${operador}${b}`));
     conta = `${a}_${b}=${resultado} | `;
     res = operador;
     questoes.push({ conta, res });

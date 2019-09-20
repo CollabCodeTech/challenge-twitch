@@ -300,20 +300,20 @@ ul {
 
 /* #region colors */
 .pink {
-  background-color: #ffc0cb;
+  background-color: #be2edd;
 }
 .yellow {
-  background-color: #ffff00;
+  background-color: #f9ca24;
   color: green;
 }
 .blue {
-  background-color: #0000ff;
+  background-color: #4834d4;
 }
 .green {
-  background-color: #008000;
+  background-color: #6ab04c;
 }
 .red {
-  background-color: #ff0000;
+  background-color: #eb4d4b;
 }
 
 .pink,
