@@ -28,7 +28,6 @@ function handleEnter() {
       // Pega o resultado do lcd
       if (lcd.innerHTML.match(/\d(\+|\-|\*|\/)\d/)) {
         res = /(\+|-)?\d*$/.exec(lcd.innerHTML)[0] || 0;
-        console.log(res);
         // Verifica se o resultado esta correto
         handleSuccess(
           questoes[i].res == res,
