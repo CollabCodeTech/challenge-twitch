@@ -4,7 +4,7 @@ let maxNumber = 10;
 let questoes = [];
 let mostraProx = true;
 let pontuacao = 0;
-let maxQuestions = 2;
+let maxQuestions = 10;
 let i = 0;
 
 const lcd = document.getElementById("lcd");
@@ -50,6 +50,14 @@ function handleEnter() {
         handleSuccess(questoes[i] == res, msg);
         i++;
         return;
+      } else if (lcd.innerHTML.indexOf("🐱") >= 0) {
+        res = lcd.innerHTML.match(/(🔥|⚡|💧|🍃)$/)[0] || 0;
+        console.log(res);
+        console.log(res == questoes[i].res);
+        handleSuccess(
+          questoes[i].res == res,
+          questoes[i].conta + " = " + questoes[i].res
+        );
       } else {
         res = lcd.innerHTML.slice(-1);
         // Mensagem de erro é conta com o underscore trocado

@@ -34,12 +34,16 @@ function press(e) {
         adivinheONumero();
         handleEnter();
         break;
+      case "POKEMON":
+        pokemon();
+        handleEnter();
+        break;
       case "ENTER":
         handleEnter();
         break;
     }
     if (canEval) {
-      if (!isNaN(value) || value.match(/(\+|\*|\-|\/)/)) {
+      if (!isNaN(value) || value.match(/(\+|\*|\-|\/|🔥|⚡|💧|🍃)/)) {
         lcd.innerHTML += value;
       }
     }
