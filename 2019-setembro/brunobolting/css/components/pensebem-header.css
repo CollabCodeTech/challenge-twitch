@@ -1,0 +1,81 @@
+.pensebem-header {
+  margin: 10px;
+}
+
+.pensebem-header > .display-group {
+  border: 2px solid var(--color-black);
+}
+
+.pensebem-header > .display-group > .display {
+  background-color: var(--color-deep-black);
+  width: 80%;
+  height: 100%;
+  display: inline-block;
+}
+
+.pensebem-header > .display-group > .display > .numbers {
+  color: var(--color-red-display);
+  background-color: var(--color-black);
+  font-family: "Seven Segments", serif;
+  font-weight: normal;
+  height: 80%;
+  text-align: right;
+  padding: 10px;
+  padding-right: 20px;
+  font-size: 90pt;
+}
+
+.pensebem-header > .display-group > .diskette {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+}
+
+.pensebem-header > .display-group > .diskette > .shape {
+  background-color: var(--color-black);
+  width: 160px;
+  height: 15px;
+  top: 20px;
+  border-radius: 3px;
+}
+
+.pensebem-header > .display-group > .diskette > .shape::after {
+  position: absolute;
+  content: "";
+  left: 50%;
+  transform: translatex(-50%);
+  background-color: var(--color-black);
+  width: 70px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.pensebem-header > .display-group > .diskette > .shape::before {
+  position: absolute;
+  content: "";
+  left: 50%;
+  transform: translatex(-50%);
+  background-color: var(--color-black);
+  width: 70px;
+  height: 20px;
+  border-radius: 10px;
+  margin-top: -4px;
+}
+
+.pensebem-header > .logo {
+  display: inline-block;
+  text-align: right;
+
+  /* float: right; */
+  margin-top: 10px;
+  /* margin-bottom: 10px; */
+}
+
+.pensebem-header > .logo > .text {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(184, 184, 144);
+  font-size: 16pt;
+  font-family: Arial, Helvetica, sans-serif;
+  /* width: 130px; */
+}
