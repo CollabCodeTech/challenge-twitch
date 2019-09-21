@@ -36,4 +36,4 @@ As pessoas que estiverem na [twitch.tv/marcobrunobr](https://twitch.tv/marcobrun
 
 # Challenges do passado e presente
 
-- [Semtembro 2019](2019-setembro/)
+- [Setembro 2019](2019-setembro/)
