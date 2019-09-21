@@ -53,7 +53,7 @@ function pokemon() {
         let pokemons = response.data.pokemon;
         let randomIndex = Math.floor(Math.random() * pokemons.length);
         let name = pokemons[randomIndex].pokemon.name;
-        questoes.push({ conta: "🐱 " + name, res: types[j - 10] });
+        questoes.push({ conta: "🐱 " + name + " = ", res: types[j - 10] });
       })
       .catch(err => console.error(err));
   }
