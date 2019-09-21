@@ -51,14 +51,14 @@ function handleEnter() {
         i++;
         return;
       } else if (lcd.innerHTML.indexOf("🐱") >= 0) {
-        res = lcd.innerHTML.match(/(🔥|⚡|💧|🍃)$/)[0] || 0;
-        console.log(res);
-        console.log(res == questoes[i].res);
+        res = lcd.innerHTML.match(/(🔥|⚡|💧|🍃)$/)
+          ? lcd.innerHTML.match(/(🔥|⚡|💧|🍃)$/)[0]
+          : 0;
         handleSuccess(
           questoes[i].res == res,
-          questoes[i].conta + " = " + questoes[i].res
+          questoes[i].conta + questoes[i].res
         );
-      } else {
+      } else if (lcd.innerHTML.indexOf("|") >= 0) {
         res = lcd.innerHTML.slice(-1);
         // Mensagem de erro é conta com o underscore trocado
         handleSuccess(
@@ -71,7 +71,7 @@ function handleEnter() {
       i++;
     } else {
       // Mostra a conta
-      show(questoes[i].conta || "Adivinhe | ");
+      show(questoes[i].conta || "Adivinhe _ ");
       // Permite digitar
       canEval = true;
       // Impede o display de outra conta

@@ -9,7 +9,7 @@
   box-sizing: content-box;
 }
 body {
-  background: url("./imgs/hodgepodge.png") white;
+  background: url("./imgs/hodgepodge.png") lightblue;
 }
 #penseBem {
   width: 70%;
@@ -95,7 +95,8 @@ body {
 
 #lcd {
   color: red;
-  font-size: 5em;
+  font-size: 4em;
+  line-height: 83px;
   background-color: #222;
   border-radius: 5px 0 0 0;
   padding: 5px 15px;
@@ -251,18 +252,15 @@ ul {
   white-space: nowrap;
   background-color: #222;
   overflow: hidden;
-  font-size: 16px;
-  box-sizing: border-box;
 }
 .marquee > span {
-  display: inline-block;
-  font-size: 16px;
   padding-left: 100%;
   animation: marquee 15s linear infinite;
 }
+
 @keyframes marquee {
   0% {
-    transform: translate(0, 0);
+    transform: translate(60%, 0);
   }
   100% {
     transform: translate(-100%, 0);
