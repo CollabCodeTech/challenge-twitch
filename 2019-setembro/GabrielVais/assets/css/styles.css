@@ -280,6 +280,8 @@ html, body{
 	font-size:30px;
 	color:#b71540;
 	letter-spacing: 0.5rem; 
+	 white-space: nowrap; 
+ 	 overflow: hidden;
 }
 
 .content{

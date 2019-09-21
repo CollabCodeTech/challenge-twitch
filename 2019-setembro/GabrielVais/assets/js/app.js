@@ -11,7 +11,7 @@ const output = document.querySelector("#output");
 const players = [];
 
 
-btnLigar.addEventListener('click', async function(){
+btnLigar.addEventListener('click', function(){
 
 if(display.classList.contains("desligado") || display.classList.contains("animation")){
 
@@ -21,10 +21,6 @@ if(display.classList.contains("desligado") || display.classList.contains("animat
 
 	display.classList.add("ligado");
 
-	const sounds = await getSounds();
- 	 
- 	addSoundsToPage(sounds);
-
 	}
 
 
@@ -32,7 +28,11 @@ if(display.classList.contains("desligado") || display.classList.contains("animat
 
 btnPause = document.querySelector("#btnPause");
 
-btnPause.addEventListener('click', stopAll);
+btnPause.addEventListener('click', function(){
+
+
+
+});
 
 
 
@@ -44,7 +44,6 @@ btnDesligar.addEventListener('click', function(){
 
 	display.classList.add("animation");
 
-	stopAll();
 
 	}
 
@@ -56,9 +55,9 @@ var action = null;
 var current = 0;
 
 var actions = {
-  '÷': ' / ',
+  '/': ' / ',
   'x': ' * ',
-  '−': ' - ',
+  '-': ' - ',
   '+': ' + ',
   '=': '=',
 };
@@ -79,7 +78,7 @@ for (button in buttons) {
       } else {
         if (action && action !== '=') {
 
-          var calculation = current + actions[action] + output.innerText;
+          var calculation = current + actions[action] + parseInt(output.innerText);
           console.log('calculate', calculation);
           output.innerText = eval(calculation);   	
         }
@@ -103,53 +102,29 @@ for (button in buttons) {
 
 }
 
-function addSoundsToPage(sounds) {
-
-  sounds.forEach(addSoundToPage);
-  console.log(sounds);
+ function PlaySound(melody) {
+        alert("On Press of "+melody);
+        var path = "path\\to\\melody\\"
+        var snd = new Audio(path + melody + ".wav");
+       	snd.play();
 }
 
 
+// buttons
+btnPause = document.querySelector("#btnPause");
 
-function soundPress(element, player) {
+btnDo = document.querySelector("#btn1");
 
-  player.currentTime = 0;
-  player.play();
-}
+btnRe = document.querySelector("#btn2");
 
+btnMi = document.querySelector("#btn3");
 
-async function getSounds() {
-  const response = await fetch('../sounds.json');
-  const json = await response.json();
-  return json;
-}
+btnFa = document.querySelector("#btn4");
 
-function addSoundToPage(sound) {
+btnSol = document.querySelector("#btn5");
 
-  var buttonNumbers = document.querySelectorAll(".btn-medium-numbers");
+btnLa = document.querySelector("#btn6");
 
-  buttonNumbers.forEach(buttonNumber=>{
- 
-  const player = document.createElement('audio');
-  player.setAttribute('src', `${sound.src}`)
-  buttonNumber.appendChild(player);
-  players.push({ player, buttonNumber });
+btnSi = document.querySelector("#btn7");
 
-  buttonNumber.addEventListener('mouseover', function(){
-    soundPress(buttonNumbers, player);
-  		
-  		});
-
-	});
-
-}
-
-
-
-
-function stopAll() {
-  players.forEach(({player}) => {
-    player.pause();
-  });
-}
-
+btnFa = document.querySelector("#btn4");
