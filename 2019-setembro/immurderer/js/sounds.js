@@ -16,6 +16,8 @@ let pianoSounds = {
   RÈ: new sound("./js/sounds/piano_notes/re.mp3")
 };
 
+let curse_sound = new sound("./js/sounds/baby_shark.mp3");
+
 function sound(src) {
   this.sound = document.createElement("audio");
   this.sound.src = src;

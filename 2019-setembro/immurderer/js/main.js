@@ -26,7 +26,7 @@ function press(e) {
         gameOperacao();
         handleEnter();
         break;
-      case "NÚMERO DO MEIO":
+      case "NUMERO DO MEIO":
         numeroDoMeio();
         handleEnter();
         break;
@@ -37,6 +37,10 @@ function press(e) {
       case "POKEMON":
         pokemon();
         handleEnter();
+        break;
+      case "🦈":
+        curse_sound.play();
+        show("666B4BY5H4RKW1LL34TY0UR50UL666");
         break;
       case "ENTER":
         handleEnter();

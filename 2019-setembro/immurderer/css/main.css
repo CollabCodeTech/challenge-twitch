@@ -192,6 +192,7 @@ ul {
 .btn-lg {
   width: 100px;
   height: 145px;
+  font-size: 28px;
 }
 .btn span {
   height: 50%;
