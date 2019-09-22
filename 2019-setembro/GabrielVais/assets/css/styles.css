@@ -66,9 +66,12 @@ html, body{
 
 .tela-content span{
 
-		font-size:60px;
-		color:#b71540;
-		letter-spacing: 0.5rem; 
+
+	font-size:30px;
+	color:#b71540;
+	letter-spacing: 0.5rem; 
+	white-space: nowrap; 
+ 	overflow: hidden;
 
 }
 
@@ -143,8 +146,11 @@ html, body{
 
 .btn-medium-numbers span{
 
-	color:red;
-	font-size:8px;
+	color:#ffff;
+	font-size:12px;
+	width:50px;
+	height:100%;
+	background:#A52A2A;
 
 }
 
@@ -186,6 +192,14 @@ html, body{
 #btnLimpar{
 	
 	background:#eb4d4b;
+
+}
+
+
+#btnLimpar:hover{
+	
+	background:#A52A2A;
+	transition:ease 0.3s;
 
 }
 
@@ -275,15 +289,6 @@ html, body{
 
 }
 
-.tela-content span{
-
-	font-size:30px;
-	color:#b71540;
-	letter-spacing: 0.5rem; 
-	 white-space: nowrap; 
- 	 overflow: hidden;
-}
-
 .content{
 
 	width:620px;
@@ -314,6 +319,7 @@ html, body{
 	font-size:22px;
 
 }
+
 
 
 
@@ -379,8 +385,18 @@ html, body{
 .btn-medium-numbers{
 
 	width:30px;
-	height:50px;
+	height:40px;
 	font-size:16px;
+
+}
+
+
+.btn-medium-numbers span{
+
+
+	width:30px;
+	font-size:11px;
+	overflow:hidden;
 
 }
 
@@ -448,6 +464,15 @@ html, body{
 
 }
 
+.btn-medium-numbers span{
+
+
+	width:18px;
+	font-size:11px;
+
+
+}
+
 
 .input-items .input-group-2 .btn-medium-output{
 
@@ -493,7 +518,7 @@ html, body{
 	
 	width:50px;
 	height:60px;
-	font-size:13px;
+	font-size:11px;
 
 }
 
@@ -515,6 +540,16 @@ html, body{
 	font-size:16px;
 
 }
+
+.btn-medium-numbers span{
+
+
+	width:100%;
+	font-size:16px;
+
+
+}
+
 
 
 .input-items .input-group-2 .btn-medium-output{

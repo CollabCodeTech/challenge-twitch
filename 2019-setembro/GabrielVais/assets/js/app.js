@@ -75,12 +75,25 @@ for (button in buttons) {
         action = null;
         current = 0;
         output.innerText = 0;
-      } else {
+      
+      }else if(input.length >= 2){
+
+       	e.preventDefault();
+        console.log("clique em um numero caso queira usar a calculadora");
+
+      }else{
         if (action && action !== '=') {
 
           var calculation = current + actions[action] + parseInt(output.innerText);
+
+          if(isNaN(calculation)){
+
+          	  output.innerText = 0;
+
+          }
+
           console.log('calculate', calculation);
-          output.innerText = eval(calculation);   	
+          output.innerText = eval(calculation).toFixed(3);   	
         }
         current = parseInt(output.innerText);
         action = input;
@@ -127,4 +140,27 @@ btnLa = document.querySelector("#btn6");
 
 btnSi = document.querySelector("#btn7");
 
-btnFa = document.querySelector("#btn4");
+btnDo2 = document.querySelector("#btn8");
+
+btnRê = document.querySelector("#btn9");
+
+
+btnsAll = document.querySelectorAll(".btn-medium-numbers");
+
+
+btnsAll.forEach(btn =>{
+
+	btn.addEventListener('click', function(e){
+
+		let input = e.target.innerText;
+
+		if(input === 'Pausa'){
+
+			alert("biribinha");
+		}
+
+
+	});
+
+});
+
