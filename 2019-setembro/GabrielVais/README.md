@@ -1,4 +1,4 @@
-#Challenge Twitch Setembro Finalizado
+# Challenge Twitch Setembro Finalizado
 
 * Tecnologias utilizadas
 
@@ -14,6 +14,8 @@ Implementar a função de calculadora e de som no mesmo botao sem ocorrer confli
 
 
 ## Projeto finalizado
+(https://gabrielvais.github.io/desafio-collab-demonstracao/.)
+
 
 
 
