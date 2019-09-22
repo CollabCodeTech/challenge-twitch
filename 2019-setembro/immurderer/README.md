@@ -1,13 +1,13 @@
 ![Pense Bem](https://i.imgur.com/ldxhetL.png)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3ad0b86f-d9b6-4608-8ecf-0e82bb0111c6/deploy-status)](https://immurderer-pense-bem.netlify.com)
+
 ## Pense Bem by ImMurderer
 
 Minha ideia foi manter o layout original.
 As cores foram adaptadas, visto que estavam muito saturadas, para a paleta foi usada uma [Flat Aussie](https://flatuicolors.com/palette/au).
 Preferi não manter uma cor sólida ou degradê no fundo, então foi escolhido o pattern [Hodge Podge](http://thepatternlibrary.com/#hodgepodge).
-O site está relativamente responsivo, há apenas alguns erros em questão de tamanho das linhas de botões.
-
-[Live Version](https://immurderer-pense-bem.netlify.com/)
+O site está relativamente responsivo, há apenas alguns erros em questão de tamanho das linhas de botões. Há também um problema de saturação com os emojis no android, que ficam praticamente invisiveis nos botões grandes.
 
 ---
 

@@ -149,14 +149,14 @@ body {
   align-items: center;
 }
 
-#keys > :first-child {
+#keys > :first-child > :first-child {
   margin-top: 15px;
   align-self: flex-start;
 }
-#keys > :nth-child(2) {
+#keys > :nth-child(2) > :first-child {
   align-self: flex-end;
 }
-#keys > :last-child {
+#keys > :last-child > :first-child {
   font-size: 0.6em;
   align-self: flex-start;
 }
@@ -268,7 +268,7 @@ ul {
   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 770px) {
   #front {
     position: relative;
   }
@@ -293,28 +293,34 @@ ul {
   #keyboard {
     border-radius: 0px;
   }
+  .double-stacked {
+    padding-top: 15px;
+  }
   .btn,
   .btn-lg {
-    width: 64px;
-    height: 64px;
+    max-width: 64px;
+    max-height: 64px;
     font-size: 12px;
   }
   .btn-lg {
-    width: 72px;
-    height: 72px;
+    max-width: 64px;
+    max-height: 64px;
   }
 }
-
 @media screen and (min-width: 1500px) {
   .btn,
   .btn-lg {
     width: 82px;
     height: 82px;
-    font-size: 12px;
+    font-size: 16px;
   }
   .btn-lg {
     width: 142px;
     height: 142px;
+    font-size: 32px;
+  }
+  .btn > span {
+    line-height: 250%;
   }
 }
 
@@ -324,16 +330,19 @@ ul {
 }
 .yellow {
   background-color: #f9ca24;
-  color: green;
+  color: #324e08;
 }
 .blue {
   background-color: #4834d4;
 }
 .green {
   background-color: #6ab04c;
+  color: #1e1e1e;
 }
 .red {
   background-color: #eb4d4b;
+  color: #1e0c0c;
+  font-weight: bold;
 }
 
 .pink,
