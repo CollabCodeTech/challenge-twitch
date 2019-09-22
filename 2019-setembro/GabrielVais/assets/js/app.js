@@ -93,7 +93,7 @@ for (button in buttons) {
           }
 
           console.log('calculate', calculation);
-          output.innerText = eval(calculation).toFixed(3);   	
+          output.innerText = eval(calculation).toFixed(0);   	
         }
         current = parseInt(output.innerText);
         action = input;
@@ -144,9 +144,12 @@ btnDo2 = document.querySelector("#btn8");
 
 btnRê = document.querySelector("#btn9");
 
-
 btnsAll = document.querySelectorAll(".btn-medium-numbers");
 
+
+var audio = '';
+
+var pause = false;
 
 btnsAll.forEach(btn =>{
 
@@ -154,13 +157,69 @@ btnsAll.forEach(btn =>{
 
 		let input = e.target.innerText;
 
-		if(input === 'Pausa'){
+		if(display.classList.contains("ligado")){
 
-			alert("biribinha");
+			switch(input) {
+			  
+			  case 'Pausa':
+
+			  	  if(pause){
+
+			  	  	pause = false;
+
+			  	  }else{
+
+			  	  	pause = true;
+			  	  }
+
+			    break;
+			 case 'DÓ':
+			    	getAudio("./assets/sounds/do.wav");
+			    break;
+			 case 'RÉ':
+			    	getAudio("./assets/sounds/re.wav");
+			    break;
+			 case 'MI':
+			    	getAudio("./assets/sounds/mi.wav");
+			    break;
+			 case 'FÁ':
+			    	getAudio("./assets/sounds/fa.wav");
+			    break;
+			 case 'FÁ':
+			    	getAudio("./assets/sounds/sol.wav");
+			    break;
+			 case 'SOL':
+			    	getAudio("./assets/sounds/la.wav");
+			    break;
+			 case 'LÁ':
+			    	getAudio("./assets/sounds/si.wav");
+			    break;
+			 case 'SI':
+			    	getAudio("./assets/sounds/do-stretched.wav");
+			    break;
+			 case 'DÒ':
+			    	getAudio("./assets/sounds/re-stretched.wav");
+			    break;
+			 case 'RÈ':
+			    	getAudio("./assets/sounds/do.wav");
+			    break;
+			  default:console.log('Botao invalido');
+			}
+
 		}
-
 
 	});
 
 });
 
+
+function getAudio(src){
+
+	if(pause === false){
+
+		audio = new Audio(src);
+
+		audio.play();
+
+	}
+}

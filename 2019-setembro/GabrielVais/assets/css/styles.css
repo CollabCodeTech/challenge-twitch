@@ -100,7 +100,6 @@ html, body{
 	margin:auto;
 	flex-wrap:wrap;
 	align-items:center;
-
 }
 
 .input-items .input-group .btn-big{
@@ -119,6 +118,8 @@ html, body{
 
 }
 
+
+
 .input-items .input-group-2 .btn-medium{
 
 
@@ -127,6 +128,7 @@ html, body{
 	color:#FFFF;
 	font-size:22px;
 	border-radius:10px;
+	margin-left:18px;
 
 }
 
@@ -162,6 +164,7 @@ html, body{
 .btn-medium-numbers:hover{
 
 	cursor:pointer;
+	opacity:0.8;
 }
 
 
@@ -169,6 +172,7 @@ html, body{
 .input-items .input-group-2 .btn-medium:hover{
 
 	cursor:pointer;
+
 }
 
 
@@ -185,6 +189,7 @@ html, body{
 .input-items .input-group-2 .btn-medium-output:hover{
 
 	cursor:pointer;
+	opacity:0.7;
 	
 }
 
@@ -209,10 +214,28 @@ html, body{
 
 }
 
+#btnDesligar:hover{
+	
+	background:#B22222	;
+	transition:ease 0.3s;
+
+
+}
+
+
 #btnLigar{
 
 	background:#05c46b;
 }
+
+
+#btnLigar:hover{
+
+	background:#006400;
+	transition:ease 0.3s;
+
+}
+
 
 
 .desligado{
