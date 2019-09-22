@@ -14,7 +14,7 @@ Implementar a função de calculadora e de som no mesmo botao sem ocorrer confli
 
 
 ## Projeto finalizado
-(https://gabrielvais.github.io/desafio-collab-demonstracao/.)
+https://gabrielvais.github.io/desafio-collab-demonstracao/.
 
 
 

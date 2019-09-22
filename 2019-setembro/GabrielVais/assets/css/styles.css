@@ -135,11 +135,11 @@ html, body{
 .btn-medium-numbers{
 
 	width:50px;
-	height:50px;
+	height:70px;
 	margin:10px 10px 20px 0px;
 	color:#3c40c6;
 	background:#FFF;
-	font-size:22px;
+	font-size:30px;
 	display:flex;
 	flex-direction:column;
 	align-items:center;
@@ -153,6 +153,9 @@ html, body{
 	width:50px;
 	height:100%;
 	background:#A52A2A;
+	display:flex;
+	justify-content:center;
+	align-items:center;
 
 }
 
@@ -274,28 +277,6 @@ html, body{
 
 
 /*RESPONSIVIDADE ---------------------------- //*/
-
-
-@media (min-width: 1281px) {
-  
-  
-}
-
-/* 
-  ##Device = Laptops, Desktops
-  ##Screen = B/w 1025px to 1280px
-*/
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-  
-  
-}
-
-/* 
-  ##Device = Tablets, Ipads (portrait)
-  ##Screen = B/w 768px to 1024px
-*/
-
 @media (min-width: 690px) and (max-width: 1024px) {
 
 
@@ -334,18 +315,6 @@ html, body{
 	height:88px;
 	font-size:22px;
 }
-
-.btn-medium-numbers{
-
-	width:50px;
-	height:50px;
-	font-size:22px;
-
-}
-
-
-
-
 
 .input-items .input-group-2 .btn-medium-output{
 
@@ -408,8 +377,8 @@ html, body{
 .btn-medium-numbers{
 
 	width:30px;
-	height:40px;
-	font-size:16px;
+	height:55px;
+	font-size:18px;
 
 }
 
@@ -482,7 +451,7 @@ html, body{
 .btn-medium-numbers{
 
 	width:18px;
-	height:25px;
+	height:47px;
 	font-size:16px;
 
 }
@@ -491,7 +460,7 @@ html, body{
 
 
 	width:18px;
-	font-size:11px;
+	font-size:7px;
 
 
 }
@@ -505,9 +474,8 @@ html, body{
 
 	
 	}
-  
-  
 }
+
 
 
 @media (max-width: 320px){
@@ -558,8 +526,8 @@ html, body{
 
 .btn-medium-numbers{
 
-	width:100%;
-	height:25px;
+	width:22px;
+	height:35px;
 	font-size:16px;
 
 }
@@ -567,8 +535,8 @@ html, body{
 .btn-medium-numbers span{
 
 
-	width:100%;
-	font-size:16px;
+	width:22px;
+	font-size:8px;
 
 
 }
