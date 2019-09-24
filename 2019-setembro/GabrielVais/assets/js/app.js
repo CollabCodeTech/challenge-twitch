@@ -21,6 +21,9 @@ if(display.classList.contains("desligado") || display.classList.contains("animat
 
 	display.classList.add("ligado");
 
+	getAudio("./assets/sounds/button-3.mp3");
+
+
 	}
 
 
@@ -42,7 +45,11 @@ btnDesligar.addEventListener('click', function(){
 
 	display.classList.remove("ligado");
 
+	getAudio("./assets/sounds/button-2.mp3");
+
 	display.classList.add("animation");
+
+
 
 
 	}
@@ -69,12 +76,16 @@ for (button in buttons) {
 
     var input = e.target.innerText;
     var num = parseInt(input);
+
     if (isNaN(num)) {
       if (input == 'Limpar') {
         console.log('clear');
         action = null;
         current = 0;
         output.innerText = 0;
+
+        getAudio("./assets/sounds/button-38.mp3");
+
       
       }else if(input.length >= 2){
 
@@ -91,14 +102,19 @@ for (button in buttons) {
           	  output.innerText = 0;
 
           }
-
           console.log('calculate', calculation);
           output.innerText = eval(calculation).toFixed(0);   	
         }
+
+       getAudio("./assets/sounds/beep-23.mp3");
+
         current = parseInt(output.innerText);
         action = input;
       }
     } else {
+
+      getAudio("./assets/sounds/click.mp3");
+
       if (current === parseInt(output.innerText)) {
         output.innerText = num;
       } else {
@@ -121,31 +137,7 @@ for (button in buttons) {
         var snd = new Audio(path + melody + ".wav");
        	snd.play();
 }
-
-
-// buttons
-btnPause = document.querySelector("#btnPause");
-
-btnDo = document.querySelector("#btn1");
-
-btnRe = document.querySelector("#btn2");
-
-btnMi = document.querySelector("#btn3");
-
-btnFa = document.querySelector("#btn4");
-
-btnSol = document.querySelector("#btn5");
-
-btnLa = document.querySelector("#btn6");
-
-btnSi = document.querySelector("#btn7");
-
-btnDo2 = document.querySelector("#btn8");
-
-btnRê = document.querySelector("#btn9");
-
 btnsAll = document.querySelectorAll(".btn-medium-numbers");
-
 
 var audio = '';
 

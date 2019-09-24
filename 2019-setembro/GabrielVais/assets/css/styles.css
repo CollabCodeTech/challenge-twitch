@@ -2,8 +2,6 @@
 
 	margin:0;
 	padding:0;
-	font-family: 'Roboto Slab', serif;
-
 
 }
 
@@ -61,17 +59,19 @@ html, body{
 	justify-content:center;
 	align-items:center;
 	opacity:0;
+
+
 }
 
 
 .tela-content span{
 
-
-	font-size:30px;
 	color:#b71540;
 	letter-spacing: 0.5rem; 
 	white-space: nowrap; 
  	overflow: hidden;
+ 	font-family: 'Orbitron', sans-serif;
+	font-size:50px;
 
 }
 
@@ -86,6 +86,11 @@ html, body{
 	flex-wrap:wrap;
 	padding-bottom:10px;
 	justify-content:flex-end;
+	border-radius:5px;
+	box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+	padding-top:10px;
+
+
 
 
 }
@@ -100,6 +105,7 @@ html, body{
 	margin:auto;
 	flex-wrap:wrap;
 	align-items:center;
+
 }
 
 .input-items .input-group .btn-big{
@@ -109,6 +115,10 @@ html, body{
 	border-radius:10px;
 	color:#FFFF;
 	font-size:30px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+	font-family:Verdana;
+	font-weight:bold;
+
 
 }
 
@@ -129,6 +139,10 @@ html, body{
 	font-size:22px;
 	border-radius:10px;
 	margin-left:18px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+	font-family:Verdana;
+	font-weight:bold;
+
 
 }
 
@@ -139,11 +153,14 @@ html, body{
 	margin:10px 10px 20px 0px;
 	color:#3c40c6;
 	background:#FFF;
-	font-size:30px;
+	font-size:27px;
 	display:flex;
 	flex-direction:column;
 	align-items:center;
+	box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
 	border-radius:5px;
+	font-family: 'Orbitron', sans-serif;
+
 }
 
 .btn-medium-numbers span{
@@ -156,6 +173,8 @@ html, body{
 	display:flex;
 	justify-content:center;
 	align-items:center;
+	border-radius:5px;
+	font-weight:bold;
 
 }
 
@@ -187,6 +206,11 @@ html, body{
 	font-size:30px;
 	background:#575fcf; 
 	border-radius:5px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+	font-family:verdana;
+	font-weight:bold;
+
+
 }
 
 .input-items .input-group-2 .btn-medium-output:hover{
@@ -301,9 +325,9 @@ html, body{
 
 .input-items .input-group .btn-big{
 	
-	width:90px;
+	width:150px;
 	height:88px;
-	font-size:15px;
+	font-size:25px;
 	margin-right:20px;
 
 }
@@ -349,6 +373,8 @@ html, body{
 	font-size:30px;
 	color:#b71540;
 	letter-spacing: 0.5rem; 
+	
+
 }
 
 .content{
@@ -359,10 +385,11 @@ html, body{
 
 .input-items .input-group .btn-big{
 	
-	width:90px;
+	width:120px;
 	height:88px;
-	font-size:13px;
+	font-size:20px;
 	margin-right:20px;
+
 
 }
 
