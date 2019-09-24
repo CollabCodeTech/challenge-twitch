@@ -1,7 +1,58 @@
 .pensebem-body {
   background-color: rgb(92, 92, 92);
   margin: 10px;
-
-  /* height: 400px; */
   height: 395px;
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "actions actions actions actions actions actions actions actions actions actions actions actions . enter enter book book off off on on"
+    "actions actions actions actions actions actions actions actions actions actions actions actions sum sum sub sub mult mult div div .";
+}
+
+.pensebem-body > .btn-actions {
+  grid-area: actions;
+  grid-column-start: 1;
+  grid-column-end: span 12;
+  grid-row-start: 1;
+  grid-row-end: span 2;
+  justify-self: center;
+  align-self: center;
+}
+
+.pensebem-body > .btn-actions > .btn {
+  height: 197px;
+  width: 105px;
+  transform: skewX(-15deg);
+  margin-left: 5px;
+}
+
+.pensebem-body > .btn-enter {
+  grid-area: enter;
+}
+
+.pensebem-body > .btn-book {
+  grid-area: book;
+}
+
+.pensebem-body > .btn-off {
+  grid-area: off;
+}
+.pensebem-body > .btn-on {
+  grid-area: on;
+}
+
+.pensebem-body > .btn-sum {
+  grid-area: sum;
+}
+
+.pensebem-body > .btn-sub {
+  grid-area: sub;
+}
+
+.pensebem-body > .btn-mult {
+  grid-area: mult;
+}
+.pensebem-body > .btn-div {
+  grid-area: div;
 }
