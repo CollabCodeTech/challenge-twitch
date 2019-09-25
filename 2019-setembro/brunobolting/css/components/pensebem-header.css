@@ -14,7 +14,7 @@
 }
 
 .pensebem-header > .display-group > .display > .numbers {
-  color: var(--color-red-display);
+  color: var(--color-red);
   background-color: var(--color-black);
   font-family: "Seven Segments", serif;
   font-weight: normal;
