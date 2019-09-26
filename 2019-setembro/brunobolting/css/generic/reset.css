@@ -127,3 +127,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+button:focus {
+  outline: 0;
+}
+button::-moz-focus-inner {
+  border: 0;
+}

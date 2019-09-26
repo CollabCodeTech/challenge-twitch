@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/components/pensebem-body.css" />
     <link rel="stylesheet" href="css/objects/grey-border.css" />
     <link rel="stylesheet" href="css/objects/grey-border-inner.css" />
+    <link rel="stylesheet" href="css/objects/grey-scale.css" />
   </head>
   <body>
     <header class="header-page grey-border">
@@ -34,7 +35,7 @@
           <div class="pensebem-header">
             <div class="display-group">
               <div class="display">
-                <div class="numbers">11552220</div>
+                <div class="numbers grey-scale" id="display">0</div>
               </div>
               <div class="diskette">
                 <div class="shape"></div>
@@ -44,46 +45,47 @@
           </div>
           <div class="pensebem-body">
             <div class="btn-actions">
-              <button class="btn -red -fontL"><p class="text">A</p></button>
-              <button class="btn -yellow -fontL"><p class="text">B</p></button>
-              <button class="btn -blue -fontL"><p class="text">C</p></button>
-              <button class="btn -green -fontL"><p class="text">D</p></button>
+              <button music="01.mp3" class="btn -red -fontL grey-scale"></button>
+              <button music="02.mp3" class="btn -yellow -fontL grey-scale"></button>
+              <button music="03.mp3" class="btn -blue -fontL grey-scale"></button>
+              <button music="04.mp3" class="btn -green -fontL grey-scale"></button>
             </div>
 
-            <button class="btn -enter">ENTER</button>
-            <button class="btn -book">LIVRO</button>
-            <button class="btn -off">DESL.</button>
+            <button class="btn -enter grey-scale">ENTER</button>
+            <button class="btn -book grey-scale">LIVRO</button>
+            <button class="btn -off grey-scale">DESL.</button>
             <button class="btn -on">LIGA</button>
 
-            <button class="btn -sum">&#43;</button>
-            <button class="btn -sub">&#8211;</button>
-            <button class="btn -mult">&#215;</button>
-            <button class="btn -div">&#247;</button>
+            <button class="btn -sum grey-scale">&#43;</button>
+            <button class="btn -sub grey-scale">&#8211;</button>
+            <button class="btn -mult grey-scale">&#215;</button>
+            <button class="btn -div grey-scale">&#247;</button>
 
-            <button class="btn num -zero">0</button>
-            <button class="btn num -one">1</button>
-            <button class="btn num -two">2</button>
-            <button class="btn num -three">3</button>
-            <button class="btn num -four">4</button>
-            <button class="btn num -five">5</button>
-            <button class="btn num -six">6</button>
-            <button class="btn num -seven">7</button>
-            <button class="btn num -eight">8</button>
-            <button class="btn num -nine">9</button>
+            <button class="btn num -zero grey-scale">0</button>
+            <button sound="C.wav" class="btn num -one grey-scale">1</button>
+            <button sound="D.wav" class="btn num -two grey-scale">2</button>
+            <button sound="E.wav" class="btn num -three grey-scale">3</button>
+            <button sound="F.wav" class="btn num -four grey-scale">4</button>
+            <button sound="G.wav" class="btn num -five grey-scale">5</button>
+            <button sound="A.wav" class="btn num -six grey-scale">6</button>
+            <button sound="B.wav" class="btn num -seven grey-scale">7</button>
+            <button sound="C_High.wav" class="btn num -eight grey-scale">8</button>
+            <button sound="D_High.wav" class="btn num -nine grey-scale">9</button>
 
-            <button class="btn operations -adic">Adição</button>
-            <button class="btn operations -subt">Subtra-<br />ção</button>
-            <button class="btn operations -multi">Multi-<br />plicação</button>
-            <button class="btn operations -divi">Divisão</button>
-            <button class="btn operations -arit">Aritmé-<br />tica</button>
-            <button class="btn operations -oper">Opera-<br />ção</button>
-            <button class="btn operations -siga">Siga-me</button>
-            <button class="btn operations -memo">Memória<br />Tons</button>
-            <button class="btn operations -nume">Número<br />do<br />Meio</button>
-            <button class="btn operations -advi">Adivinhe<br />o<br />Número</button>
+            <button class="btn operations -adic grey-scale">Adição</button>
+            <button class="btn operations -subt grey-scale">Subtra-<br />ção</button>
+            <button class="btn operations -multi grey-scale">Multi-<br />plicação</button>
+            <button class="btn operations -divi grey-scale">Divisão</button>
+            <button class="btn operations -arit grey-scale">Aritmé-<br />tica</button>
+            <button class="btn operations -oper grey-scale">Opera-<br />ção</button>
+            <button class="btn operations -siga grey-scale">Siga-me</button>
+            <button class="btn operations -memo grey-scale">Memória<br />Tons</button>
+            <button class="btn operations -nume grey-scale">Número<br />do<br />Meio</button>
+            <button class="btn operations -advi grey-scale">Adivinhe<br />o<br />Número</button>
           </div>
         </div>
       </div>
     </div>
+    <script src="js/script.js"></script>
   </body>
 </html>

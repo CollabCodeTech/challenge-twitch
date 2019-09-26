@@ -36,6 +36,8 @@
   border-radius: 12px;
   color: var(--color-white);
   font: inherit;
+  cursor: pointer;
+  outline: none;
 }
 
 .pensebem-body > .btn-actions > .btn > .text {
@@ -51,21 +53,45 @@
   background-color: var(--color-red);
 }
 
+.pensebem-body > .btn-actions > .btn.-red::after {
+  content: "A";
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
 .pensebem-body > .btn-actions > .btn.-yellow {
   background-color: var(--color-yellow);
+}
+
+.pensebem-body > .btn-actions > .btn.-yellow::after {
+  content: "B";
+  display: inline-block;
+  transform: skewX(12deg);
 }
 
 .pensebem-body > .btn-actions > .btn.-blue {
   background-color: var(--color-deep-blue);
 }
 
+.pensebem-body > .btn-actions > .btn.-blue::after {
+  content: "C";
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
 .pensebem-body > .btn-actions > .btn.-green {
   background-color: var(--color-green);
 }
 
+.pensebem-body > .btn-actions > .btn.-green::after {
+  content: "D";
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
 .pensebem-body > .btn {
   background-color: red;
-  /* border: 2px solid; */
+  /* border: 2px inset ; */
   border-radius: 12px;
   width: 80px;
   height: 80px;
@@ -74,6 +100,7 @@
   font: inherit;
   font-size: 14pt;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .pensebem-body > .btn.-enter,
