@@ -19,6 +19,11 @@ let anyGameState = false;
 let currentGame = '';
 let music = [];
 let playingMusic = false;
+let time = 300;
+let sigameNotes = [];
+let playerTurn = false;
+let playerNotes = [];
+let score = 0;
 
 const state = {
   toy: false,
@@ -53,6 +58,7 @@ const activateGame = (game) => {
     console.log(`${game}:`, state[game]);
     return;
   }
+  if (game === 'sigaMe') sigaMe();
   setToDisplay(game);
   currentGame = game;
   state[game] = true;
@@ -76,6 +82,7 @@ const playSound = () => {
 
 const playPiano = (note, playing = false) => {
   console.log('Note played:', note);
+  setToDisplay(note);
   if (note != 0) {
     $pianoAudios[note - 1].pause();
     $pianoAudios[note - 1].currentTime = 0;
@@ -86,8 +93,6 @@ const playPiano = (note, playing = false) => {
     saveNotes(note);
   }
 }
-
-let time = 300;
 
 const saveNotes = (note) => {
   if (note == 0) time = 600;
@@ -100,18 +105,52 @@ const saveNotes = (note) => {
 const playMusic = async (musicNotes) => {
   for (let i = 0; i < musicNotes.length; i++) {
     let note = musicNotes[i][0];
-    let time = musicNotes[i][1];
+    let time = musicNotes[i][1] - 100;
 
-    clickAnimation(note);
     await sleep(time);
-    clickAnimation(note);
+    await clickAnimation(note);
     playPiano(note, true);
   }
   playingMusic = false;
 }
 
-const clickAnimation = (key) => {
+const clickAnimation = async (key) => {
   $numbersNotesButtons[key].classList.toggle('button-pressed');
+  await sleep(100);
+  $numbersNotesButtons[key].classList.toggle('button-pressed');
+}
+
+const sigaMe = () => {
+  playerTurn = false;
+  let randomNote = Math.floor(Math.random() * 9) + 1;
+  sigameNotes.push([randomNote, 400]);
+  playMusic(sigameNotes);
+  playerTurn = true;
+  playerNotes = [];
+  score += 100;
+}
+
+const sigaMePlayer = async (note) => {
+  if (playerTurn) {
+    playerNotes.push([note, 400]);
+    let length = playerNotes.length - 1;
+    if (!(playerNotes[length][0] 
+       == sigameNotes[length][0])) {
+        console.log('Player:', playerNotes[length][0]);
+        console.log('Jogo:', sigameNotes[length][0]);
+        setToDisplay(`Pontos: ${score}`);
+        playerTurn = false;
+        sigameNotes = [];
+        deactivateGames();
+        return;
+    }
+
+    if (playerNotes.length == sigameNotes.length) {
+      setToDisplay(`Pontos: ${score}`);
+      await sleep(500);
+      sigaMe();
+    }
+  }
 }
 
 $enter.addEventListener('click', () => {
@@ -153,9 +192,10 @@ $allButtons.forEach(button => {
 
     if (state.toy 
     && button.innerHTML.match(/[0-9]/)
-    && (state.piano || state.memoriaDeTons)
+    && (state.piano || state.memoriaDeTons || state.sigaMe)
     && !playingMusic) {
       playPiano(button.innerHTML);
+      if (state.sigaMe) sigaMePlayer(button.innerHTML);
       return;
     }
 
