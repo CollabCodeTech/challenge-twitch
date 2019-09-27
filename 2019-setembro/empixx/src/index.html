@@ -31,10 +31,10 @@
         <!-- Functions and operations -->
         <div class="col">
           <div class="functions">
-            <button>ENTER</button>
+            <button class="enter">ENTER</button>
             <button>LIVRO</button>
-            <button>DESLIGA</button>
-            <button>LIGA</button>
+            <button class="onoff">DESLIGAR</button>
+            <button class="onoff">LIGAR</button>
           </div>
           <div class="operations">
             <button>+</button>
@@ -61,20 +61,31 @@
 
       <!-- Games -->
       <div class="row games">
-        <button>Adição</button>
-        <button>Subtração</button>
-        <button>Multiplicação</button>
-        <button>Divisão</button>
-        <button>Aritmética</button>
-        <button>Operação</button>
-        <button>Siga-me</button>
-        <button>Memória de tons</button>
-        <button>Número do meio</button>
-        <button>Advinhe o número</button>
-        <button>Piano</button>
+        <button data-game="adicao">Adição</button>
+        <button data-game="subtracao">Subtração</button>
+        <button data-game="multiplicacao">Multiplicação</button>
+        <button data-game="divisao">Divisão</button>
+        <button data-game="aritmetica">Aritmética</button>
+        <button data-game="operacao">Operação</button>
+        <button data-game="sigaMe">Siga-me</button>
+        <button data-game="memoriaDeTons">Memória de tons</button>
+        <button data-game="numeroDoMeio">Número do meio</button>
+        <button data-game="adivinheONumero">Advinhe o número</button>
+        <button data-game="piano">Piano</button>
       </div>
     </div>
   </div>
+
+  <audio class="piano-notes" src="../assets/sounds/piano_notes/1.wav"></audio>
+  <audio class="piano-notes" src="../assets/sounds/piano_notes/2.wav"></audio>
+  <audio class="piano-notes" src="../assets/sounds/piano_notes/3.wav"></audio>
+  <audio class="piano-notes" src="../assets/sounds/piano_notes/4.wav"></audio>
+  <audio class="piano-notes" src="../assets/sounds/piano_notes/5.wav"></audio>
+  <audio class="piano-notes" src="../assets/sounds/piano_notes/6.wav"></audio>
+  <audio class="piano-notes" src="../assets/sounds/piano_notes/7.wav"></audio>
+  <audio class="piano-notes" src="../assets/sounds/piano_notes/8.wav"></audio>
+  <audio class="piano-notes" src="../assets/sounds/piano_notes/9.wav"></audio>
+  <audio class="others" src="../assets/sounds/others_sounds/on.mp3"></audio>
 
   <script src="js/script.js"></script>
 </body>

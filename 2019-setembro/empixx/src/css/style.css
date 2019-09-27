@@ -83,7 +83,7 @@ button:disabled {
 /* Display */
 .display {
   background-color: var(--coal);
-  color: var(--strawberry);
+  color: rgb(78, 80, 82);
   padding: 6px 14px 14px 14px;
   border-radius: 10px;
   font-size: 3em;
@@ -107,9 +107,7 @@ button:disabled {
 }
 
 .additional .letters {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
 .additional .letters button {
