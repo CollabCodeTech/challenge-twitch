@@ -2,7 +2,9 @@ window.onload = function script() {
   let buttons = document.querySelectorAll("button.btn");
   let on = document.querySelector("button.btn.-on");
   let off = document.querySelector("button.btn.-off");
+  let enter = document.querySelector("button.btn.-enter");
   let display = document.getElementById("display");
+  let clearDisplay = true;
 
   on.addEventListener("click", event => {
     if (event.target.classList.contains("grey-scale") == false) {
@@ -10,27 +12,39 @@ window.onload = function script() {
     }
     display.innerHTML = "Hello";
     turnOn(buttons);
-    addEventSound(buttons);
+    addEvent(buttons);
   });
 
   off.addEventListener("click", () => {
     display.innerHTML = "0";
     turnOff(buttons);
-    removeEventSound(buttons);
+    removeEvent(buttons);
   });
 
-  function addEventSound(buttons) {
+  enter.addEventListener("click", () => {
+    let oper = display.innerHTML;
+    display.innerHTML = eval(oper);
+    clearDisplay = true;
+  });
+
+  function addEvent(buttons) {
     buttons.forEach(element => {
       if (element.hasAttribute("sound") && element.classList.contains("grey-scale") == false) {
         element.addEventListener("click", playSound);
       }
-      if (element.hasAttribute("music")) {
+      if (element.hasAttribute("music") && element.classList.contains("grey-scale") == false) {
         element.addEventListener("click", playMusic);
+      }
+      if (
+        (element.classList.contains("num") || element.classList.contains("operators")) &&
+        element.classList.contains("grey-scale") == false
+      ) {
+        element.addEventListener("click", writeDisplay);
       }
     });
   }
 
-  function removeEventSound(buttons) {
+  function removeEvent(buttons) {
     buttons.forEach(element => {
       if (element.hasAttribute("sound")) {
         element.removeEventListener("click", playSound);
@@ -46,6 +60,11 @@ window.onload = function script() {
     let audio = new Audio(`assets/sounds/${sound}`);
     audio.volume = 1;
     audio.play();
+
+    if (clearDisplay) {
+      display.innerHTML = "";
+      clearDisplay = false;
+    }
   }
 
   function playMusic(event) {
@@ -77,6 +96,7 @@ window.onload = function script() {
     });
     display.classList.remove("grey-scale");
     display.innerHTML = "Hello";
+    clearDisplay = true;
   }
 
   function turnOff(buttons) {
@@ -89,5 +109,13 @@ window.onload = function script() {
     });
     display.classList.add("grey-scale");
     display.innerHTML = "0";
+  }
+
+  function writeDisplay(event) {
+    if (clearDisplay) {
+      display.innerHTML = "";
+      clearDisplay = false;
+    }
+    display.innerHTML += event.target.attributes.value.value;
   }
 };

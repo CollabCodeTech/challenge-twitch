@@ -23,6 +23,7 @@
   padding: 10px;
   padding-right: 20px;
   font-size: 90pt;
+  overflow: hidden;
 }
 
 .pensebem-header > .display-group > .diskette {
