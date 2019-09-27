@@ -1,7 +1,214 @@
+/* Font */
+@font-face {
+  font-family: Open24;
+  src: url('../../assets/fonts/Open\ 24\ Display\ St.ttf');
+}
+
+/* Root */
+:root {
+  --coal: #24292e;
+  --light: #ecf0f1;
+  --cream: #fcf6f2;
+  --strawberry: #e74c3c;
+  --sun: #f1c40f;
+  --ocean: #3498db;
+  --leaf: #2ecc71;
+}
+
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
   font-family: sans-serif;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+button {
+  font-weight: bold;
+  background-color: var(--light);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  border: 2px solid var(--coal);
+  -webkit-box-shadow: 1px 1px 0px 1px var(--coal);
+  -moz-box-shadow: 1px 1px 0px 1px var(--coal);
+  box-shadow: 1px 1px 0px 1px var(--coal);
+}
+
+button:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transform: translate(2px, 2px);
+  -ms-transform: translate(2px, 2px);
+  transform: translate(2px, 2px);
+}
+
+button:disabled {
+  opacity: .5;
+}
+
+/* Container */
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--coal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Content */
+.content {
+  background-color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+/* Display */
+.display {
+  background-color: var(--coal);
+  color: var(--strawberry);
+  padding: 6px 14px 14px 14px;
+  border-radius: 10px;
+  font-size: 3em;
+}
+
+.display p {
+  font-family: 'Open24';
+  letter-spacing: 10px;
+}
+
+/* Additional */
+.additional {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.additional .col {
+  width: 50%;
+  text-align: center;
+}
+
+.additional .letters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.additional .letters button {
+  font-size: 3em;
+  padding: 30px 20px;
+  margin-right: 20px;
+  border: none;
+  color: var(--light);
+  border-radius: 15px;
+  transform: skew(-20deg);
+  border: 2px solid var(--coal);
+  -webkit-box-shadow: 3px 3px 0px 1px var(--coal);
+  -moz-box-shadow: 3px 3px 0px 1px var(--coal);
+  box-shadow: 3px 3px 0px 2px var(--coal);
+}
+
+.additional .letters button:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  transform: skew(-20deg) translate(3px, 3px);
+}
+
+.additional .letters button:nth-child(1),
+.functions button:nth-child(3) {
+  background-color: var(--strawberry);
+  color: var(--light);
+}
+.additional .letters button:nth-child(2) {
+  background-color: var(--sun);
+}
+.additional .letters button:nth-child(3) {
+  background-color: var(--ocean);
+}
+.additional .letters button:nth-child(4),
+.functions button:nth-child(4) {
+  background-color: var(--leaf);
+  color: var(--light);
+}
+
+.operations button {
+  background-color: var(--ocean);
+  color: var(--light);
+  width: 50px;
+}
+
+.numbers-notes {
+  text-align: center;
+}
+
+.numbers-notes button {
+  padding: 10px 0 0 0;
+}
+
+.numbers-notes button::after {
+  display: block;
+  background-color: var(--strawberry);
+  padding: 6px;
+  width: 70px;
+  color: var(--light);
+}
+
+.numbers-notes button:nth-child(1)::after {
+  content: 'PAUSE';
+}
+.numbers-notes button:nth-child(2)::after {
+  content: 'DÓ';
+}
+.numbers-notes button:nth-child(3)::after {
+  content: 'RÉ';
+}
+.numbers-notes button:nth-child(4)::after {
+  content: 'MI';
+}
+.numbers-notes button:nth-child(5)::after {
+  content: 'FÁ';
+}
+.numbers-notes button:nth-child(6)::after {
+  content: 'SOL';
+}
+.numbers-notes button:nth-child(7)::after {
+  content: 'LÁ';
+}
+.numbers-notes button:nth-child(8)::after {
+  content: 'SI';
+}
+.numbers-notes button:nth-child(9)::after {
+  content: 'DÓ';
+}
+.numbers-notes button:nth-child(10)::after {
+  content: 'RÉ';
+}
+
+.games {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.games button {
+  background-color: var(--sun);
 }
