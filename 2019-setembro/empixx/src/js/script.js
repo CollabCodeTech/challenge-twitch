@@ -4,9 +4,10 @@ const $pianoAudios = document.querySelectorAll('.piano-notes');
 const $othersAudios = document.querySelector('.others');
 const $onoff = document.querySelectorAll('.onoff');
 const $enter = document.querySelector('.enter');
+const $numbersNotesButtons = document.querySelectorAll('.numbers-notes button');
 
 document.querySelectorAll('audio').forEach(audio => {
-  audio.volume = 0.2;
+  audio.volume = 0.8;
 });
 
 const sounds = {
@@ -92,17 +93,25 @@ const saveNotes = (note) => {
   if (note == 0) time = 600;
   if (note != 0) {
     music[music.length] = [note, time];
-    console.log(music);
     time = 300;
   }
 }
 
 const playMusic = async (musicNotes) => {
   for (let i = 0; i < musicNotes.length; i++) {
-    await sleep(musicNotes[i][1] - 50);
-    playPiano(musicNotes[i][0], true);
+    let note = musicNotes[i][0];
+    let time = musicNotes[i][1];
+
+    clickAnimation(note);
+    await sleep(time);
+    clickAnimation(note);
+    playPiano(note, true);
   }
   playingMusic = false;
+}
+
+const clickAnimation = (key) => {
+  $numbersNotesButtons[key].classList.toggle('button-pressed');
 }
 
 $enter.addEventListener('click', () => {
@@ -144,14 +153,15 @@ $allButtons.forEach(button => {
 
     if (state.toy 
     && button.innerHTML.match(/[0-9]/)
-    && (state.piano || state.memoriaDeTons)) {
+    && (state.piano || state.memoriaDeTons)
+    && !playingMusic) {
       playPiano(button.innerHTML);
       return;
     }
 
-    if (!anyGameState && state.toy) playSound();
+    if (!anyGameState && state.toy && !playingMusic) playSound();
 
-    if (games.includes(button.dataset.game)) {
+    if (games.includes(button.dataset.game) && !playingMusic) {
       activateGame(button.dataset.game);
     } 
   });

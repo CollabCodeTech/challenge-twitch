@@ -43,7 +43,7 @@ button {
   box-shadow: 1px 1px 0px 1px var(--coal);
 }
 
-button:active {
+button:active, .button-pressed {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;

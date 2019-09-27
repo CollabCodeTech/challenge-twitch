@@ -8,3 +8,5 @@
 - [ ] Salvar músicas
 - [ ] Mostrar apenas 6 digitos no display
 - [ ] Mostrar visualmente qual jogo está ativo mudando as classes dos botões
+
+**Bugs para arrumar (que eu tenho conhecimento LUL)**
