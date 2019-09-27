@@ -6,9 +6,9 @@ const $onoff = document.querySelectorAll('.onoff');
 const $enter = document.querySelector('.enter');
 const $numbersNotesButtons = document.querySelectorAll('.numbers-notes button');
 
-document.querySelectorAll('audio').forEach(audio => {
-  audio.volume = 0.8;
-});
+// document.querySelectorAll('audio').forEach(audio => {
+//   audio.volume = 0.8;
+// });
 
 const sounds = {
   turOn: '../assets/sounds/others_sounds/on.mp3',
@@ -146,15 +146,7 @@ const sigaMePlayer = async (note) => {
        == sigameNotes[length][0])) {
         console.log('Player:', playerNotes[length][0]);
         console.log('Jogo:', sigameNotes[length][0]);
-        setToDisplay(`Pontos: ${score}`);
-        score = 0;
-        playerTurn = false;
-        sigameNotes = [];
-        deactivateGames();
-        $othersAudios.src = sounds.lose;
-        playSound();
-        await sleep(1000);
-        $othersAudios.src = sounds.click;
+        await gameOver();
         return;
     }
 
@@ -187,16 +179,9 @@ const operacaoPlayer = async (answer) => {
       operacao();
       return;
     }
-    
+
     console.log('lose :(');
-    score = 0;
-    playerTurn = false;
-    setToDisplay(`Pontos: ${score}`);
-    deactivateGames();
-    $othersAudios.src = sounds.lose;
-    playSound();
-    await sleep(1000);
-    $othersAudios.src = sounds.click;
+    await gameOver();
   }
 }
 
@@ -209,6 +194,18 @@ const getRandomMath = (refresh = false) => {
   calc.push(Math.floor(Math.random() * 99));
   calc.push(eval(`${calc[0]} ${calc[1]} ${calc[2]}`));
   return calc;
+}
+
+const gameOver = async () => {
+  setToDisplay(`Pontos: ${score}`);
+  score = 0;
+  playerTurn = false;
+  sigameNotes = [];
+  deactivateGames();
+  $othersAudios.src = sounds.lose;
+  playSound();
+  await sleep(1000);
+  $othersAudios.src = sounds.click;
 }
 
 $enter.addEventListener('click', () => {
