@@ -10,3 +10,4 @@
 - [ ] Mostrar visualmente qual jogo está ativo mudando as classes dos botões
 
 **Bugs para arrumar (que eu tenho conhecimento LUL):**
+- [ ] Jogo: operação - quando existe o numero 0 e o resultado é o segundo numero pode ser as operações + e -  

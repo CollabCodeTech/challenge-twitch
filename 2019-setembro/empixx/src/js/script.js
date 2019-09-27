@@ -13,6 +13,7 @@ document.querySelectorAll('audio').forEach(audio => {
 const sounds = {
   turOn: '../assets/sounds/others_sounds/on.mp3',
   click: '../assets/sounds/others_sounds/click.mp3',
+  lose: '../assets/sounds/others_sounds/lose.mp3',
 }
 
 let anyGameState = false;
@@ -24,6 +25,9 @@ let sigameNotes = [];
 let playerTurn = false;
 let playerNotes = [];
 let score = 0;
+let operation = '';
+
+const operations = ['+', '-', '*', '/'];
 
 const state = {
   toy: false,
@@ -50,7 +54,7 @@ const setToDisplay = (value) => {
   $display.innerHTML = value;
 }
 
-const activateGame = (game) => {
+const activateGame = async (game) => {
   deactivateGames();
   if (currentGame === game) {
     currentGame = '';
@@ -58,8 +62,13 @@ const activateGame = (game) => {
     console.log(`${game}:`, state[game]);
     return;
   }
-  if (game === 'sigaMe') sigaMe();
+
   setToDisplay(game);
+  await sleep(1500);
+
+  if (game === 'sigaMe') sigaMe();
+  if (game === 'operacao') operacao();
+
   currentGame = game;
   state[game] = true;
   console.log(`${game}:`, state[game]);
@@ -127,11 +136,10 @@ const sigaMe = () => {
   playMusic(sigameNotes);
   playerTurn = true;
   playerNotes = [];
-  score += 100;
 }
 
 const sigaMePlayer = async (note) => {
-  if (playerTurn) {
+  if (playerTurn && state.sigaMe) {
     playerNotes.push([note, 400]);
     let length = playerNotes.length - 1;
     if (!(playerNotes[length][0] 
@@ -139,18 +147,68 @@ const sigaMePlayer = async (note) => {
         console.log('Player:', playerNotes[length][0]);
         console.log('Jogo:', sigameNotes[length][0]);
         setToDisplay(`Pontos: ${score}`);
+        score = 0;
         playerTurn = false;
         sigameNotes = [];
         deactivateGames();
+        $othersAudios.src = sounds.lose;
+        playSound();
+        await sleep(1000);
+        $othersAudios.src = sounds.click;
         return;
     }
 
     if (playerNotes.length == sigameNotes.length) {
+      score += 100;
       setToDisplay(`Pontos: ${score}`);
       await sleep(500);
       sigaMe();
     }
   }
+}
+
+const operacao = () => {
+  let calc = getRandomMath();
+  if (calc[3] % 1 != 0 || calc[3] > 999) return getRandomMath(true);
+  setToDisplay(`${calc[0]} ? ${calc[2]} = ${calc[3]}`);
+  playerTurn = true;
+  operation = calc[1];
+  console.log(calc);
+}
+
+const operacaoPlayer = async (answer) => {
+  if (playerTurn && state.operacao) {
+    if (operation == answer) {
+      console.log('yey \\o/');
+      score += 100;
+      setToDisplay(`Pontos: ${score}`);
+      playerTurn = false;
+      await sleep(500);
+      operacao();
+      return;
+    }
+    
+    console.log('lose :(');
+    score = 0;
+    playerTurn = false;
+    setToDisplay(`Pontos: ${score}`);
+    deactivateGames();
+    $othersAudios.src = sounds.lose;
+    playSound();
+    await sleep(1000);
+    $othersAudios.src = sounds.click;
+  }
+}
+
+const getRandomMath = (refresh = false) => {
+  if (refresh) return operacao();
+
+  let calc = [];
+  calc.push(Math.floor(Math.random() * 99));
+  calc.push(operations[Math.floor(Math.random() * 4)]);
+  calc.push(Math.floor(Math.random() * 99));
+  calc.push(eval(`${calc[0]} ${calc[1]} ${calc[2]}`));
+  return calc;
 }
 
 $enter.addEventListener('click', () => {
@@ -190,14 +248,15 @@ $allButtons.forEach(button => {
   button.addEventListener('click', () => {
     if (!state.toy) return;
 
-    if (state.toy 
-    && button.innerHTML.match(/[0-9]/)
+    if (button.innerHTML.match(/[0-9]/)
     && (state.piano || state.memoriaDeTons || state.sigaMe)
     && !playingMusic) {
       playPiano(button.innerHTML);
       if (state.sigaMe) sigaMePlayer(button.innerHTML);
       return;
     }
+
+    if (state.operacao) operacaoPlayer(button.dataset.operation);
 
     if (!anyGameState && state.toy && !playingMusic) playSound();
 
