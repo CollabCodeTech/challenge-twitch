@@ -4,39 +4,28 @@ window.onload = function script() {
   let off = document.querySelector("button.btn.-off");
   let display = document.getElementById("display");
 
-  on.addEventListener("click", () => {
+  on.addEventListener("click", event => {
+    if (event.target.classList.contains("grey-scale") == false) {
+      playSound(event);
+    }
+    display.innerHTML = "Hello";
     turnOn(buttons);
     addEventSound(buttons);
   });
+
   off.addEventListener("click", () => {
+    display.innerHTML = "0";
     turnOff(buttons);
     removeEventSound(buttons);
   });
 
   function addEventSound(buttons) {
     buttons.forEach(element => {
-      if (element.hasAttribute("sound")) {
+      if (element.hasAttribute("sound") && element.classList.contains("grey-scale") == false) {
         element.addEventListener("click", playSound);
       }
       if (element.hasAttribute("music")) {
-        element.addEventListener("click", event => {
-          let sound = event.target.attributes.music.value;
-          if (document.getElementById("audio")) {
-            document.getElementById("audio").remove();
-          } else {
-            let audio = document.createElement("audio");
-            audio.id = "sounds";
-            audio.src = `assets/sounds/${sound}`;
-            audio.style.display = "none";
-            // audio.autoplay = false;
-            audio.onended = function() {
-              audio.remove(); //remove after playing to clean the Dom
-            };
-            document.body.appendChild(audio);
-            audio.volume = 0.1;
-            audio.paused ? audio.play() : audio.pause();
-          }
-        });
+        element.addEventListener("click", playMusic);
       }
     });
   }
@@ -65,7 +54,7 @@ window.onload = function script() {
       document.getElementById("audio").remove();
     } else {
       let audio = document.createElement("audio");
-      audio.id = "sounds";
+      audio.id = "audio";
       audio.src = `assets/sounds/${sound}`;
       audio.style.display = "none";
       // audio.autoplay = false;
