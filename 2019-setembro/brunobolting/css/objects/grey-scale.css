@@ -1,0 +1,10 @@
+.grey-scale {
+  color: var(--color-grey) !important;
+  background-color: rgb(107, 107, 107) !important;
+}
+
+.grey-scale::after {
+  content: "";
+  color: var(--color-grey) !important;
+  background-color: rgb(107, 107, 107) !important;
+}

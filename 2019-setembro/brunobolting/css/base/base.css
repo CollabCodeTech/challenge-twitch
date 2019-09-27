@@ -1,0 +1,11 @@
+/* @import url("https://fonts.googleapis.com/css?family=Fredoka+One&display=swap"); */
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-weight: 600;
+  height: 100vh;
+  background-image: url("../../assets/background.gif");
+  background-repeat: repeat;
+}

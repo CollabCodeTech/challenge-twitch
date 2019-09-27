@@ -1,0 +1,282 @@
+@import url("pensebem-body-areas.css");
+
+.pensebem-body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(92, 92, 92);
+  margin: 10px;
+  height: 395px;
+  display: grid;
+  padding: 8px;
+  grid-template-columns: repeat(21, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  column-gap: 6px;
+  grid-template-areas:
+    "actions actions actions actions actions actions actions actions actions actions actions actions . enter enter book book off off on on"
+    "actions actions actions actions actions actions actions actions actions actions actions actions sum sum sub sub mult mult div div ."
+    ". zero zero one one two two three three four four five five six six seven seven eight eight nine nine"
+    "adic adic subt subt multi multi divi divi arit arit oper oper siga siga memo memo nume nume advi advi .";
+}
+
+.pensebem-body > .btn-actions {
+  grid-area: actions;
+  grid-column-start: 1;
+  grid-column-end: span 12;
+  grid-row-start: 1;
+  grid-row-end: span 2;
+  justify-self: center;
+  align-self: center;
+}
+
+.pensebem-body > .btn-actions > .btn {
+  height: 175px;
+  width: 105px;
+  transform: skewX(-12deg);
+  margin-left: 5px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  color: var(--color-white);
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.pensebem-body > .btn-actions > .btn > .text {
+  transform: skewX(12deg);
+}
+
+.pensebem-body > .btn-actions > .btn.-fontL {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.pensebem-body > .btn-actions > .btn.-red {
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn-actions > .btn.-red::after {
+  content: "A";
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
+.pensebem-body > .btn-actions > .btn.-yellow {
+  background-color: var(--color-yellow);
+}
+
+.pensebem-body > .btn-actions > .btn.-yellow::after {
+  content: "B";
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
+.pensebem-body > .btn-actions > .btn.-blue {
+  background-color: var(--color-deep-blue);
+}
+
+.pensebem-body > .btn-actions > .btn.-blue::after {
+  content: "C";
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
+.pensebem-body > .btn-actions > .btn.-green {
+  background-color: var(--color-green);
+}
+
+.pensebem-body > .btn-actions > .btn.-green::after {
+  content: "D";
+  display: inline-block;
+  transform: skewX(12deg);
+}
+
+.pensebem-body > .btn {
+  background-color: red;
+  /* border: 2px inset ; */
+  border-radius: 12px;
+  width: 80px;
+  height: 80px;
+  justify-self: center;
+  align-self: center;
+  font: inherit;
+  font-size: 14pt;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pensebem-body > .btn.-enter,
+.btn.-book {
+  color: var(--color-deep-blue);
+  background-color: var(--color-white);
+}
+
+.pensebem-body > .btn.-off {
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn.-on {
+  color: var(--color-white);
+  background-color: var(--color-green);
+}
+
+.pensebem-body > .btn.-sum,
+.btn.-sub,
+.btn.-mult,
+.btn.-div {
+  color: var(--color-white);
+  font-size: 32pt;
+  background-color: var(--color-deep-blue);
+}
+
+.pensebem-body > .btn.num {
+  padding-top: 5px;
+  font-size: 24pt;
+  color: var(--color-deep-blue);
+  background-color: var(--color-white);
+}
+
+.pensebem-body > .btn.-zero::after {
+  content: "PAUSA";
+  display: inline-block;
+  font-size: 12pt;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 76px;
+  height: 25px;
+  padding-top: 7px;
+  margin-left: -8px;
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn.-one::after {
+  content: "DÓ";
+  display: inline-block;
+  font-size: 12pt;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 76px;
+  height: 25px;
+  padding-top: 7px;
+  margin-left: -8px;
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn.-two::after {
+  content: "RÉ";
+  display: inline-block;
+  font-size: 12pt;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 76px;
+  height: 25px;
+  padding-top: 7px;
+  margin-left: -8px;
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn.-three::after {
+  content: "MI";
+  display: inline-block;
+  font-size: 12pt;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 76px;
+  height: 25px;
+  padding-top: 7px;
+  margin-left: -8px;
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn.-four::after {
+  content: "FÁ";
+  display: inline-block;
+  font-size: 12pt;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 76px;
+  height: 25px;
+  padding-top: 7px;
+  margin-left: -8px;
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn.-five::after {
+  content: "SOL";
+  display: inline-block;
+  font-size: 12pt;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 76px;
+  height: 25px;
+  padding-top: 7px;
+  margin-left: -8px;
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn.-six::after {
+  content: "LÁ";
+  display: inline-block;
+  font-size: 12pt;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 76px;
+  height: 25px;
+  padding-top: 7px;
+  margin-left: -8px;
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn.-seven::after {
+  content: "SI";
+  display: inline-block;
+  font-size: 12pt;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 76px;
+  height: 25px;
+  padding-top: 7px;
+  margin-left: -8px;
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn.-eight::after {
+  content: "DÓ";
+  display: inline-block;
+  font-size: 12pt;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 76px;
+  height: 25px;
+  padding-top: 7px;
+  margin-left: -8px;
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn.-nine::after {
+  content: "RÉ";
+  display: inline-block;
+  font-size: 12pt;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 76px;
+  height: 25px;
+  padding-top: 7px;
+  margin-left: -8px;
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.pensebem-body > .btn.operations {
+  font-size: 11pt;
+  color: var(--color-deep-green);
+  background-color: var(--color-yellow);
+}

@@ -1,0 +1,9 @@
+.grey-border {
+  border-color: #cbcbcb #4e474e #4e474e #cbcbcb;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.grey-border.-large {
+  border-width: 8px;
+}

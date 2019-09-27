@@ -1,0 +1,13 @@
+:root {
+  --color-white: #eee;
+  --color-grey: #c4baba;
+  --color-blue: #1200f4;
+  --color-deep-blue: #012a99;
+  --color-yellow: #d6da00;
+  --color-yellow-highlight: #fcff2d;
+  --color-green: #3ec72c;
+  --color-deep-green: rgb(11, 95, 0);
+  --color-black: #222;
+  --color-deep-black: rgb(22, 22, 22);
+  --color-red: rgb(184, 15, 10);
+}

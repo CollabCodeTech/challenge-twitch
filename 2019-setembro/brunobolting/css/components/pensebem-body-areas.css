@@ -1,0 +1,110 @@
+.pensebem-body > .btn.-enter {
+  grid-area: enter;
+}
+
+.pensebem-body > .btn.-book {
+  grid-area: book;
+}
+
+.pensebem-body > .btn.-off {
+  grid-area: off;
+}
+.pensebem-body > .btn.-on {
+  grid-area: on;
+}
+
+.pensebem-body > .btn.-sum {
+  grid-area: sum;
+}
+
+.pensebem-body > .btn.-sub {
+  grid-area: sub;
+}
+
+.pensebem-body > .btn.-mult {
+  grid-area: mult;
+}
+
+.pensebem-body > .btn.-div {
+  grid-area: div;
+}
+
+.pensebem-body > .btn.-zero {
+  grid-area: zero;
+}
+
+.pensebem-body > .btn.-one {
+  grid-area: one;
+}
+
+.pensebem-body > .btn.-two {
+  grid-area: two;
+}
+
+.pensebem-body > .btn.-three {
+  grid-area: three;
+}
+
+.pensebem-body > .btn.-four {
+  grid-area: four;
+}
+
+.pensebem-body > .btn.-five {
+  grid-area: five;
+}
+
+.pensebem-body > .btn.-six {
+  grid-area: six;
+}
+
+.pensebem-body > .btn.-seven {
+  grid-area: seven;
+}
+
+.pensebem-body > .btn.-eight {
+  grid-area: eight;
+}
+
+.pensebem-body > .btn.-nine {
+  grid-area: nine;
+}
+
+.pensebem-body > .btn.-adic {
+  grid-area: adic;
+}
+
+.pensebem-body > .btn.-subt {
+  grid-area: subt;
+}
+
+.pensebem-body > .btn.-multi {
+  grid-area: multi;
+}
+
+.pensebem-body > .btn.-divi {
+  grid-area: divi;
+}
+
+.pensebem-body > .btn.-arit {
+  grid-area: arit;
+}
+
+.pensebem-body > .btn.-oper {
+  grid-area: oper;
+}
+
+.pensebem-body > .btn.-siga {
+  grid-area: siga;
+}
+
+.pensebem-body > .btn.-memo {
+  grid-area: memo;
+}
+
+.pensebem-body > .btn.-nume {
+  grid-area: nume;
+}
+
+.pensebem-body > .btn.-advi {
+  grid-area: advi;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Desafio CollabCode</title>
+
+    <link rel="stylesheet" href="css/generic/reset.css" />
+    <link rel="stylesheet" href="css/settings/colors.css" />
+    <link rel="stylesheet" href="css/settings/fonts.css" />
+    <link rel="stylesheet" href="css/base/base.css" />
+    <link rel="stylesheet" href="css/components/container-page.css" />
+    <link rel="stylesheet" href="css/components/header-page.css" />
+    <link rel="stylesheet" href="css/components/pensebem-container.css" />
+    <link rel="stylesheet" href="css/components/pensebem-header.css" />
+    <link rel="stylesheet" href="css/components/pensebem-body.css" />
+    <link rel="stylesheet" href="css/objects/grey-border.css" />
+    <link rel="stylesheet" href="css/objects/grey-border-inner.css" />
+    <link rel="stylesheet" href="css/objects/grey-scale.css" />
+  </head>
+  <body>
+    <header class="header-page grey-border">
+      <div class="header-page-inner grey-border-inner">
+        <img class="logo" src="assets/title.gif" alt="Challenge Twitch CollabCode" />
+        <ul class="menu">
+          <li>
+            <a
+              href="https://github.com/brunobolting/challenge-twitch/tree/master/2019-setembro/brunobolting"
+              target="_blank"
+              >github</a
+            >
+          </li>
+          <li class="-last"><a href="https://www.twitch.tv/marcobrunobr" target="_blank">twitch</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="container-page">
+      <div class="pensebem-container grey-border -large">
+        <div class="pensebem-inner grey-border-inner -dark">
+          <div class="pensebem-header">
+            <div class="display-group">
+              <div class="display">
+                <div class="numbers grey-scale" id="display">0</div>
+              </div>
+              <div class="diskette">
+                <div class="shape"></div>
+              </div>
+            </div>
+            <div class="logo"><p class="text">Pense Bem</p></div>
+          </div>
+          <div class="pensebem-body">
+            <div class="btn-actions">
+              <button music="01.mp3" class="btn -red -fontL grey-scale"></button>
+              <button music="02.mp3" class="btn -yellow -fontL grey-scale"></button>
+              <button music="03.mp3" class="btn -blue -fontL grey-scale"></button>
+              <button music="04.mp3" class="btn -green -fontL grey-scale"></button>
+            </div>
+
+            <button class="btn -enter grey-scale">ENTER</button>
+            <button class="btn -book grey-scale">LIVRO</button>
+            <button class="btn -off grey-scale">DESL.</button>
+            <button sound="xp_start.mp3" class="btn -on">LIGA</button>
+
+            <button class="btn operators -sum grey-scale" value="+">&#43;</button>
+            <button class="btn operators -sub grey-scale" value="-">&#8211;</button>
+            <button class="btn operators -mult grey-scale" value="*">&#215;</button>
+            <button class="btn operators -div grey-scale" value="/">&#247;</button>
+
+            <button value="0" sound="Drum1.wav" class="btn num -zero grey-scale">0</button>
+            <button value="1" sound="C.wav" class="btn num -one grey-scale">1</button>
+            <button value="2" sound="D.wav" class="btn num -two grey-scale">2</button>
+            <button value="3" sound="E.wav" class="btn num -three grey-scale">3</button>
+            <button value="4" sound="F.wav" class="btn num -four grey-scale">4</button>
+            <button value="5" sound="G.wav" class="btn num -five grey-scale">5</button>
+            <button value="6" sound="A.wav" class="btn num -six grey-scale">6</button>
+            <button value="7" sound="B.wav" class="btn num -seven grey-scale">7</button>
+            <button value="8" sound="C_High.wav" class="btn num -eight grey-scale">8</button>
+            <button value="9" sound="D_High.wav" class="btn num -nine grey-scale">9</button>
+
+            <button class="btn operations -adic grey-scale">Adição</button>
+            <button class="btn operations -subt grey-scale">Subtra-<br />ção</button>
+            <button class="btn operations -multi grey-scale">Multi-<br />plicação</button>
+            <button class="btn operations -divi grey-scale">Divisão</button>
+            <button class="btn operations -arit grey-scale">Aritmé-<br />tica</button>
+            <button class="btn operations -oper grey-scale">Opera-<br />ção</button>
+            <button class="btn operations -siga grey-scale">Siga-me</button>
+            <button class="btn operations -memo grey-scale">Memória<br />Tons</button>
+            <button class="btn operations -nume grey-scale">Número<br />do<br />Meio</button>
+            <button class="btn operations -advi grey-scale">Adivinhe<br />o<br />Número</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

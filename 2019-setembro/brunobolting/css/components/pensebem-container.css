@@ -1,0 +1,14 @@
+.pensebem-container {
+  width: 900px;
+  min-height: 580px;
+  background-color: var(--color-grey);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.pensebem-container > .pensebem-inner {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 580px;
+}
