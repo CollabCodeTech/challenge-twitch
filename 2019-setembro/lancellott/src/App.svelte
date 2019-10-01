@@ -18,7 +18,6 @@
   let display;
 
   const unsubscribe = dp.subscribe(value => {
-    // console.log("dp: ", value);
     display = value;
   });
 
@@ -95,10 +94,7 @@
     const currentValue = clearDisplay ? "" : display.displayValue.join("");
     console.log("current value: ", currentValue);
     const displayValue = formatValueToDisplay(currentValue + "" + digit);
-    // console.log("display value: ", currentValue);
-    // console.log("Novo valor: ", currentValue + "" + digit);
     updateDisplay({ ...display, displayValue, clearDisplay: false });
-    // console.log("display value: ", displayValue);
 
     const index = display.current;
     const newValue = parseInt(displayValue.join(""));
@@ -181,7 +177,6 @@
 <!-- display -->
 <Screen display={display.displayValue} />
 <!-- keyboard -->
-<!-- <Keyboard /> -->
 <Keyboard
   turnOn={turn_on}
   turnOff={turn_off}
