@@ -2,6 +2,7 @@
   export let key;
   export let color;
   export let status;
+  export let action;
   export const handleBigButtonClick = letter => {
     if (!status) {
       return;
@@ -10,6 +11,26 @@
     let audio = new Audio();
     audio.src = "./sounds/click.wav";
     audio.play();
+    if (action) {
+      switch (key) {
+        case "A": {
+          action("3141592"); //pi
+          break;
+        }
+        case "B": {
+          action("667428"); //gravitação universal
+          break;
+        }
+        case "C": {
+          action("6022141"); //constante de avogadro
+          break;
+        }
+        case "D": {
+          action("2997924"); //velocidade da luz
+          break;
+        }
+      }
+    }
   };
 </script>
 

@@ -1,14 +1,38 @@
 <script>
   export let text;
   export let status;
+  export let action;
+  let oper = ["adição", "subtração", "multiplicação", "divisão"];
   export const handleYellowClick = text => {
     if (!status) {
       return;
     }
-    console.log(text);
+    // console.log(text);
     let audio = new Audio();
     audio.src = "./sounds/click.wav";
     audio.play();
+    if (oper.includes(text)) {
+      if (action) {
+        switch (text) {
+          case "adição": {
+            action("+");
+            break;
+          }
+          case "subtração": {
+            action("-");
+            break;
+          }
+          case "divisão": {
+            action("/");
+            break;
+          }
+          case "multiplicação": {
+            action("*");
+            break;
+          }
+        }
+      }
+    }
   };
 </script>
 

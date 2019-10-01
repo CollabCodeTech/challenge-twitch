@@ -7,7 +7,7 @@
     if (!status) {
       return;
     }
-    console.log(Number(number), text);
+    // console.log(Number(number), text);
     let bu = "./sounds/";
     let audio = new Audio();
     switch (Number(number)) {
@@ -52,7 +52,7 @@
         break;
       }
     }
-    console.log(audio);
+    // console.log(audio);
     audio.play();
     action && action(number);
   };

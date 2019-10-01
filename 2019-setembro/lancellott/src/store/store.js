@@ -6,5 +6,6 @@ export const display = writable({
   displayValue: ['w', 'e', 'l', 'c', 'o', 'm', 'e'],
   operation: null,
   values: [0, 0],
-  current: 0
+  current: 0,
+  clearDisplay: true
 });

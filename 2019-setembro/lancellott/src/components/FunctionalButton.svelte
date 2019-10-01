@@ -11,12 +11,12 @@
         return;
       }
     }
-    console.log(text);
+    // console.log(text);
     let audio = new Audio();
     audio.src = "./sounds/click.wav";
     audio.play();
     if (text !== "liga" && text !== "desl.") {
-      console.log("action: ", text);
+      // console.log("action: ", text);
       action && action(text);
     } else {
       action && action();

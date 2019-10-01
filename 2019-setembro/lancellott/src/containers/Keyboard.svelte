@@ -11,6 +11,7 @@
   export let handleNumberInsert;
   export let handleFunction;
   export let status;
+  export let easterEgg;
 
   // onMount(() => {
   //   const elements = document.querySelectorAll("button");
@@ -194,16 +195,16 @@
   <div class="inner-keyboard-container">
     <ul class="big-buttons-list">
       <li>
-        <BigButton key="A" color="red" {status} />
+        <BigButton key="A" color="red" {status} action={easterEgg} />
       </li>
       <li>
-        <BigButton key="B" color="yellow" {status} />
+        <BigButton key="B" color="yellow" {status} action={easterEgg} />
       </li>
       <li>
-        <BigButton key="C" color="blue" {status} />
+        <BigButton key="C" color="blue" {status} action={easterEgg} />
       </li>
       <li>
-        <BigButton key="D" color="green" {status} />
+        <BigButton key="D" color="green" {status} action={easterEgg} />
       </li>
 
     </ul>
@@ -354,34 +355,40 @@
     <section class="wrap-yellow">
       <ul class="yellow-buttons">
         <li>
-          <YellowButton text="adição" {status} />
+          <YellowButton text="adição" {status} action={handleFunction} />
         </li>
         <li>
-          <YellowButton text="subtração" {status} />
+          <YellowButton text="subtração" {status} action={handleFunction} />
         </li>
         <li>
-          <YellowButton text="multiplicação" {status} />
+          <YellowButton text="multiplicação" {status} action={handleFunction} />
         </li>
         <li>
-          <YellowButton text="divisão" {status} />
+          <YellowButton text="divisão" {status} action={handleFunction} />
         </li>
         <li>
-          <YellowButton text="aritmética" {status} />
+          <YellowButton text="aritmética" {status} action={handleFunction} />
         </li>
         <li>
-          <YellowButton text="operação" {status} />
+          <YellowButton text="operação" {status} action={handleFunction} />
         </li>
         <li>
-          <YellowButton text="siga-me" {status} />
+          <YellowButton text="siga-me" {status} action={handleFunction} />
         </li>
         <li>
-          <YellowButton text="memória tons" {status} />
+          <YellowButton text="memória tons" {status} action={handleFunction} />
         </li>
         <li>
-          <YellowButton text="número do meio" {status} />
+          <YellowButton
+            text="número do meio"
+            {status}
+            action={handleFunction} />
         </li>
         <li>
-          <YellowButton text="advinhe o número" {status} />
+          <YellowButton
+            text="advinhe o número"
+            {status}
+            action={handleFunction} />
         </li>
       </ul>
     </section>
