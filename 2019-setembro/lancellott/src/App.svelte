@@ -146,8 +146,10 @@
     let user_input = window.prompt(
       "Você clicou num botão easter egg. Você sabe qual constante físico/matemática é este número?"
     );
+    let acertou = false;
     if (user_input === resp) {
       alert("Parabéns, você acertou, você é muito inteligente!");
+      acertou = true;
     } else {
       while (confirm("Você errou, quer tentar novamente?")) {
         user_input = window.prompt(
@@ -155,8 +157,14 @@
         );
         if (user_input === resp) {
           alert("Parabéns, você acertou, você é muito inteligente!");
+          acertou = true;
           break;
         }
+      }
+    }
+    if (!acertou) {
+      if (confirm("Você gostaria de saber a resposta?")) {
+        alert(`Esta constante representa: ${resp}`);
       }
     }
   };
