@@ -64,6 +64,7 @@ button {
     color: #333;
     background-color: #f4f4f4;
     outline: none;
+    cursor: pointer;
 }
 
 button:active {

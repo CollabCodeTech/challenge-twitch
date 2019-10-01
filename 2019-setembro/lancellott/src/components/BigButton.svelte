@@ -1,7 +1,11 @@
 <script>
   export let key;
   export let color;
+  export let status;
   export const handleBigButtonClick = letter => {
+    if (!status) {
+      return;
+    }
     console.log(letter);
     let audio = new Audio();
     audio.src = "./sounds/click.wav";

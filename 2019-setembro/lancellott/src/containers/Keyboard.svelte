@@ -5,16 +5,18 @@
   import MiddleKey from "../components/MiddleButton.svelte";
   import YellowButton from "../components/YellowButton.svelte";
 
+  export let turnOn;
+  export let turnOff;
+  export let updateDisplay;
+  export let handleNumberInsert;
+  export let handleFunction;
+  export let status;
+
   // onMount(() => {
   //   const elements = document.querySelectorAll("button");
   //   elements.forEach(el => el.addEventListener("click", hi));
   //   // console.log(elements);
   // });
-
-  const hi = e => {
-    e.preventDefault();
-    console.log(e);
-  };
 </script>
 
 <style>
@@ -192,114 +194,194 @@
   <div class="inner-keyboard-container">
     <ul class="big-buttons-list">
       <li>
-        <BigButton key="A" color="red" />
+        <BigButton key="A" color="red" {status} />
       </li>
       <li>
-        <BigButton key="B" color="yellow" />
+        <BigButton key="B" color="yellow" {status} />
       </li>
       <li>
-        <BigButton key="C" color="blue" />
+        <BigButton key="C" color="blue" {status} />
       </li>
       <li>
-        <BigButton key="D" color="green" />
+        <BigButton key="D" color="green" {status} />
       </li>
 
     </ul>
     <section class="wrap-functions">
       <ul class="func-butons">
         <li>
-          <FuncButton text="enter" color="white" fontColor="blue" />
+          <FuncButton
+            text="enter"
+            color="white"
+            fontColor="blue"
+            {status}
+            action={handleFunction} />
         </li>
         <li>
-          <FuncButton text="livro" color="white" fontColor="blue" />
+          <FuncButton
+            text="livro"
+            color="white"
+            fontColor="blue"
+            {status}
+            action={handleFunction} />
         </li>
         <li>
-          <FuncButton text="desl." color="red" fontColor="blue" />
+          <FuncButton
+            text="desl."
+            color="red"
+            fontColor="blue"
+            action={turnOff}
+            {status} />
         </li>
         <li>
-          <FuncButton text="liga" color="green" fontColor="blue" />
+          <FuncButton
+            text="liga"
+            color="green"
+            fontColor="blue"
+            action={turnOn}
+            {status} />
         </li>
       </ul>
       <ul class="oper-buttons">
         <li>
-          <FuncButton text="+" color="blue" fontColor="white" />
+          <FuncButton
+            text="+"
+            color="blue"
+            fontColor="white"
+            {status}
+            action={handleFunction} />
         </li>
         <li>
-          <FuncButton text="-" color="blue" fontColor="white" />
+          <FuncButton
+            text="-"
+            color="blue"
+            fontColor="white"
+            {status}
+            action={handleFunction} />
         </li>
         <li>
-          <FuncButton text="X" color="blue" fontColor="white" />
+          <FuncButton
+            text="X"
+            color="blue"
+            fontColor="white"
+            {status}
+            action={handleFunction} />
         </li>
         <li>
-          <FuncButton text="÷" color="blue" fontColor="white" />
+          <FuncButton
+            text="÷"
+            color="blue"
+            fontColor="white"
+            {status}
+            action={handleFunction} />
         </li>
       </ul>
     </section>
     <section class="wrap-middle">
       <ul class="middle-buttons">
         <li>
-          <MiddleKey number="0" text="pausa" />
+          <MiddleKey
+            number="0"
+            text="pausa"
+            action={handleNumberInsert}
+            {status} />
         </li>
         <li>
-          <MiddleKey number="1" text="dó" />
+          <MiddleKey
+            number="1"
+            text="dó"
+            action={handleNumberInsert}
+            {status} />
         </li>
         <li>
-          <MiddleKey number="2" text="ré" />
+          <MiddleKey
+            number="2"
+            text="ré"
+            action={handleNumberInsert}
+            {status} />
         </li>
         <li>
-          <MiddleKey number="3" text="mi" />
+          <MiddleKey
+            number="3"
+            text="mi"
+            action={handleNumberInsert}
+            {status} />
         </li>
         <li>
-          <MiddleKey number="4" text="fá" />
+          <MiddleKey
+            number="4"
+            text="fá"
+            action={handleNumberInsert}
+            {status} />
         </li>
         <li>
-          <MiddleKey number="5" text="sol" />
+          <MiddleKey
+            number="5"
+            text="sol"
+            action={handleNumberInsert}
+            {status} />
         </li>
         <li>
-          <MiddleKey number="6" text="lá" />
+          <MiddleKey
+            number="6"
+            text="lá"
+            action={handleNumberInsert}
+            {status} />
         </li>
         <li>
-          <MiddleKey number="7" text="si" />
+          <MiddleKey
+            number="7"
+            text="si"
+            action={handleNumberInsert}
+            {status} />
         </li>
         <li>
-          <MiddleKey number="8" text="dó" />
+          <MiddleKey
+            number="8"
+            text="dó"
+            action={handleNumberInsert}
+            {status} />
         </li>
         <li>
-          <MiddleKey number="9" text="ré" />
+          <MiddleKey
+            number="9"
+            text="ré"
+            action={handleNumberInsert}
+            {status} />
         </li>
       </ul>
     </section>
     <section class="wrap-yellow">
       <ul class="yellow-buttons">
         <li>
-          <YellowButton text="adição" />
+          <YellowButton text="adição" {status} />
         </li>
         <li>
-          <YellowButton text="subtração" />
+          <YellowButton text="subtração" {status} />
         </li>
         <li>
-          <YellowButton text="multiplicação" />
+          <YellowButton text="multiplicação" {status} />
         </li>
         <li>
-          <YellowButton text="divisão" />
+          <YellowButton text="divisão" {status} />
         </li>
         <li>
-          <YellowButton text="aritmética" />
+          <YellowButton text="aritmética" {status} />
         </li>
         <li>
-          <YellowButton text="operação" />
+          <YellowButton text="operação" {status} />
         </li>
         <li>
-          <YellowButton text="siga-me" />
+          <YellowButton text="siga-me" {status} />
         </li>
         <li>
-          <YellowButton text="memória tons" />
+          <YellowButton text="memória tons" {status} />
         </li>
         <li>
-          <YellowButton text="número do meio" />
+          <YellowButton text="número do meio" {status} />
         </li>
         <li>
-          <YellowButton text="advinhe o número" />
+          <YellowButton text="advinhe o número" {status} />
         </li>
       </ul>
     </section>

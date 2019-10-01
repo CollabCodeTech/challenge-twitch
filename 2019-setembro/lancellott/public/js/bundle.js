@@ -72,14 +72,6 @@ var app = (function () {
     function set_current_component(component) {
         current_component = component;
     }
-    function get_current_component() {
-        if (!current_component)
-            throw new Error(`Function called outside component initialization`);
-        return current_component;
-    }
-    function onMount(fn) {
-        get_current_component().$$.on_mount.push(fn);
-    }
 
     const dirty_components = [];
     const binding_callbacks = [];
@@ -448,27 +440,27 @@ var app = (function () {
     			attr_dev(ul0, "class", "display svelte-w7n64k");
     			add_location(ul0, file, 163, 6, 3251);
     			attr_dev(span, "class", "text svelte-w7n64k");
-    			add_location(span, file, 176, 8, 3653);
+    			add_location(span, file, 169, 8, 3413);
     			attr_dev(li0, "class", "color red svelte-w7n64k");
-    			add_location(li0, file, 178, 10, 3726);
+    			add_location(li0, file, 171, 10, 3486);
     			attr_dev(li1, "class", "color yellow svelte-w7n64k");
-    			add_location(li1, file, 179, 10, 3762);
+    			add_location(li1, file, 172, 10, 3522);
     			attr_dev(li2, "class", "color blue svelte-w7n64k");
-    			add_location(li2, file, 180, 10, 3801);
+    			add_location(li2, file, 173, 10, 3561);
     			attr_dev(li3, "class", "color green svelte-w7n64k");
-    			add_location(li3, file, 181, 10, 3838);
+    			add_location(li3, file, 174, 10, 3598);
     			attr_dev(ul1, "class", "colors svelte-w7n64k");
-    			add_location(ul1, file, 177, 8, 3695);
+    			add_location(ul1, file, 170, 8, 3455);
     			attr_dev(div0, "class", "text-logo svelte-w7n64k");
-    			add_location(div0, file, 175, 6, 3620);
+    			add_location(div0, file, 168, 6, 3380);
     			attr_dev(div1, "class", "visor svelte-w7n64k");
     			add_location(div1, file, 162, 4, 3224);
     			attr_dev(div2, "class", "tela svelte-w7n64k");
     			add_location(div2, file, 161, 2, 3200);
     			attr_dev(div3, "class", "entrada-disquete svelte-w7n64k");
-    			add_location(div3, file, 187, 4, 3947);
+    			add_location(div3, file, 180, 4, 3707);
     			attr_dev(div4, "class", "disquete svelte-w7n64k");
-    			add_location(div4, file, 186, 2, 3919);
+    			add_location(div4, file, 179, 2, 3679);
     			attr_dev(section, "class", "svelte-w7n64k");
     			add_location(section, file, 160, 0, 3187);
     		},
@@ -603,10 +595,10 @@ var app = (function () {
     			span = element("span");
     			t = text(ctx.key);
     			attr_dev(span, "class", "text svelte-101k2jr");
-    			add_location(span, file$1, 55, 2, 1000);
+    			add_location(span, file$1, 59, 2, 1064);
     			attr_dev(button, "class", button_class_value = "big-button -" + ctx.color + " svelte-101k2jr");
     			attr_dev(button, "type", "submit");
-    			add_location(button, file$1, 51, 0, 894);
+    			add_location(button, file$1, 55, 0, 958);
     			dispose = listen_dev(button, "click", ctx.click_handler);
     		},
 
@@ -646,15 +638,18 @@ var app = (function () {
     }
 
     function instance$1($$self, $$props, $$invalidate) {
-    	let { key, color } = $$props;
+    	let { key, color, status } = $$props;
       const handleBigButtonClick = letter => {
+        if (!status) {
+          return;
+        }
         console.log(letter);
         let audio = new Audio();
         audio.src = "./sounds/click.wav";
         audio.play();
       };
 
-    	const writable_props = ['key', 'color'];
+    	const writable_props = ['key', 'color', 'status'];
     	Object.keys($$props).forEach(key => {
     		if (!writable_props.includes(key) && !key.startsWith('$$')) console_1$1.warn(`<BigButton> was created with unknown prop '${key}'`);
     	});
@@ -664,20 +659,23 @@ var app = (function () {
     	$$self.$set = $$props => {
     		if ('key' in $$props) $$invalidate('key', key = $$props.key);
     		if ('color' in $$props) $$invalidate('color', color = $$props.color);
+    		if ('status' in $$props) $$invalidate('status', status = $$props.status);
     	};
 
     	$$self.$capture_state = () => {
-    		return { key, color };
+    		return { key, color, status };
     	};
 
     	$$self.$inject_state = $$props => {
     		if ('key' in $$props) $$invalidate('key', key = $$props.key);
     		if ('color' in $$props) $$invalidate('color', color = $$props.color);
+    		if ('status' in $$props) $$invalidate('status', status = $$props.status);
     	};
 
     	return {
     		key,
     		color,
+    		status,
     		handleBigButtonClick,
     		click_handler
     	};
@@ -686,7 +684,7 @@ var app = (function () {
     class BigButton extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, ["key", "color", "handleBigButtonClick"]);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, ["key", "color", "status", "handleBigButtonClick"]);
     		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "BigButton", options, id: create_fragment$1.name });
 
     		const { ctx } = this.$$;
@@ -696,6 +694,9 @@ var app = (function () {
     		}
     		if (ctx.color === undefined && !('color' in props)) {
     			console_1$1.warn("<BigButton> was created without expected prop 'color'");
+    		}
+    		if (ctx.status === undefined && !('status' in props)) {
+    			console_1$1.warn("<BigButton> was created without expected prop 'status'");
     		}
     	}
 
@@ -712,6 +713,14 @@ var app = (function () {
     	}
 
     	set color(value) {
+    		throw new Error("<BigButton>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get status() {
+    		throw new Error("<BigButton>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set status(value) {
     		throw new Error("<BigButton>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
@@ -737,7 +746,7 @@ var app = (function () {
     			button = element("button");
     			t = text(ctx.text);
     			attr_dev(button, "class", button_class_value = "functional-button -" + ctx.color + " -font-" + ctx.fontColor + " svelte-1pz1i0x");
-    			add_location(button, file$2, 56, 0, 971);
+    			add_location(button, file$2, 69, 0, 1283);
     			dispose = listen_dev(button, "click", ctx.click_handler);
     		},
 
@@ -776,16 +785,27 @@ var app = (function () {
     }
 
     function instance$2($$self, $$props, $$invalidate) {
-    	let { text, color, fontColor } = $$props;
+    	let { text, color, fontColor, action, status } = $$props;
 
       const handleFunctionalButtonClick = text => {
+        if (text !== "liga" && text !== "desl.") {
+          if (!status) {
+            return;
+          }
+        }
         console.log(text);
         let audio = new Audio();
         audio.src = "./sounds/click.wav";
         audio.play();
+        if (text !== "liga" && text !== "desl.") {
+          console.log("action: ", text);
+          action && action(text);
+        } else {
+          action && action();
+        }
       };
 
-    	const writable_props = ['text', 'color', 'fontColor'];
+    	const writable_props = ['text', 'color', 'fontColor', 'action', 'status'];
     	Object.keys($$props).forEach(key => {
     		if (!writable_props.includes(key) && !key.startsWith('$$')) console_1$2.warn(`<FunctionalButton> was created with unknown prop '${key}'`);
     	});
@@ -796,22 +816,28 @@ var app = (function () {
     		if ('text' in $$props) $$invalidate('text', text = $$props.text);
     		if ('color' in $$props) $$invalidate('color', color = $$props.color);
     		if ('fontColor' in $$props) $$invalidate('fontColor', fontColor = $$props.fontColor);
+    		if ('action' in $$props) $$invalidate('action', action = $$props.action);
+    		if ('status' in $$props) $$invalidate('status', status = $$props.status);
     	};
 
     	$$self.$capture_state = () => {
-    		return { text, color, fontColor };
+    		return { text, color, fontColor, action, status };
     	};
 
     	$$self.$inject_state = $$props => {
     		if ('text' in $$props) $$invalidate('text', text = $$props.text);
     		if ('color' in $$props) $$invalidate('color', color = $$props.color);
     		if ('fontColor' in $$props) $$invalidate('fontColor', fontColor = $$props.fontColor);
+    		if ('action' in $$props) $$invalidate('action', action = $$props.action);
+    		if ('status' in $$props) $$invalidate('status', status = $$props.status);
     	};
 
     	return {
     		text,
     		color,
     		fontColor,
+    		action,
+    		status,
     		handleFunctionalButtonClick,
     		click_handler
     	};
@@ -820,7 +846,7 @@ var app = (function () {
     class FunctionalButton extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$2, create_fragment$2, safe_not_equal, ["text", "color", "fontColor", "handleFunctionalButtonClick"]);
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, ["text", "color", "fontColor", "action", "status", "handleFunctionalButtonClick"]);
     		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "FunctionalButton", options, id: create_fragment$2.name });
 
     		const { ctx } = this.$$;
@@ -833,6 +859,12 @@ var app = (function () {
     		}
     		if (ctx.fontColor === undefined && !('fontColor' in props)) {
     			console_1$2.warn("<FunctionalButton> was created without expected prop 'fontColor'");
+    		}
+    		if (ctx.action === undefined && !('action' in props)) {
+    			console_1$2.warn("<FunctionalButton> was created without expected prop 'action'");
+    		}
+    		if (ctx.status === undefined && !('status' in props)) {
+    			console_1$2.warn("<FunctionalButton> was created without expected prop 'status'");
     		}
     	}
 
@@ -857,6 +889,22 @@ var app = (function () {
     	}
 
     	set fontColor(value) {
+    		throw new Error("<FunctionalButton>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get action() {
+    		throw new Error("<FunctionalButton>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set action(value) {
+    		throw new Error("<FunctionalButton>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get status() {
+    		throw new Error("<FunctionalButton>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set status(value) {
     		throw new Error("<FunctionalButton>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
@@ -886,11 +934,11 @@ var app = (function () {
     			span1 = element("span");
     			t2 = text(ctx.text);
     			attr_dev(span0, "class", "number svelte-12fuhl8");
-    			add_location(span0, file$3, 92, 2, 1826);
+    			add_location(span0, file$3, 98, 2, 1943);
     			attr_dev(span1, "class", "tone svelte-12fuhl8");
-    			add_location(span1, file$3, 93, 2, 1866);
+    			add_location(span1, file$3, 99, 2, 1983);
     			attr_dev(button, "class", "middle-button svelte-12fuhl8");
-    			add_location(button, file$3, 89, 0, 1731);
+    			add_location(button, file$3, 95, 0, 1848);
     			dispose = listen_dev(button, "click", ctx.click_handler);
     		},
 
@@ -933,7 +981,10 @@ var app = (function () {
     }
 
     function instance$3($$self, $$props, $$invalidate) {
-    	let { text, number, handleMiddleButtonClick = (number, text) => {
+    	let { text, number, action, status, handleMiddleButtonClick = (number, text) => {
+        if (!status) {
+          return;
+        }
         console.log(Number(number), text);
         let bu = "./sounds/";
         let audio = new Audio();
@@ -981,9 +1032,10 @@ var app = (function () {
         }
         console.log(audio);
         audio.play();
+        action && action(number);
       } } = $$props;
 
-    	const writable_props = ['text', 'number', 'handleMiddleButtonClick'];
+    	const writable_props = ['text', 'number', 'action', 'status', 'handleMiddleButtonClick'];
     	Object.keys($$props).forEach(key => {
     		if (!writable_props.includes(key) && !key.startsWith('$$')) console_1$3.warn(`<MiddleButton> was created with unknown prop '${key}'`);
     	});
@@ -993,22 +1045,28 @@ var app = (function () {
     	$$self.$set = $$props => {
     		if ('text' in $$props) $$invalidate('text', text = $$props.text);
     		if ('number' in $$props) $$invalidate('number', number = $$props.number);
+    		if ('action' in $$props) $$invalidate('action', action = $$props.action);
+    		if ('status' in $$props) $$invalidate('status', status = $$props.status);
     		if ('handleMiddleButtonClick' in $$props) $$invalidate('handleMiddleButtonClick', handleMiddleButtonClick = $$props.handleMiddleButtonClick);
     	};
 
     	$$self.$capture_state = () => {
-    		return { text, number, handleMiddleButtonClick };
+    		return { text, number, action, status, handleMiddleButtonClick };
     	};
 
     	$$self.$inject_state = $$props => {
     		if ('text' in $$props) $$invalidate('text', text = $$props.text);
     		if ('number' in $$props) $$invalidate('number', number = $$props.number);
+    		if ('action' in $$props) $$invalidate('action', action = $$props.action);
+    		if ('status' in $$props) $$invalidate('status', status = $$props.status);
     		if ('handleMiddleButtonClick' in $$props) $$invalidate('handleMiddleButtonClick', handleMiddleButtonClick = $$props.handleMiddleButtonClick);
     	};
 
     	return {
     		text,
     		number,
+    		action,
+    		status,
     		handleMiddleButtonClick,
     		click_handler
     	};
@@ -1017,7 +1075,7 @@ var app = (function () {
     class MiddleButton extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$3, create_fragment$3, safe_not_equal, ["text", "number", "handleMiddleButtonClick"]);
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, ["text", "number", "action", "status", "handleMiddleButtonClick"]);
     		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "MiddleButton", options, id: create_fragment$3.name });
 
     		const { ctx } = this.$$;
@@ -1027,6 +1085,12 @@ var app = (function () {
     		}
     		if (ctx.number === undefined && !('number' in props)) {
     			console_1$3.warn("<MiddleButton> was created without expected prop 'number'");
+    		}
+    		if (ctx.action === undefined && !('action' in props)) {
+    			console_1$3.warn("<MiddleButton> was created without expected prop 'action'");
+    		}
+    		if (ctx.status === undefined && !('status' in props)) {
+    			console_1$3.warn("<MiddleButton> was created without expected prop 'status'");
     		}
     	}
 
@@ -1043,6 +1107,22 @@ var app = (function () {
     	}
 
     	set number(value) {
+    		throw new Error("<MiddleButton>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get action() {
+    		throw new Error("<MiddleButton>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set action(value) {
+    		throw new Error("<MiddleButton>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get status() {
+    		throw new Error("<MiddleButton>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set status(value) {
     		throw new Error("<MiddleButton>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
@@ -1068,7 +1148,7 @@ var app = (function () {
     			button = element("button");
     			t = text(ctx.text);
     			attr_dev(button, "class", "yellow-button svelte-198d3mt");
-    			add_location(button, file$4, 31, 0, 570);
+    			add_location(button, file$4, 35, 0, 634);
     			dispose = listen_dev(button, "click", ctx.click_handler);
     		},
 
@@ -1103,15 +1183,18 @@ var app = (function () {
     }
 
     function instance$4($$self, $$props, $$invalidate) {
-    	let { text } = $$props;
+    	let { text, status } = $$props;
       const handleYellowClick = text => {
+        if (!status) {
+          return;
+        }
         console.log(text);
         let audio = new Audio();
         audio.src = "./sounds/click.wav";
         audio.play();
       };
 
-    	const writable_props = ['text'];
+    	const writable_props = ['text', 'status'];
     	Object.keys($$props).forEach(key => {
     		if (!writable_props.includes(key) && !key.startsWith('$$')) console_1$4.warn(`<YellowButton> was created with unknown prop '${key}'`);
     	});
@@ -1120,29 +1203,39 @@ var app = (function () {
 
     	$$self.$set = $$props => {
     		if ('text' in $$props) $$invalidate('text', text = $$props.text);
+    		if ('status' in $$props) $$invalidate('status', status = $$props.status);
     	};
 
     	$$self.$capture_state = () => {
-    		return { text };
+    		return { text, status };
     	};
 
     	$$self.$inject_state = $$props => {
     		if ('text' in $$props) $$invalidate('text', text = $$props.text);
+    		if ('status' in $$props) $$invalidate('status', status = $$props.status);
     	};
 
-    	return { text, handleYellowClick, click_handler };
+    	return {
+    		text,
+    		status,
+    		handleYellowClick,
+    		click_handler
+    	};
     }
 
     class YellowButton extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$4, create_fragment$4, safe_not_equal, ["text", "handleYellowClick"]);
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, ["text", "status", "handleYellowClick"]);
     		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "YellowButton", options, id: create_fragment$4.name });
 
     		const { ctx } = this.$$;
     		const props = options.props || {};
     		if (ctx.text === undefined && !('text' in props)) {
     			console_1$4.warn("<YellowButton> was created without expected prop 'text'");
+    		}
+    		if (ctx.status === undefined && !('status' in props)) {
+    			console_1$4.warn("<YellowButton> was created without expected prop 'status'");
     		}
     	}
 
@@ -1151,6 +1244,14 @@ var app = (function () {
     	}
 
     	set text(value) {
+    		throw new Error("<YellowButton>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get status() {
+    		throw new Error("<YellowButton>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set status(value) {
     		throw new Error("<YellowButton>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
@@ -1171,22 +1272,38 @@ var app = (function () {
     	var section3, div, ul0, li0, t0, li1, t1, li2, t2, li3, t3, section0, ul1, li4, t4, li5, t5, li6, t6, li7, t7, ul2, li8, t8, li9, t9, li10, t10, li11, t11, section1, ul3, li12, t12, li13, t13, li14, t14, li15, t15, li16, t16, li17, t17, li18, t18, li19, t19, li20, t20, li21, t21, section2, ul4, li22, t22, li23, t23, li24, t24, li25, t25, li26, t26, li27, t27, li28, t28, li29, t29, li30, t30, li31, current;
 
     	var bigbutton0 = new BigButton({
-    		props: { key: "A", color: "red" },
+    		props: {
+    		key: "A",
+    		color: "red",
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var bigbutton1 = new BigButton({
-    		props: { key: "B", color: "yellow" },
+    		props: {
+    		key: "B",
+    		color: "yellow",
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var bigbutton2 = new BigButton({
-    		props: { key: "C", color: "blue" },
+    		props: {
+    		key: "C",
+    		color: "blue",
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var bigbutton3 = new BigButton({
-    		props: { key: "D", color: "green" },
+    		props: {
+    		key: "D",
+    		color: "green",
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
@@ -1194,7 +1311,9 @@ var app = (function () {
     		props: {
     		text: "enter",
     		color: "white",
-    		fontColor: "blue"
+    		fontColor: "blue",
+    		status: ctx.status,
+    		action: ctx.handleFunction
     	},
     		$$inline: true
     	});
@@ -1203,7 +1322,9 @@ var app = (function () {
     		props: {
     		text: "livro",
     		color: "white",
-    		fontColor: "blue"
+    		fontColor: "blue",
+    		status: ctx.status,
+    		action: ctx.handleFunction
     	},
     		$$inline: true
     	});
@@ -1212,7 +1333,9 @@ var app = (function () {
     		props: {
     		text: "desl.",
     		color: "red",
-    		fontColor: "blue"
+    		fontColor: "blue",
+    		action: ctx.turnOff,
+    		status: ctx.status
     	},
     		$$inline: true
     	});
@@ -1221,7 +1344,9 @@ var app = (function () {
     		props: {
     		text: "liga",
     		color: "green",
-    		fontColor: "blue"
+    		fontColor: "blue",
+    		action: ctx.turnOn,
+    		status: ctx.status
     	},
     		$$inline: true
     	});
@@ -1230,7 +1355,9 @@ var app = (function () {
     		props: {
     		text: "+",
     		color: "blue",
-    		fontColor: "white"
+    		fontColor: "white",
+    		status: ctx.status,
+    		action: ctx.handleFunction
     	},
     		$$inline: true
     	});
@@ -1239,7 +1366,9 @@ var app = (function () {
     		props: {
     		text: "-",
     		color: "blue",
-    		fontColor: "white"
+    		fontColor: "white",
+    		status: ctx.status,
+    		action: ctx.handleFunction
     	},
     		$$inline: true
     	});
@@ -1248,7 +1377,9 @@ var app = (function () {
     		props: {
     		text: "X",
     		color: "blue",
-    		fontColor: "white"
+    		fontColor: "white",
+    		status: ctx.status,
+    		action: ctx.handleFunction
     	},
     		$$inline: true
     	});
@@ -1257,108 +1388,175 @@ var app = (function () {
     		props: {
     		text: "÷",
     		color: "blue",
-    		fontColor: "white"
+    		fontColor: "white",
+    		status: ctx.status,
+    		action: ctx.handleFunction
     	},
     		$$inline: true
     	});
 
     	var middlekey0 = new MiddleButton({
-    		props: { number: "0", text: "pausa" },
+    		props: {
+    		number: "0",
+    		text: "pausa",
+    		action: ctx.handleNumberInsert,
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var middlekey1 = new MiddleButton({
-    		props: { number: "1", text: "dó" },
+    		props: {
+    		number: "1",
+    		text: "dó",
+    		action: ctx.handleNumberInsert,
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var middlekey2 = new MiddleButton({
-    		props: { number: "2", text: "ré" },
+    		props: {
+    		number: "2",
+    		text: "ré",
+    		action: ctx.handleNumberInsert,
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var middlekey3 = new MiddleButton({
-    		props: { number: "3", text: "mi" },
+    		props: {
+    		number: "3",
+    		text: "mi",
+    		action: ctx.handleNumberInsert,
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var middlekey4 = new MiddleButton({
-    		props: { number: "4", text: "fá" },
+    		props: {
+    		number: "4",
+    		text: "fá",
+    		action: ctx.handleNumberInsert,
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var middlekey5 = new MiddleButton({
-    		props: { number: "5", text: "sol" },
+    		props: {
+    		number: "5",
+    		text: "sol",
+    		action: ctx.handleNumberInsert,
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var middlekey6 = new MiddleButton({
-    		props: { number: "6", text: "lá" },
+    		props: {
+    		number: "6",
+    		text: "lá",
+    		action: ctx.handleNumberInsert,
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var middlekey7 = new MiddleButton({
-    		props: { number: "7", text: "si" },
+    		props: {
+    		number: "7",
+    		text: "si",
+    		action: ctx.handleNumberInsert,
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var middlekey8 = new MiddleButton({
-    		props: { number: "8", text: "dó" },
+    		props: {
+    		number: "8",
+    		text: "dó",
+    		action: ctx.handleNumberInsert,
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var middlekey9 = new MiddleButton({
-    		props: { number: "9", text: "ré" },
+    		props: {
+    		number: "9",
+    		text: "ré",
+    		action: ctx.handleNumberInsert,
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var yellowbutton0 = new YellowButton({
-    		props: { text: "adição" },
+    		props: { text: "adição", status: ctx.status },
     		$$inline: true
     	});
 
     	var yellowbutton1 = new YellowButton({
-    		props: { text: "subtração" },
+    		props: { text: "subtração", status: ctx.status },
     		$$inline: true
     	});
 
     	var yellowbutton2 = new YellowButton({
-    		props: { text: "multiplicação" },
+    		props: {
+    		text: "multiplicação",
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var yellowbutton3 = new YellowButton({
-    		props: { text: "divisão" },
+    		props: { text: "divisão", status: ctx.status },
     		$$inline: true
     	});
 
     	var yellowbutton4 = new YellowButton({
-    		props: { text: "aritmética" },
+    		props: {
+    		text: "aritmética",
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var yellowbutton5 = new YellowButton({
-    		props: { text: "operação" },
+    		props: { text: "operação", status: ctx.status },
     		$$inline: true
     	});
 
     	var yellowbutton6 = new YellowButton({
-    		props: { text: "siga-me" },
+    		props: { text: "siga-me", status: ctx.status },
     		$$inline: true
     	});
 
     	var yellowbutton7 = new YellowButton({
-    		props: { text: "memória tons" },
+    		props: {
+    		text: "memória tons",
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var yellowbutton8 = new YellowButton({
-    		props: { text: "número do meio" },
+    		props: {
+    		text: "número do meio",
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
     	var yellowbutton9 = new YellowButton({
-    		props: { text: "advinhe o número" },
+    		props: {
+    		text: "advinhe o número",
+    		status: ctx.status
+    	},
     		$$inline: true
     	});
 
@@ -1470,89 +1668,89 @@ var app = (function () {
     			li31 = element("li");
     			yellowbutton9.$$.fragment.c();
     			attr_dev(li0, "class", "svelte-1v97djx");
-    			add_location(li0, file$5, 193, 6, 4268);
+    			add_location(li0, file$5, 195, 6, 4355);
     			attr_dev(li1, "class", "svelte-1v97djx");
-    			add_location(li1, file$5, 196, 6, 4336);
+    			add_location(li1, file$5, 198, 6, 4432);
     			attr_dev(li2, "class", "svelte-1v97djx");
-    			add_location(li2, file$5, 199, 6, 4407);
+    			add_location(li2, file$5, 201, 6, 4512);
     			attr_dev(li3, "class", "svelte-1v97djx");
-    			add_location(li3, file$5, 202, 6, 4476);
+    			add_location(li3, file$5, 204, 6, 4590);
     			attr_dev(ul0, "class", "big-buttons-list svelte-1v97djx");
-    			add_location(ul0, file$5, 192, 4, 4231);
+    			add_location(ul0, file$5, 194, 4, 4318);
     			attr_dev(li4, "class", "svelte-1v97djx");
-    			add_location(li4, file$5, 209, 8, 4631);
+    			add_location(li4, file$5, 211, 8, 4754);
     			attr_dev(li5, "class", "svelte-1v97djx");
-    			add_location(li5, file$5, 212, 8, 4730);
+    			add_location(li5, file$5, 219, 8, 4951);
     			attr_dev(li6, "class", "svelte-1v97djx");
-    			add_location(li6, file$5, 215, 8, 4829);
+    			add_location(li6, file$5, 227, 8, 5148);
     			attr_dev(li7, "class", "svelte-1v97djx");
-    			add_location(li7, file$5, 218, 8, 4926);
+    			add_location(li7, file$5, 235, 8, 5336);
     			attr_dev(ul1, "class", "func-butons svelte-1v97djx");
-    			add_location(ul1, file$5, 208, 6, 4597);
+    			add_location(ul1, file$5, 210, 6, 4720);
     			attr_dev(li8, "class", "svelte-1v97djx");
-    			add_location(li8, file$5, 223, 8, 5070);
+    			add_location(li8, file$5, 245, 8, 5570);
     			attr_dev(li9, "class", "svelte-1v97djx");
-    			add_location(li9, file$5, 226, 8, 5165);
+    			add_location(li9, file$5, 253, 8, 5763);
     			attr_dev(li10, "class", "svelte-1v97djx");
-    			add_location(li10, file$5, 229, 8, 5260);
+    			add_location(li10, file$5, 261, 8, 5956);
     			attr_dev(li11, "class", "svelte-1v97djx");
-    			add_location(li11, file$5, 232, 8, 5355);
+    			add_location(li11, file$5, 269, 8, 6149);
     			attr_dev(ul2, "class", "oper-buttons svelte-1v97djx");
-    			add_location(ul2, file$5, 222, 6, 5035);
+    			add_location(ul2, file$5, 244, 6, 5535);
     			attr_dev(section0, "class", "wrap-functions svelte-1v97djx");
-    			add_location(section0, file$5, 207, 4, 4557);
+    			add_location(section0, file$5, 209, 4, 4680);
     			attr_dev(li12, "class", "svelte-1v97djx");
-    			add_location(li12, file$5, 239, 8, 5549);
+    			add_location(li12, file$5, 281, 8, 6441);
     			attr_dev(li13, "class", "svelte-1v97djx");
-    			add_location(li13, file$5, 242, 8, 5627);
+    			add_location(li13, file$5, 288, 8, 6608);
     			attr_dev(li14, "class", "svelte-1v97djx");
-    			add_location(li14, file$5, 245, 8, 5702);
+    			add_location(li14, file$5, 295, 8, 6772);
     			attr_dev(li15, "class", "svelte-1v97djx");
-    			add_location(li15, file$5, 248, 8, 5777);
+    			add_location(li15, file$5, 302, 8, 6936);
     			attr_dev(li16, "class", "svelte-1v97djx");
-    			add_location(li16, file$5, 251, 8, 5852);
+    			add_location(li16, file$5, 309, 8, 7100);
     			attr_dev(li17, "class", "svelte-1v97djx");
-    			add_location(li17, file$5, 254, 8, 5927);
+    			add_location(li17, file$5, 316, 8, 7264);
     			attr_dev(li18, "class", "svelte-1v97djx");
-    			add_location(li18, file$5, 257, 8, 6003);
+    			add_location(li18, file$5, 323, 8, 7429);
     			attr_dev(li19, "class", "svelte-1v97djx");
-    			add_location(li19, file$5, 260, 8, 6078);
+    			add_location(li19, file$5, 330, 8, 7593);
     			attr_dev(li20, "class", "svelte-1v97djx");
-    			add_location(li20, file$5, 263, 8, 6153);
+    			add_location(li20, file$5, 337, 8, 7757);
     			attr_dev(li21, "class", "svelte-1v97djx");
-    			add_location(li21, file$5, 266, 8, 6228);
+    			add_location(li21, file$5, 344, 8, 7921);
     			attr_dev(ul3, "class", "middle-buttons svelte-1v97djx");
-    			add_location(ul3, file$5, 238, 6, 5512);
+    			add_location(ul3, file$5, 280, 6, 6404);
     			attr_dev(section1, "class", "wrap-middle svelte-1v97djx");
-    			add_location(section1, file$5, 237, 4, 5475);
+    			add_location(section1, file$5, 279, 4, 6367);
     			attr_dev(li22, "class", "svelte-1v97djx");
-    			add_location(li22, file$5, 273, 8, 6402);
+    			add_location(li22, file$5, 355, 8, 8184);
     			attr_dev(li23, "class", "svelte-1v97djx");
-    			add_location(li23, file$5, 276, 8, 6473);
+    			add_location(li23, file$5, 358, 8, 8264);
     			attr_dev(li24, "class", "svelte-1v97djx");
-    			add_location(li24, file$5, 279, 8, 6547);
+    			add_location(li24, file$5, 361, 8, 8347);
     			attr_dev(li25, "class", "svelte-1v97djx");
-    			add_location(li25, file$5, 282, 8, 6625);
+    			add_location(li25, file$5, 364, 8, 8434);
     			attr_dev(li26, "class", "svelte-1v97djx");
-    			add_location(li26, file$5, 285, 8, 6697);
+    			add_location(li26, file$5, 367, 8, 8515);
     			attr_dev(li27, "class", "svelte-1v97djx");
-    			add_location(li27, file$5, 288, 8, 6772);
+    			add_location(li27, file$5, 370, 8, 8599);
     			attr_dev(li28, "class", "svelte-1v97djx");
-    			add_location(li28, file$5, 291, 8, 6845);
+    			add_location(li28, file$5, 373, 8, 8681);
     			attr_dev(li29, "class", "svelte-1v97djx");
-    			add_location(li29, file$5, 294, 8, 6917);
+    			add_location(li29, file$5, 376, 8, 8762);
     			attr_dev(li30, "class", "svelte-1v97djx");
-    			add_location(li30, file$5, 297, 8, 6994);
+    			add_location(li30, file$5, 379, 8, 8848);
     			attr_dev(li31, "class", "svelte-1v97djx");
-    			add_location(li31, file$5, 300, 8, 7073);
+    			add_location(li31, file$5, 382, 8, 8936);
     			attr_dev(ul4, "class", "yellow-buttons svelte-1v97djx");
-    			add_location(ul4, file$5, 272, 6, 6365);
+    			add_location(ul4, file$5, 354, 6, 8147);
     			attr_dev(section2, "class", "wrap-yellow svelte-1v97djx");
-    			add_location(section2, file$5, 271, 4, 6328);
+    			add_location(section2, file$5, 353, 4, 8110);
     			attr_dev(div, "class", "inner-keyboard-container svelte-1v97djx");
-    			add_location(div, file$5, 191, 2, 4187);
+    			add_location(div, file$5, 193, 2, 4274);
     			attr_dev(section3, "class", "keyboard-container svelte-1v97djx");
-    			add_location(section3, file$5, 190, 0, 4147);
+    			add_location(section3, file$5, 192, 0, 4234);
     		},
 
     		l: function claim(nodes) {
@@ -1668,7 +1866,153 @@ var app = (function () {
     			current = true;
     		},
 
-    		p: noop,
+    		p: function update(changed, ctx) {
+    			var bigbutton0_changes = {};
+    			if (changed.status) bigbutton0_changes.status = ctx.status;
+    			bigbutton0.$set(bigbutton0_changes);
+
+    			var bigbutton1_changes = {};
+    			if (changed.status) bigbutton1_changes.status = ctx.status;
+    			bigbutton1.$set(bigbutton1_changes);
+
+    			var bigbutton2_changes = {};
+    			if (changed.status) bigbutton2_changes.status = ctx.status;
+    			bigbutton2.$set(bigbutton2_changes);
+
+    			var bigbutton3_changes = {};
+    			if (changed.status) bigbutton3_changes.status = ctx.status;
+    			bigbutton3.$set(bigbutton3_changes);
+
+    			var funcbutton0_changes = {};
+    			if (changed.status) funcbutton0_changes.status = ctx.status;
+    			if (changed.handleFunction) funcbutton0_changes.action = ctx.handleFunction;
+    			funcbutton0.$set(funcbutton0_changes);
+
+    			var funcbutton1_changes = {};
+    			if (changed.status) funcbutton1_changes.status = ctx.status;
+    			if (changed.handleFunction) funcbutton1_changes.action = ctx.handleFunction;
+    			funcbutton1.$set(funcbutton1_changes);
+
+    			var funcbutton2_changes = {};
+    			if (changed.turnOff) funcbutton2_changes.action = ctx.turnOff;
+    			if (changed.status) funcbutton2_changes.status = ctx.status;
+    			funcbutton2.$set(funcbutton2_changes);
+
+    			var funcbutton3_changes = {};
+    			if (changed.turnOn) funcbutton3_changes.action = ctx.turnOn;
+    			if (changed.status) funcbutton3_changes.status = ctx.status;
+    			funcbutton3.$set(funcbutton3_changes);
+
+    			var funcbutton4_changes = {};
+    			if (changed.status) funcbutton4_changes.status = ctx.status;
+    			if (changed.handleFunction) funcbutton4_changes.action = ctx.handleFunction;
+    			funcbutton4.$set(funcbutton4_changes);
+
+    			var funcbutton5_changes = {};
+    			if (changed.status) funcbutton5_changes.status = ctx.status;
+    			if (changed.handleFunction) funcbutton5_changes.action = ctx.handleFunction;
+    			funcbutton5.$set(funcbutton5_changes);
+
+    			var funcbutton6_changes = {};
+    			if (changed.status) funcbutton6_changes.status = ctx.status;
+    			if (changed.handleFunction) funcbutton6_changes.action = ctx.handleFunction;
+    			funcbutton6.$set(funcbutton6_changes);
+
+    			var funcbutton7_changes = {};
+    			if (changed.status) funcbutton7_changes.status = ctx.status;
+    			if (changed.handleFunction) funcbutton7_changes.action = ctx.handleFunction;
+    			funcbutton7.$set(funcbutton7_changes);
+
+    			var middlekey0_changes = {};
+    			if (changed.handleNumberInsert) middlekey0_changes.action = ctx.handleNumberInsert;
+    			if (changed.status) middlekey0_changes.status = ctx.status;
+    			middlekey0.$set(middlekey0_changes);
+
+    			var middlekey1_changes = {};
+    			if (changed.handleNumberInsert) middlekey1_changes.action = ctx.handleNumberInsert;
+    			if (changed.status) middlekey1_changes.status = ctx.status;
+    			middlekey1.$set(middlekey1_changes);
+
+    			var middlekey2_changes = {};
+    			if (changed.handleNumberInsert) middlekey2_changes.action = ctx.handleNumberInsert;
+    			if (changed.status) middlekey2_changes.status = ctx.status;
+    			middlekey2.$set(middlekey2_changes);
+
+    			var middlekey3_changes = {};
+    			if (changed.handleNumberInsert) middlekey3_changes.action = ctx.handleNumberInsert;
+    			if (changed.status) middlekey3_changes.status = ctx.status;
+    			middlekey3.$set(middlekey3_changes);
+
+    			var middlekey4_changes = {};
+    			if (changed.handleNumberInsert) middlekey4_changes.action = ctx.handleNumberInsert;
+    			if (changed.status) middlekey4_changes.status = ctx.status;
+    			middlekey4.$set(middlekey4_changes);
+
+    			var middlekey5_changes = {};
+    			if (changed.handleNumberInsert) middlekey5_changes.action = ctx.handleNumberInsert;
+    			if (changed.status) middlekey5_changes.status = ctx.status;
+    			middlekey5.$set(middlekey5_changes);
+
+    			var middlekey6_changes = {};
+    			if (changed.handleNumberInsert) middlekey6_changes.action = ctx.handleNumberInsert;
+    			if (changed.status) middlekey6_changes.status = ctx.status;
+    			middlekey6.$set(middlekey6_changes);
+
+    			var middlekey7_changes = {};
+    			if (changed.handleNumberInsert) middlekey7_changes.action = ctx.handleNumberInsert;
+    			if (changed.status) middlekey7_changes.status = ctx.status;
+    			middlekey7.$set(middlekey7_changes);
+
+    			var middlekey8_changes = {};
+    			if (changed.handleNumberInsert) middlekey8_changes.action = ctx.handleNumberInsert;
+    			if (changed.status) middlekey8_changes.status = ctx.status;
+    			middlekey8.$set(middlekey8_changes);
+
+    			var middlekey9_changes = {};
+    			if (changed.handleNumberInsert) middlekey9_changes.action = ctx.handleNumberInsert;
+    			if (changed.status) middlekey9_changes.status = ctx.status;
+    			middlekey9.$set(middlekey9_changes);
+
+    			var yellowbutton0_changes = {};
+    			if (changed.status) yellowbutton0_changes.status = ctx.status;
+    			yellowbutton0.$set(yellowbutton0_changes);
+
+    			var yellowbutton1_changes = {};
+    			if (changed.status) yellowbutton1_changes.status = ctx.status;
+    			yellowbutton1.$set(yellowbutton1_changes);
+
+    			var yellowbutton2_changes = {};
+    			if (changed.status) yellowbutton2_changes.status = ctx.status;
+    			yellowbutton2.$set(yellowbutton2_changes);
+
+    			var yellowbutton3_changes = {};
+    			if (changed.status) yellowbutton3_changes.status = ctx.status;
+    			yellowbutton3.$set(yellowbutton3_changes);
+
+    			var yellowbutton4_changes = {};
+    			if (changed.status) yellowbutton4_changes.status = ctx.status;
+    			yellowbutton4.$set(yellowbutton4_changes);
+
+    			var yellowbutton5_changes = {};
+    			if (changed.status) yellowbutton5_changes.status = ctx.status;
+    			yellowbutton5.$set(yellowbutton5_changes);
+
+    			var yellowbutton6_changes = {};
+    			if (changed.status) yellowbutton6_changes.status = ctx.status;
+    			yellowbutton6.$set(yellowbutton6_changes);
+
+    			var yellowbutton7_changes = {};
+    			if (changed.status) yellowbutton7_changes.status = ctx.status;
+    			yellowbutton7.$set(yellowbutton7_changes);
+
+    			var yellowbutton8_changes = {};
+    			if (changed.status) yellowbutton8_changes.status = ctx.status;
+    			yellowbutton8.$set(yellowbutton8_changes);
+
+    			var yellowbutton9_changes = {};
+    			if (changed.status) yellowbutton9_changes.status = ctx.status;
+    			yellowbutton9.$set(yellowbutton9_changes);
+    		},
 
     		i: function intro(local) {
     			if (current) return;
@@ -1849,24 +2193,191 @@ var app = (function () {
     	return block;
     }
 
-    function instance$5($$self) {
+    function instance$5($$self, $$props, $$invalidate) {
+    	
 
-    	$$self.$capture_state = () => {
-    		return {};
+      let { turnOn, turnOff, updateDisplay, handleNumberInsert, handleFunction, status } = $$props;
+
+      // onMount(() => {
+      //   const elements = document.querySelectorAll("button");
+      //   elements.forEach(el => el.addEventListener("click", hi));
+      //   // console.log(elements);
+      // });
+
+    	const writable_props = ['turnOn', 'turnOff', 'updateDisplay', 'handleNumberInsert', 'handleFunction', 'status'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Keyboard> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$set = $$props => {
+    		if ('turnOn' in $$props) $$invalidate('turnOn', turnOn = $$props.turnOn);
+    		if ('turnOff' in $$props) $$invalidate('turnOff', turnOff = $$props.turnOff);
+    		if ('updateDisplay' in $$props) $$invalidate('updateDisplay', updateDisplay = $$props.updateDisplay);
+    		if ('handleNumberInsert' in $$props) $$invalidate('handleNumberInsert', handleNumberInsert = $$props.handleNumberInsert);
+    		if ('handleFunction' in $$props) $$invalidate('handleFunction', handleFunction = $$props.handleFunction);
+    		if ('status' in $$props) $$invalidate('status', status = $$props.status);
     	};
 
-    	$$self.$inject_state = $$props => {};
+    	$$self.$capture_state = () => {
+    		return { turnOn, turnOff, updateDisplay, handleNumberInsert, handleFunction, status };
+    	};
 
-    	return {};
+    	$$self.$inject_state = $$props => {
+    		if ('turnOn' in $$props) $$invalidate('turnOn', turnOn = $$props.turnOn);
+    		if ('turnOff' in $$props) $$invalidate('turnOff', turnOff = $$props.turnOff);
+    		if ('updateDisplay' in $$props) $$invalidate('updateDisplay', updateDisplay = $$props.updateDisplay);
+    		if ('handleNumberInsert' in $$props) $$invalidate('handleNumberInsert', handleNumberInsert = $$props.handleNumberInsert);
+    		if ('handleFunction' in $$props) $$invalidate('handleFunction', handleFunction = $$props.handleFunction);
+    		if ('status' in $$props) $$invalidate('status', status = $$props.status);
+    	};
+
+    	return {
+    		turnOn,
+    		turnOff,
+    		updateDisplay,
+    		handleNumberInsert,
+    		handleFunction,
+    		status
+    	};
     }
 
     class Keyboard extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$5, create_fragment$5, safe_not_equal, []);
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, ["turnOn", "turnOff", "updateDisplay", "handleNumberInsert", "handleFunction", "status"]);
     		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "Keyboard", options, id: create_fragment$5.name });
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+    		if (ctx.turnOn === undefined && !('turnOn' in props)) {
+    			console.warn("<Keyboard> was created without expected prop 'turnOn'");
+    		}
+    		if (ctx.turnOff === undefined && !('turnOff' in props)) {
+    			console.warn("<Keyboard> was created without expected prop 'turnOff'");
+    		}
+    		if (ctx.updateDisplay === undefined && !('updateDisplay' in props)) {
+    			console.warn("<Keyboard> was created without expected prop 'updateDisplay'");
+    		}
+    		if (ctx.handleNumberInsert === undefined && !('handleNumberInsert' in props)) {
+    			console.warn("<Keyboard> was created without expected prop 'handleNumberInsert'");
+    		}
+    		if (ctx.handleFunction === undefined && !('handleFunction' in props)) {
+    			console.warn("<Keyboard> was created without expected prop 'handleFunction'");
+    		}
+    		if (ctx.status === undefined && !('status' in props)) {
+    			console.warn("<Keyboard> was created without expected prop 'status'");
+    		}
+    	}
+
+    	get turnOn() {
+    		throw new Error("<Keyboard>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set turnOn(value) {
+    		throw new Error("<Keyboard>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get turnOff() {
+    		throw new Error("<Keyboard>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set turnOff(value) {
+    		throw new Error("<Keyboard>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get updateDisplay() {
+    		throw new Error("<Keyboard>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set updateDisplay(value) {
+    		throw new Error("<Keyboard>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get handleNumberInsert() {
+    		throw new Error("<Keyboard>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set handleNumberInsert(value) {
+    		throw new Error("<Keyboard>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get handleFunction() {
+    		throw new Error("<Keyboard>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set handleFunction(value) {
+    		throw new Error("<Keyboard>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get status() {
+    		throw new Error("<Keyboard>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set status(value) {
+    		throw new Error("<Keyboard>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
+
+    const subscriber_queue = [];
+    /**
+     * Create a `Writable` store that allows both updating and reading by subscription.
+     * @param {*=}value initial value
+     * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+     */
+    function writable(value, start = noop) {
+        let stop;
+        const subscribers = [];
+        function set(new_value) {
+            if (safe_not_equal(value, new_value)) {
+                value = new_value;
+                if (stop) { // store is ready
+                    const run_queue = !subscriber_queue.length;
+                    for (let i = 0; i < subscribers.length; i += 1) {
+                        const s = subscribers[i];
+                        s[1]();
+                        subscriber_queue.push(s, value);
+                    }
+                    if (run_queue) {
+                        for (let i = 0; i < subscriber_queue.length; i += 2) {
+                            subscriber_queue[i][0](subscriber_queue[i + 1]);
+                        }
+                        subscriber_queue.length = 0;
+                    }
+                }
+            }
+        }
+        function update(fn) {
+            set(fn(value));
+        }
+        function subscribe(run, invalidate = noop) {
+            const subscriber = [run, invalidate];
+            subscribers.push(subscriber);
+            if (subscribers.length === 1) {
+                stop = start(set) || noop;
+            }
+            run(value);
+            return () => {
+                const index = subscribers.indexOf(subscriber);
+                if (index !== -1) {
+                    subscribers.splice(index, 1);
+                }
+                if (subscribers.length === 0) {
+                    stop();
+                    stop = null;
+                }
+            };
+        }
+        return { set, update, subscribe };
+    }
+
+    // export const display = writable(["", "", "", "", "", "", ""]);
+    const display = writable({
+      status: false,
+      displayValue: ['w', 'e', 'l', 'c', 'o', 'm', 'e'],
+      operation: null,
+      values: [0, 0],
+      current: 0
+    });
 
     /* src\App.svelte generated by Svelte v3.12.0 */
     const { console: console_1$5 } = globals;
@@ -1875,11 +2386,21 @@ var app = (function () {
     	var t, current;
 
     	var screen = new Screen({
-    		props: { display: ctx.display },
+    		props: { display: ctx.display.displayValue },
     		$$inline: true
     	});
 
-    	var keyboard = new Keyboard({ $$inline: true });
+    	var keyboard = new Keyboard({
+    		props: {
+    		turnOn: ctx.turn_on,
+    		turnOff: ctx.turn_off,
+    		updateDisplay: ctx.updateDisplay,
+    		handleNumberInsert: ctx.setDigit,
+    		status: ctx.display.status,
+    		handleFunction: ctx.setOperation
+    	},
+    		$$inline: true
+    	});
 
     	const block = {
     		c: function create() {
@@ -1901,8 +2422,15 @@ var app = (function () {
 
     		p: function update(changed, ctx) {
     			var screen_changes = {};
-    			if (changed.display) screen_changes.display = ctx.display;
+    			if (changed.display) screen_changes.display = ctx.display.displayValue;
     			screen.$set(screen_changes);
+
+    			var keyboard_changes = {};
+    			if (changed.turn_on) keyboard_changes.turnOn = ctx.turn_on;
+    			if (changed.turn_off) keyboard_changes.turnOff = ctx.turn_off;
+    			if (changed.updateDisplay) keyboard_changes.updateDisplay = ctx.updateDisplay;
+    			if (changed.display) keyboard_changes.status = ctx.display.status;
+    			keyboard.$set(keyboard_changes);
     		},
 
     		i: function intro(local) {
@@ -1936,45 +2464,207 @@ var app = (function () {
 
     function instance$6($$self, $$props, $$invalidate) {
     	
-      let { display = [0, 1, 2, 3, 4, 5, 6] } = $$props;
 
-      onMount(() => {
-        $$invalidate('display', display = [0, 0, 0, 0, 0, 0, 0]);
-        console.log("onmount", display);
+      let { initialState = {
+        status: false,
+        displayValue: [0, 0, 0, 0, 0, 0, 0],
+        operation: null,
+        values: [0, 0],
+        current: 0
+      }, display_off = ["", "", "", "", "", "", ""], display_on = [0, 0, 0, 0, 0, 0, 0] } = $$props;
+
+      let display$1;
+
+      const unsubscribe = display.subscribe(value => {
+        // console.log("dp: ", value);
+        $$invalidate('display', display$1 = value);
       });
 
-    	const writable_props = ['display'];
+      let { turn_on = () => {
+        console.log("ligando");
+        updateDisplay({ ...initialState, status: true });
+      } } = $$props;
+
+      let { turn_off = () => {
+        console.log("desligando");
+        let newValue = { ...display$1, displayValue: display_off, status: false };
+        updateDisplay(newValue);
+      } } = $$props;
+
+      let { updateDisplay = newValue => {
+        display.update(value => {
+          return newValue;
+        });
+      } } = $$props;
+
+      // export let handleNumberInsert = number => {
+      //   console.log("number from handle: " + number);
+      // };
+
+      const setOperation = operation => {
+        console.log(`operation: ${operation}`);
+        if (display$1.current === 0) {
+          updateDisplay({
+            ...display$1,
+            operation,
+            current: 1
+          });
+        } else {
+          const equals = operation === "enter";
+          const currentOperation = display$1.operation;
+
+          const values = [...display$1.values];
+          try {
+            values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`);
+          } catch (e) {
+            values[0] = display$1.values[0];
+            console.log(e);
+          }
+          values[1] = 0;
+
+          updateDisplay({
+            ...display$1,
+            values,
+            displayValue: values[0],
+            current: equals ? 0 : 1,
+            operation: equals ? null : operation
+          });
+        }
+      };
+
+      const setDigit = digit => {
+        console.log(`Digit: ${digit}`);
+
+        const currentValue = display$1.displayValue.join("");
+        console.log("display value: ", currentValue);
+        console.log("Novo valor: ", currentValue + "" + digit);
+        const displayValue = formatValueToDisplay(currentValue + "" + digit);
+        console.log("display value: ", displayValue);
+        updateDisplay({ ...display$1, displayValue });
+
+        const index = display$1.current;
+        const newValue = parseFloat(displayValue);
+        const values = [...display$1.values];
+        values[index] = newValue;
+        updateDisplay({ ...display$1, values, displayValue });
+      };
+
+      const formatValueToDisplay = value => {
+        if (value.length < 7) {
+          let retorno = new Array(7 - value.length).fill(0);
+          return [...retorno, ...value.split("")];
+        } else if (value.length > 7) {
+          return value.split("").splice(1, 7);
+        } else {
+          return value.split("");
+        }
+      };
+
+      // onMount(() => {
+      //   console.log("onmount", display);
+      // });
+
+    	const writable_props = ['initialState', 'display_off', 'display_on', 'turn_on', 'turn_off', 'updateDisplay'];
     	Object.keys($$props).forEach(key => {
     		if (!writable_props.includes(key) && !key.startsWith('$$')) console_1$5.warn(`<App> was created with unknown prop '${key}'`);
     	});
 
     	$$self.$set = $$props => {
-    		if ('display' in $$props) $$invalidate('display', display = $$props.display);
+    		if ('initialState' in $$props) $$invalidate('initialState', initialState = $$props.initialState);
+    		if ('display_off' in $$props) $$invalidate('display_off', display_off = $$props.display_off);
+    		if ('display_on' in $$props) $$invalidate('display_on', display_on = $$props.display_on);
+    		if ('turn_on' in $$props) $$invalidate('turn_on', turn_on = $$props.turn_on);
+    		if ('turn_off' in $$props) $$invalidate('turn_off', turn_off = $$props.turn_off);
+    		if ('updateDisplay' in $$props) $$invalidate('updateDisplay', updateDisplay = $$props.updateDisplay);
     	};
 
     	$$self.$capture_state = () => {
-    		return { display };
+    		return { initialState, display_off, display_on, display: display$1, turn_on, turn_off, updateDisplay };
     	};
 
     	$$self.$inject_state = $$props => {
-    		if ('display' in $$props) $$invalidate('display', display = $$props.display);
+    		if ('initialState' in $$props) $$invalidate('initialState', initialState = $$props.initialState);
+    		if ('display_off' in $$props) $$invalidate('display_off', display_off = $$props.display_off);
+    		if ('display_on' in $$props) $$invalidate('display_on', display_on = $$props.display_on);
+    		if ('display' in $$props) $$invalidate('display', display$1 = $$props.display);
+    		if ('turn_on' in $$props) $$invalidate('turn_on', turn_on = $$props.turn_on);
+    		if ('turn_off' in $$props) $$invalidate('turn_off', turn_off = $$props.turn_off);
+    		if ('updateDisplay' in $$props) $$invalidate('updateDisplay', updateDisplay = $$props.updateDisplay);
     	};
 
-    	return { display };
+    	return {
+    		initialState,
+    		display_off,
+    		display_on,
+    		display: display$1,
+    		turn_on,
+    		turn_off,
+    		updateDisplay,
+    		setOperation,
+    		setDigit
+    	};
     }
 
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$6, create_fragment$6, safe_not_equal, ["display"]);
+    		init(this, options, instance$6, create_fragment$6, safe_not_equal, ["initialState", "display_off", "display_on", "turn_on", "turn_off", "updateDisplay", "setDigit"]);
     		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "App", options, id: create_fragment$6.name });
     	}
 
-    	get display() {
+    	get initialState() {
     		throw new Error("<App>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	set display(value) {
+    	set initialState(value) {
+    		throw new Error("<App>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get display_off() {
+    		throw new Error("<App>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set display_off(value) {
+    		throw new Error("<App>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get display_on() {
+    		throw new Error("<App>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set display_on(value) {
+    		throw new Error("<App>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get turn_on() {
+    		throw new Error("<App>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set turn_on(value) {
+    		throw new Error("<App>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get turn_off() {
+    		throw new Error("<App>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set turn_off(value) {
+    		throw new Error("<App>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get updateDisplay() {
+    		throw new Error("<App>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set updateDisplay(value) {
+    		throw new Error("<App>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get setDigit() {
+    		return this.$$.ctx.setDigit;
+    	}
+
+    	set setDigit(value) {
     		throw new Error("<App>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }

@@ -1,6 +1,10 @@
 <script>
   export let text;
+  export let status;
   export const handleYellowClick = text => {
+    if (!status) {
+      return;
+    }
     console.log(text);
     let audio = new Audio();
     audio.src = "./sounds/click.wav";

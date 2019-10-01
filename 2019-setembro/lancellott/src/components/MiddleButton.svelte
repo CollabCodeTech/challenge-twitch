@@ -1,7 +1,12 @@
 <script>
   export let text;
   export let number;
+  export let action;
+  export let status;
   export let handleMiddleButtonClick = (number, text) => {
+    if (!status) {
+      return;
+    }
     console.log(Number(number), text);
     let bu = "./sounds/";
     let audio = new Audio();
@@ -49,6 +54,7 @@
     }
     console.log(audio);
     audio.play();
+    action && action(number);
   };
 </script>
 

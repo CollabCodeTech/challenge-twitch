@@ -165,13 +165,6 @@
         {#each display as key}
           <li class="char">{key}</li>
         {/each}
-        <!-- <li class="char">0</li>
-        <li class="char">1</li>
-        <li class="char">2</li>
-        <li class="char">3</li>
-        <li class="char">4</li>
-        <li class="char">5</li>
-        <li class="char">6</li> -->
       </ul>
       <div class="text-logo">
         <span class="text">TECTOY</span>

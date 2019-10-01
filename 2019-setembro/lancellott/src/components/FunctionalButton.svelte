@@ -2,12 +2,25 @@
   export let text;
   export let color;
   export let fontColor;
+  export let action;
+  export let status;
 
   export const handleFunctionalButtonClick = text => {
+    if (text !== "liga" && text !== "desl.") {
+      if (!status) {
+        return;
+      }
+    }
     console.log(text);
     let audio = new Audio();
     audio.src = "./sounds/click.wav";
     audio.play();
+    if (text !== "liga" && text !== "desl.") {
+      console.log("action: ", text);
+      action && action(text);
+    } else {
+      action && action();
+    }
   };
 </script>
 
