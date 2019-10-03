@@ -26,6 +26,11 @@ let playerTurn = false;
 let playerNotes = [];
 let score = 0;
 let operation = '';
+let unknowNumber = 0;
+let smallestNumber = 0;
+let higherNumber = 99;
+let playerNumber = 0;
+let tentativas = 0;
 
 const operations = ['+', '-', '*', '/'];
 
@@ -68,6 +73,7 @@ const activateGame = async (game) => {
 
   if (game === 'sigaMe') sigaMe();
   if (game === 'operacao') operacao();
+  if (game === 'adivinheONumero') adivinheONumero();
 
   currentGame = game;
   state[game] = true;
@@ -196,9 +202,59 @@ const getRandomMath = (refresh = false) => {
   return calc;
 }
 
-const gameOver = async () => {
-  setToDisplay(`Pontos: ${score}`);
+const adivinheONumero = (number) => {
+  if (!number) {
+    unknowNumber = Math.floor(Math.random() * 100);
+    setToDisplay(`${smallestNumber} ?? ${higherNumber}`);
+    return console.log(unknowNumber);
+  }
+
+  if (number == unknowNumber) {
+    console.log('yey \\o/');
+    smallestNumber = 0;
+    higherNumber = 99;
+    playerNumber = 0;
+    deactivateGames();
+    return setToDisplay(`Acertou em: ${tentativas + 1}`);
+  }
+
+  if (tentativas > 9) {
+    setToDisplay('Perdeu :(');
+    return gameOver(false);
+  }
+  
+  if (number > smallestNumber) {
+    smallestNumber = number < unknowNumber ? number : smallestNumber;
+  }
+  if (number < higherNumber) {
+    higherNumber = number > unknowNumber ? number : higherNumber;
+  }
+
+  playerNumber = 0;
+  tentativas++;
+
+  console.log('Tentativa:', tentativas);
+  setToDisplay(`${smallestNumber} ?? ${higherNumber}`);
+}
+
+const adivinheONumeroPlayer = (number) => {
+  if (playerNumber == 0) {
+    playerNumber = number;
+  } else if (String(playerNumber).length == 2) {
+    playerNumber = `${String(playerNumber)[1]}${number}`
+  } else if (playerNumber > 0) {
+    playerNumber += number;
+  }
+
+  setToDisplay(`${smallestNumber} ${playerNumber} ${higherNumber}`);
+}
+
+const gameOver = async (display = true) => {
+  if (display) setToDisplay(`Pontos: ${score}`);
   score = 0;
+  smallestNumber = 0;
+  higherNumber = 99;
+  playerNumber = 0;
   playerTurn = false;
   sigameNotes = [];
   deactivateGames();
@@ -209,11 +265,14 @@ const gameOver = async () => {
 }
 
 $enter.addEventListener('click', () => {
-  if (state.memoriaDeTons && !playingMusic) {
+  if (state.toy && state.memoriaDeTons && !playingMusic) {
     playingMusic = true;
     playMusic(music);
     music = [];
     console.log('playing the music');
+  }
+  if (state.toy && state.adivinheONumero) {
+    adivinheONumero(playerNumber);
   }
 });
 
@@ -245,6 +304,10 @@ $allButtons.forEach(button => {
   button.addEventListener('click', () => {
     if (!state.toy) return;
 
+    if (button.innerHTML.match(/[0-9]/) && state.adivinheONumero) {
+      return adivinheONumeroPlayer(button.innerHTML);
+    }
+
     if (button.innerHTML.match(/[0-9]/)
     && (state.piano || state.memoriaDeTons || state.sigaMe)
     && !playingMusic) {
@@ -252,6 +315,7 @@ $allButtons.forEach(button => {
       if (state.sigaMe) sigaMePlayer(button.innerHTML);
       return;
     }
+
 
     if (state.operacao) operacaoPlayer(button.dataset.operation);
 
