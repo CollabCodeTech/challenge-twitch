@@ -2,17 +2,10 @@
 
 ![Interface](http://i.imgur.com/zV2Pisp.png)
 
-Eu tentei replicar as mesmas funções do brinquedo, porém pelo tempo só consegui adicionar 3 jogos (+1 que não existe no brinquedo: piano).
+Eu tentei replicar as mesmas funções do brinquedo, adicionei apenas 4 jogos (+1 que não existe no brinquedo: piano).
 
-Os 3 jogos funcionam da mesma forma como no brinquedo. <br>
+Os 4 jogos funcionam da mesma forma como no brinquedo. <br>
 O jogo *piano* permite que você toque o piano livremente.
-
-----------------
-Por mais que eu não tenha terminado o brinquedo, esse desafio fez eu aprender algumas coisas como: 
-- Terminar a base para depois adicionar features, abaixo coloquei todas as features que eu gostaria de adicionar porém eu tentei adiciona-las antes de finalizar a base do brinquedo, fazendo com que eu me atrapalhasse e deixasse o código cheio de gambiarra (não que n tenha agora LUL). No penultimo dia eu exclui o que tinha feito e refiz porque eu já não estava mais conseguindo fazer nada sem colocar alguma gambiarra.
-
-----------------
-Gostei do desafio e espero participar de mais :)
 
 ----------------
 **Features para adicionar:**
