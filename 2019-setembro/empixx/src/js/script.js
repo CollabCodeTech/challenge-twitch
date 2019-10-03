@@ -305,6 +305,7 @@ $allButtons.forEach(button => {
     if (!state.toy) return;
 
     if (button.innerHTML.match(/[0-9]/) && state.adivinheONumero) {
+      playSound();
       return adivinheONumeroPlayer(button.innerHTML);
     }
 
